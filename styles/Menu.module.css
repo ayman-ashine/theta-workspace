@@ -1,0 +1,69 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 100;
+}
+
+.menu {
+  background-color: var(--gray);
+  position: absolute;
+  padding: var(--sm-un);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-un) 0;
+  border: 1px solid var(--low-light);
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid var(--low-light);
+  padding: var(--sm-un);
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--light);
+  opacity: 0.5;
+}
+
+.colors {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sm-un);
+  padding: var(--sm-un);
+  width: 100%;
+  height: 80px;
+  border: 1px solid var(--low-light);
+  cursor: pointer;
+}
+
+.color {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  border: 1px solid var(--low-light);
+  padding: var(--sm-un);
+}
+
+.btn:hover {
+  background-color: var(--low-light);
+  cursor: pointer;
+}
+
+.color_check {
+  background-image: url("https://img.icons8.com/material-outlined/50/FFFFFF/checkmark--v1.png");
+  background-size: contain;
+  background-position: center;
+  animation: check-mark-kfs .2s ease-in-out;
+}
+
+@keyframes check-mark-kfs {
+  0% {
+    opacity: 0;
+  }
+}

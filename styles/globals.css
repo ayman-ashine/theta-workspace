@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
+
+:root {
+  --dark: #001520;
+  --light: #a0d0d0;
+  --gray: #0D2635;
+  --low-dark: #00000030;
+  --low-light: #9acece30;
+  --red: #e35d6a;
+  --pink: #de5c9d;
+  --purple: #8c68cd;
+  --indigo: #8540f5;
+  --blue: #3d8bfd;
+  --cyan: #3dd5f3;
+  --teal: #4dd4ac;
+  --green: #479f76;
+  --yellow: #D9E76C;
+  --orange: #fd9843;
+
+  --lg-un: 1.5rem;
+  --md-un: 1rem;
+  --sm-un: 0.5rem;
+
+  --br: 5px;
+  --full-br: 50%;
+
+  --normal-fs: 1rem;
+  --lg-fs: 2rem;
+  --normal-fw: 400;
+  --bold-fw: 600;
+  --f: 'Titillium Web', sans-serif;
+
+}
+
+*::before,
+*::after,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--light);
+  font-family: var(--f);
+  font-size: var(--normal-fs);
+  font-weight: var(--normal-fw);
+  user-select: none;
+}
+
+body {
+  background-color: var(--dark);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark);
+}
+
+::placeholder {
+  color: var(--dark);
+  opacity: 0.5;
+}

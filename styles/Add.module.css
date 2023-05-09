@@ -1,0 +1,32 @@
+.container {
+  margin: var(--md-un);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.btn {
+  display: flex;
+  border: 1px solid var(--low-light);
+  border-radius: var(--full-br);
+  padding: var(--md-un);
+  margin-top: var(--md-un);
+}
+
+.btn:hover {
+  background-color: var(--low-light);
+  cursor: pointer;
+}
+
+.tools {
+  animation: tab-kfs .2s;
+}
+
+@keyframes tab-kfs {
+  0% {
+    transform: translateY(200%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
