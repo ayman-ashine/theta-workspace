@@ -2,10 +2,10 @@
 
 :root {
   --dark: #001520;
-  --light: #a0d0d0;
+  --light: #c7c7c7;
   --gray: #0D2635;
-  --low-dark: #00000030;
-  --low-light: #9acece30;
+  --low-dark: #00000040;
+  --low-light: #9acece40;
   --red: #e35d6a;
   --pink: #de5c9d;
   --purple: #8c68cd;
@@ -29,7 +29,6 @@
   --normal-fw: 400;
   --bold-fw: 600;
   --f: 'Titillium Web', sans-serif;
-
 }
 
 *::before,

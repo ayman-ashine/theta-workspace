@@ -6,8 +6,8 @@ export function LocalLoadData() {
 
 }
 
-export function LocalSaveData(data) {
+export function LocalSaveData(_data) {
 
-    localStorage.setItem('data', JSON.stringify(data))
+    localStorage.setItem('data', JSON.stringify(_data))
 
 }

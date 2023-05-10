@@ -3,7 +3,7 @@ import { Context } from '@/component/context'
 import { LocalLoadData } from '@/utils/local_data'
 import Workspace from '@/component/workspace'
 import Navigator from '@/component/navigator'
-import Wsm from '@/component/m_workspace'
+import M_Workspace from '@/component/m_workspace'
 
 export default function App() {
 
@@ -15,7 +15,7 @@ export default function App() {
 
     <Context.Provider value={[workspace, setWorkspace]}>
       
-      <Wsm/>
+      <M_Workspace/>
       <Navigator/>
       <Workspace/>
 

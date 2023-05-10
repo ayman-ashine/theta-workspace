@@ -5,13 +5,7 @@ import M_Workspace from '@/component/m_workspace'
 
 export default function Menu(params) {
 
-    const [data, setData] = useState({
-        id: params.data.id,
-        title: params.data.title,
-        pos_x: params.data.pos_x,
-        pos_y: params.data.pos_y,
-        display: params.data.display,
-    })
+    const [data, setData] = useState(params.data)
 
     const check_color = ( e ) => {
 
@@ -71,8 +65,8 @@ export default function Menu(params) {
                 className={styles.menu}
                 onClick={stop_propagation}
                 style={{
-                    left: data.pos_x,
-                    top: data.pos_y
+                    left: data.pos_x + 'px',
+                    top: data.pos_y + 'px'
                 }}
             >
                 

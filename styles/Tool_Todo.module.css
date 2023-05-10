@@ -1,0 +1,77 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--sm-un);
+}
+
+.todo {
+    border-bottom: 1px solid var(--low-dark);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--sm-un);
+    padding: var(--sm-un) 0;
+    position: relative;
+}
+
+.grab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    grid-column: 1;
+    position: relative;
+}
+
+.complete {
+    border: 1px solid var(--low-dark);
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: var(--br);
+}
+
+.input {
+    grid-column: 3 / 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.title {
+    color: var(--dark);
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 var(--sm-un);
+}
+
+.remove {
+    grid-column: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.add {
+    padding: var(--sm-un) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

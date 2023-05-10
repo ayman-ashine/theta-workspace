@@ -46,12 +46,9 @@ export default function Add(params) {
       color: 'bkg-purple',
       width: 350,
       height: 350,
+      parent: {},
       pos_x: add.current.parentNode.offsetWidth / 2 - (350 / 2),
       pos_y: add.current.parentNode.offsetHeight / 2 - (350 / 2),
-      parent : {
-        width: add.current.parentNode.offsetWidth,
-        height: add.current.parentNode.offsetHeight,
-      },
       tool_id: _tool.id,
       tool_data: {},
       menu: null,

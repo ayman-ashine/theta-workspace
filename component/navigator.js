@@ -16,9 +16,9 @@ export default function Navigator() {
         M_Workspace.add_workspace(
             {
                 id: Generator(),
-                name: 'new workspace',
+                select: true,
+                name: 'new tab',
                 frames: [],
-                select: true
             }    
         )
 
