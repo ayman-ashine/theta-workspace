@@ -13,6 +13,10 @@
     position: relative;
 }
 
+.todo_over:hover {
+    background-color: var(--low-light);
+}
+
 .grab {
     display: flex;
     justify-content: center;
@@ -63,8 +67,12 @@
     height: 100%;
 }
 
+.face:hover {
+    background-color: var(--low-light);
+}
+
 .add {
-    padding: var(--sm-un) 0;
+    padding: var(--sm-un);
     display: flex;
     justify-content: center;
     align-items: center;

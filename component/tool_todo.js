@@ -9,7 +9,7 @@ export default function Tool_Todo(params) {
     const _data = params.data.list ? params.data.list : []
     const [data, setData] = useState(_data)
 
-    useEffect( () => {
+    useEffect(() => {
 
         update()
 
@@ -23,7 +23,7 @@ export default function Tool_Todo(params) {
 
     const add = () => {
 
-        setData( state => [...state, {
+        setData(state => [...state, {
             id: Generator(),
             complete: false,
             show_face: false,
@@ -32,21 +32,66 @@ export default function Tool_Todo(params) {
 
     }
 
+    const sort = (_id, __id) => {
+
+        let from = 0
+        let to = 0
+        
+        const swap = () => {
+
+            let c_data = [...data]
+            let c_todo = c_data[from]
+            c_data[from] = c_data[to]
+            c_data[to] = c_todo
+
+            setData(c_data)
+
+        }
+
+        setData(state => state.map( (todo, index) => {
+
+            if(todo.id === _id) from = index
+            if(todo.id === __id) to = index
+            return todo
+
+        }))
+
+        swap()
+
+    }
+
     const grab = (_id) => {
 
-        setData( state => state.map( todo => {
-            if(todo.id !== _id) return {...todo, show_face: true}
+        let pos_x = 0
+        let pos_y = 0
+
+        setData(state => state.map(todo => {
+            if (todo.id !== _id) return { ...todo, show_face: true }
             else return todo
         }))
 
+        document.addEventListener('mousemove', move)
         document.addEventListener('mouseup', rest)
+
+        function move(e) {
+
+            pos_x = e.x
+            pos_y = e.y
+
+        }
 
         function rest() {
 
-            setData( state => state.map( todo => {
-                return {...todo, show_face: false}
+            let todo = document.elementFromPoint(pos_x, pos_y)
+            let __id = todo.getAttribute('id')
+
+            if(__id) sort(_id, __id)
+
+            setData(state => state.map(todo => {
+                return { ...todo, show_face: false }
             }))
 
+            document.removeEventListener('mousemove', move)
             document.removeEventListener('mouseup', rest)
 
         }
@@ -55,8 +100,8 @@ export default function Tool_Todo(params) {
 
     const complete = (_id) => {
 
-        setData( state => state.map( todo => {
-            if(todo.id === _id) return {...todo, complete: !todo.complete}
+        setData(state => state.map(todo => {
+            if (todo.id === _id) return { ...todo, complete: !todo.complete }
             else return todo
         }))
 
@@ -64,8 +109,8 @@ export default function Tool_Todo(params) {
 
     const title = (e, _id) => {
 
-        setData( state => state.map( todo => {
-            if(todo.id === _id) return {...todo, title: e.target.value}
+        setData(state => state.map(todo => {
+            if (todo.id === _id) return { ...todo, title: e.target.value }
             else return todo
         }))
 
@@ -83,46 +128,46 @@ export default function Tool_Todo(params) {
 
             <div className={styles.list}>
 
-                {
-                    data.map( (todo, index) => {
-                        return (
-                            <div className={[styles.todo, todo.show_face?'bkg-low-light':''].join(' ')} key={index}>
+            {
+                data.map( (todo, index) => {
+                    return (
+                        <div className={styles.todo} key={index}>
 
-                                <div className={[styles.grab, 'circle'].join(' ')} onMouseDown={() => grab(todo.id)}>
-                                    <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png"/>
-                                </div>
-                                <div className={[styles.complete, todo.complete?'bkg-teal':'circle'].join(' ')} onClick={() => complete(todo.id)}>
-                                    <img
-                                        className={todo.complete?'':'hide'}
-                                        src="https://img.icons8.com/material-rounded/20/checkmark--v1.png"
-                                        />
-                                </div>
-                                <div className={styles.input}>
-                                    <input
-                                        className={styles.title}
-                                        value={todo.title}
-                                        onChange={(e) => title(e, todo.id)}
-                                        type="text"
-                                        placeholder="Your title"
-                                        />
-                                </div>
-                                <div className={[styles.remove, 'circle'].join(' ')} onClick={() => remove(todo.id)}>
-                                    <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png"/>
-                                </div>
-
-                                <div className={[styles.face, todo.show_face?'hide':'hide'].join(' ')}></div>
-
+                            <div className={[styles.grab, 'circle'].join(' ')} onMouseDown={() => grab(todo.id)}>
+                                <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png"/>
                             </div>
-                        )
-                    })
-                }
+                            <div className={[styles.complete, todo.complete?'bkg-teal':'circle'].join(' ')} onClick={() => complete(todo.id)}>
+                                <img
+                                    className={todo.complete?'':'hide'}
+                                    src="https://img.icons8.com/material-rounded/20/checkmark--v1.png"
+                                    />
+                            </div>
+                            <div className={styles.input}>
+                                <input
+                                    className={styles.title}
+                                    value={todo.title}
+                                    onChange={(e) => title(e, todo.id)}
+                                    type="text"
+                                    placeholder="Your title"
+                                    />
+                            </div>
+                            <div className={[styles.remove, 'circle'].join(' ')} onClick={() => remove(todo.id)}>
+                                <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png"/>
+                            </div>
+
+                            <div className={[styles.face, todo.show_face?'':'hide'].join(' ')} id={todo.id}></div>
+
+                        </div>
+                    )
+                })
+            }
 
             </div>
 
             <div className={styles.add}>
 
                 <p className={[styles.add_icon, 'circle'].join(' ')} onClick={add}>
-                    <img src="https://img.icons8.com/ios/20/null/plus-math--v1.png"/>
+                    <img src="https://img.icons8.com/ios/20/null/plus-math--v1.png" />
                 </p>
 
             </div>
