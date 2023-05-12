@@ -10,7 +10,7 @@ export default function Workspace() {
 
   return (
 
-    <div className={styles.container}>
+    <div className={styles.container} id='workspace'>
 
       {
         workspace.map( workspace => {

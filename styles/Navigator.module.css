@@ -24,7 +24,7 @@
     width: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     padding: var(--sm-un);
     transition: .2s;
     animation: tab-kfs .2s;

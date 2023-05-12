@@ -54,6 +54,7 @@ export default function Navigator() {
                                 key={ws.id}
                                 onClick={() => M_Workspace.select_workspace(ws.id)}
                             >
+                                <img className={styles.icon} src="https://img.icons8.com/material-outlined/20/FFFFFF/tab.png"/>
                                 <div className={styles.name}>{ws.name}</div>
                                 <div className={styles.remove}>
                                     <img
@@ -73,7 +74,7 @@ export default function Navigator() {
                     <img
                         className={styles.add_icon}
                         onClick={add_workspace}
-                        src="https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png"
+                        src="https://img.icons8.com/ios/20/FFFFFF/plus-math--v1.png"
                     />
                 </div>
 
@@ -83,7 +84,7 @@ export default function Navigator() {
                 <img
                     className={styles.add_icon}
                     onClick={() => LocalSaveData(workspace)}
-                    src="https://img.icons8.com/ios-glyphs/25/FFFFFF/bookmark-ribbon.png"
+                    src="https://img.icons8.com/ios-glyphs/20/FFFFFF/bookmark-ribbon.png"
                 />
             </div>
 

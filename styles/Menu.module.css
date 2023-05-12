@@ -6,7 +6,7 @@
 }
 
 .menu {
-  background-color: var(--gray);
+  background-color: var(--low-dark);
   position: absolute;
   padding: var(--sm-un);
   display: flex;
@@ -14,6 +14,8 @@
   gap: var(--md-un) 0;
   border: 1px solid var(--low-light);
   border-radius: var(--br);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 0 var(--br-shadow) var(--low-dark);
 }
 
 .input {

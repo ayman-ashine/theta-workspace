@@ -4,18 +4,18 @@
   --dark: #001520;
   --light: #c7c7c7;
   --gray: #0D2635;
-  --low-dark: #00000040;
-  --low-light: #9acece40;
-  --red: #e35d6a;
-  --pink: #de5c9d;
-  --purple: #8c68cd;
-  --indigo: #8540f5;
-  --blue: #3d8bfd;
-  --cyan: #3dd5f3;
-  --teal: #4dd4ac;
-  --green: #479f76;
-  --yellow: #D9E76C;
-  --orange: #fd9843;
+  --low-dark: #00000050;
+  --low-light: #9acece50;
+  --red: #e35d6aC0;
+  --pink: #de5c9dC0;
+  --purple: #8c68cdC0;
+  --indigo: #8540f5C0;
+  --blue: #3d8bfdC0;
+  --cyan: #3dd5f3C0;
+  --teal: #4dd4acC0;
+  --green: #479f76C0;
+  --yellow: #D9E76CC0;
+  --orange: #fd9843C0;
 
   --lg-un: 1.5rem;
   --md-un: 1rem;
@@ -24,10 +24,17 @@
   --br: 5px;
   --full-br: 50%;
 
+  --br-shadow: 20px;
+
+  --blur: 10px;
+
   --normal-fs: 1rem;
-  --lg-fs: 2rem;
+  --md-fs: 2rem;
+  --lg-fs: 4rem;
+
   --normal-fw: 400;
   --bold-fw: 600;
+  
   --f: 'Titillium Web', sans-serif;
 }
 

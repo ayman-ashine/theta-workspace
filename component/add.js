@@ -1,5 +1,5 @@
 import styles from '@/styles/Add.module.css'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Generator } from '@/utils/generator'
 import M_Workspace from '@/component/m_workspace'
 
@@ -9,35 +9,38 @@ const LOCAL_DATA = {
     {
       id: 'note',
       name: 'Note',
-      icon_url: 'https://img.icons8.com/ios-filled/25/FFFFFF/note.png'
+      icon_url: 'https://img.icons8.com/material-outlined/30/FFFFFF/note.png'
     },
     {
       id: 'todo',
       name: 'To Do List',
-      icon_url: 'https://img.icons8.com/metro/25/FFFFFF/to-do.png'
+      icon_url: 'https://img.icons8.com/material-outlined/30/FFFFFF/todo-list--v2.png'
+
     },
     {
       id: 'timer',
       name: 'Timer',
-      icon_url: 'https://img.icons8.com/ios-filled/25/FFFFFF/time.png'
+      icon_url: 'https://img.icons8.com/material-outlined/30/FFFFFF/retro-alarm-clock.png'
+    },
+    {
+      id: 'chrono',
+      name: 'Chrono',
+      icon_url: 'https://img.icons8.com/material-outlined/30/FFFFFF/time.png'
     }
   ],
-  ADD: {
-    id: 'add_new_tool',
-    name: 'add new tool',
-    icon_url: 'https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png'
-  }
 
 }
 
 export default function Add(params) {
 
-  const [display, setDisplay] = useState('hide')
   const add = useRef()
+  const [data, setData] = useState({
+    display: false,
+    pos_x: 0,
+    pos_y: 0
+  })
 
   const create_frame = (_tool) => {
-
-    setDisplay('hide')
 
     M_Workspace.add_frame({
 
@@ -52,44 +55,72 @@ export default function Add(params) {
       tool_id: _tool.id,
       tool_data: {},
       menu: null,
-  
+
     })
 
   }
-  
+
+  const init = () => {
+
+    const open_menu = (e) => {
+
+      e.preventDefault()
+
+      if (e.target.id === 'workspace') {
+
+        setData(state => {
+          return { ...state, display: true, pos_x: e.offsetX, pos_y: e.offsetY }
+        })
+
+      }
+
+    }
+
+    const rest = () => {
+
+      setData(state => {
+        return { ...state, display: false }
+      })
+
+    }
+
+    document.addEventListener('contextmenu', open_menu)
+    document.addEventListener('mousedown', rest)
+
+  }
+
+  useEffect(() => init(), [])
+
   return (
 
     <>
 
-      <div className={styles.container} onClick={() => setDisplay(display ? '' : 'hide')} ref={add}>
+      <div
+        className={[styles.container, data.display ? '' : 'hide'].join(' ')}
+        style={{
+          left: data.pos_x,
+          top: data.pos_y
+        }}
+        ref={add}
+      >
 
-        <div className={[styles.tools, display].join(' ')}>
+        {
+          LOCAL_DATA.TOOLS.map(tool => {
 
-          {
-            LOCAL_DATA.TOOLS.map( tool => {
+            return (
 
-              return (
+              <div
+                className={styles.option}
+                key={tool.id}
+                onMouseDown={() => create_frame(tool)}>
+                <img src={tool.icon_url} />
+                <div>{tool.name}</div>
+              </div>
 
-                <span
-                  className={styles.btn}
-                  key={tool.id}
-                  title={tool.name}
-                  onClick={() => create_frame(tool)}>
-                  <img src={tool.icon_url} />
-                </span>
+            )
 
-              )
-
-            })
-          }
-
-        </div>
-
-        <span className={styles.btn}>
-
-          <img src={LOCAL_DATA.ADD.icon_url} />
-
-        </span>
+          })
+        }
 
       </div>
 

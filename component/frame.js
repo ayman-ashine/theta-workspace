@@ -40,7 +40,7 @@ export default function Frame(params) {
     M_Workspace.update_frame(data.id, { menu: <Menu data={{
       id: data.id,
       title: data.title,
-      pos_x: data.width + data.pos_x - 20,
+      pos_x: data.width + data.pos_x - 10,
       pos_y: data.pos_y + 20,
       display: ''
     }}/> })
@@ -69,7 +69,7 @@ export default function Frame(params) {
             {data.title}
           </span>
           <span className={styles.menu}>
-            <img onMouseDown={menu} src="https://img.icons8.com/windows/25/null/xbox-menu.png" />
+            <img onMouseDown={menu} src="https://img.icons8.com/material-outlined/20/null/menu-2.png" />
           </span>
         </div>
 

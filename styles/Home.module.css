@@ -13,7 +13,7 @@
 .title {
     padding: var(--sm-un);
     margin-bottom: var(--lg-un);
-    font-size: var(--lg-fs);
+    font-size: var(--md-fs);
     font-weight: 600;
 }
 
@@ -28,7 +28,7 @@
     margin-bottom: var(--lg-un);
     border-radius: var(--br);
     border: 1px solid var(--low-light);
-    font-size: calc(var(--lg-fs) / 2);
+    font-size: calc(var(--md-fs) / 2);
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;

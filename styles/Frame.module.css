@@ -4,6 +4,9 @@
   grid-template-rows: repeat(10, 1fr);
   overflow: hidden;
   border-radius: var(--br);
+  /* Make blur as an option because it's need more resources */
+  /* @ backdrop-filter: blur(var(--blur)); */ 
+  /* box-shadow: 0 0 var(--br-shadow) var(--low-dark); */ 
 }
 
 .head {
