@@ -22,3 +22,11 @@
   background-color: var(--low-light);
   cursor: pointer;
 }
+
+.info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  padding: var(--lg-un);
+}

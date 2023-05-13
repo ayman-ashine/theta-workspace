@@ -1,7 +1,5 @@
 import styles from '@/styles/Frame.module.css'
-import Menu from '@/component/menu'
-import M_Workspace from '@/component/m_workspace'
-import { Tool } from '@/component/tool'
+import { Manager_Data, Menu, Tool } from '@/utils/modules'
 
 export default function Frame(params) {
 
@@ -17,7 +15,7 @@ export default function Frame(params) {
       let pos_x = e.x - shift_x
       let pos_y = e.y - shift_y
 
-      M_Workspace.update_frame(data.id, { pos_x, pos_y })
+      Manager_Data.update_frame(data.id, { pos_x, pos_y })
 
     }
 
@@ -37,7 +35,7 @@ export default function Frame(params) {
 
     if (e && e.stopPropagation) e.stopPropagation();
 
-    M_Workspace.update_frame(data.id, { menu: <Menu data={{
+    Manager_Data.update_frame(data.id, { menu: <Menu data={{
       id: data.id,
       title: data.title,
       pos_x: data.width + data.pos_x - 10,
@@ -68,8 +66,8 @@ export default function Frame(params) {
           <span className={styles.title}>
             {data.title}
           </span>
-          <span className={styles.menu}>
-            <img onMouseDown={menu} src="https://img.icons8.com/material-outlined/20/null/menu-2.png" />
+          <span className={styles.menu + ' circle'} onMouseDown={menu}>
+            <img src="https://img.icons8.com/material-outlined/20/null/menu-2.png" />
           </span>
         </div>
 

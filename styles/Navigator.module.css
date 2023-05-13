@@ -19,7 +19,7 @@
 
 .tab {
     background-color: var(--gray);
-    border-right: 1px solid var(--low-light);
+    border-right: 2px solid var(--low-light);
     height: 100%;
     width: 100%;
     display: grid;

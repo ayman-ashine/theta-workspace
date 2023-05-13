@@ -1,9 +1,9 @@
-import styles from '@/styles/Tool_Timer.module.css'
-import M_Workspace from '@/component/m_workspace'
+import styles from '@/styles/Tool_Todo.module.css'
 import { useEffect, useState } from 'react'
-import { Generator } from '@/utils/generator'
+import { Manager_Data, Generator } from '@/utils/modules'
 
-export default function Tool_Timer(params) {
+
+export default function Tool_Todo(params) {
 
     const _id = params.id
     const _data = params.data.list ? params.data.list : []
@@ -17,7 +17,7 @@ export default function Tool_Timer(params) {
 
     const update = () => {
 
-        M_Workspace.update_frame(_id, { tool_data: { list: data } })
+        Manager_Data.update_frame(_id, { tool_data: { list: data } })
 
     }
 
@@ -126,39 +126,36 @@ export default function Tool_Timer(params) {
 
         <div className={styles.container}>
 
-            <div className={styles.screen}>
-                00:00:00
-            </div>
-
             <div className={styles.list}>
 
             {
-                data.map( (timer, index) => {
+                data.map( (todo, index) => {
                     return (
-                        <div className={styles.timer} key={index}>
+                        <div className={styles.todo} key={index}>
 
-                            <div className={[styles.grab, 'circle'].join(' ')} onMouseDown={() => grab(timer.id)}>
+                            <div className={[styles.grab, 'circle'].join(' ')} onMouseDown={() => grab(todo.id)}>
                                 <img src="https://img.icons8.com/material-sharp/15/null/menu-2.png"/>
+                            </div>
+                            <div className={[styles.complete, todo.complete?'bkg-teal':'circle'].join(' ')} onClick={() => complete(todo.id)}>
+                                <img
+                                    className={todo.complete?'':'hide'}
+                                    src="https://img.icons8.com/material-rounded/15/checkmark--v1.png"
+                                    />
                             </div>
                             <div className={styles.input}>
                                 <input
                                     className={styles.title}
-                                    value={timer.title}
-                                    onChange={(e) => title(e, timer.id)}
+                                    value={todo.title}
+                                    onChange={(e) => title(e, todo.id)}
                                     type="text"
                                     placeholder="Your title"
                                     />
                             </div>
-                            <div className={styles.time}>
-                                <input className={styles.time_input} type='number'/>
-                                <input className={styles.time_input} type='number'/>
-                                <input className={styles.time_input} type='number'/>
-                            </div>
-                            <div className={[styles.remove, 'circle'].join(' ')} onClick={() => remove(timer.id)}>
+                            <div className={[styles.remove, 'circle'].join(' ')} onClick={() => remove(todo.id)}>
                                 <img className={styles.icon} src="https://img.icons8.com/ios-filled/15/null/delete-sign--v1.png"/>
                             </div>
 
-                            <div className={[styles.face, timer.show_face?'':'hide'].join(' ')} id={timer.id}></div>
+                            <div className={[styles.face, todo.show_face?'':'hide'].join(' ')} id={todo.id}></div>
 
                         </div>
                     )

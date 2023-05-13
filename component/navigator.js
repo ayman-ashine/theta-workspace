@@ -1,9 +1,6 @@
 import styles from '@/styles/Navigator.module.css'
 import { useContext } from 'react'
-import { Generator } from '@/utils/generator'
-import { Context } from '@/component/context'
-import { LocalSaveData } from '@/utils/local_data'
-import M_Workspace from '@/component/m_workspace'
+import { Manager_Data, LocalSaveData, Context, Generator } from '@/utils/modules'
 
 export default function Navigator() {
 
@@ -11,9 +8,9 @@ export default function Navigator() {
 
     const add_workspace = () => {
 
-        M_Workspace.select_workspace('')
+        Manager_Data.select_workspace('')
 
-        M_Workspace.add_workspace(
+        Manager_Data.add_workspace(
             {
                 id: Generator(),
                 select: true,
@@ -29,11 +26,11 @@ export default function Navigator() {
         if (e && e.stopPropagation) e.stopPropagation();
 
         if (workspace[_index].select && workspace.length > 1) {
-            if (_index) M_Workspace.select_workspace(workspace[0].id)
-            else M_Workspace.select_workspace(workspace[1].id)
+            if (_index) Manager_Data.select_workspace(workspace[0].id)
+            else Manager_Data.select_workspace(workspace[1].id)
         }
 
-        M_Workspace.remove_workspace(_id)
+        Manager_Data.remove_workspace(_id)
 
 
     }
@@ -52,7 +49,7 @@ export default function Navigator() {
                             <div
                                 className={[styles.tab, ws.select ? styles.select : ''].join(' ')}
                                 key={ws.id}
-                                onClick={() => M_Workspace.select_workspace(ws.id)}
+                                onClick={() => Manager_Data.select_workspace(ws.id)}
                             >
                                 <img className={styles.icon} src="https://img.icons8.com/material-outlined/20/FFFFFF/tab.png"/>
                                 <div className={styles.name}>{ws.name}</div>

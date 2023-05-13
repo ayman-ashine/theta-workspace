@@ -1,8 +1,6 @@
 import styles from '@/styles/Workspace.module.css'
 import { useContext } from 'react'
-import { Context } from '@/component/context'
-import Frame from '@/component/frame'
-import Add from '@/component/add'
+import { Add, Frame, Context } from '@/utils/modules'
 
 export default function Workspace() {
 

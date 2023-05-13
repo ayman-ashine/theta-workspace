@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Context } from '@/component/context'
-import { LocalLoadData } from '@/utils/local_data'
-import Workspace from '@/component/workspace'
-import Navigator from '@/component/navigator'
-import M_Workspace from '@/component/m_workspace'
+import { Manager_Data, Navigator, Workspace, LocalLoadData, Context } from '@/utils/modules'
 
 export default function App() {
 
@@ -15,7 +11,7 @@ export default function App() {
 
     <Context.Provider value={[workspace, setWorkspace]}>
       
-      <M_Workspace/>
+      <Manager_Data/>
       <Navigator/>
       <Workspace/>
 

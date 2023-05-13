@@ -1,7 +1,6 @@
 import styles from '@/styles/Add.module.css'
 import { useState, useRef, useEffect } from 'react'
-import { Generator } from '@/utils/generator'
-import M_Workspace from '@/component/m_workspace'
+import { Manager_Data, Generator } from '@/utils/modules'
 
 const LOCAL_DATA = {
 
@@ -36,13 +35,18 @@ export default function Add(params) {
   const add = useRef()
   const [data, setData] = useState({
     display: false,
+    info: true,
     pos_x: 0,
     pos_y: 0
   })
 
   const create_frame = (_tool) => {
 
-    M_Workspace.add_frame({
+    setData(state => {
+      return { ...state, info: false}
+    })
+
+    Manager_Data.add_frame({
 
       id: Generator(),
       title: _tool.name,
@@ -69,7 +73,7 @@ export default function Add(params) {
       if (e.target.id === 'workspace') {
 
         setData(state => {
-          return { ...state, display: true, pos_x: e.offsetX, pos_y: e.offsetY }
+          return { ...state, display: true, pos_x: e.offsetX, pos_y: e.offsetY}
         })
 
       }
@@ -123,6 +127,8 @@ export default function Add(params) {
         }
 
       </div>
+
+      <img className={[styles.info, data.info ? '' : 'hide'].join(' ')} src="https://img.icons8.com/ios/100/FFFFFF/mouse-right-click.png"/>
 
     </>
 

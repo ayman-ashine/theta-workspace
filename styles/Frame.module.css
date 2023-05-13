@@ -11,12 +11,12 @@
 
 .head {
   background-color: var(--low-light);
-  border: 1px solid var(--low-light);
   padding: calc( var(--sm-un) / 2 ) var(--sm-un);
   display: grid;
   align-items: center;
   grid-template-columns: repeat(8, 1fr) auto;
   width: 100%;
+  box-shadow: 0 0 10px var(--low-dark);
 }
 
 .title {
@@ -28,22 +28,13 @@
 
 .menu {
   display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
 .body {
-  border: 1px solid var(--low-light);
   grid-row: span 9;
   width: 100%;
   height: 100%;
 }
-
-/* .content {
-  background-color: var(--light);
-  padding: var(--sm-un);
-  color: var(--dark);
-  width: 100%;
-  height: 100%;
-  resize: none;
-  outline: none;
-} */

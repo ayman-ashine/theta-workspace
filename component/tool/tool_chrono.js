@@ -1,6 +1,6 @@
 import styles from '@/styles/Tool_Chrono.module.css'
-import M_Workspace from '@/component/m_workspace'
 import { useEffect, useState } from 'react'
+import { Manager_Data } from '@/utils/modules'
 
 export default function Tool_Chrono(params) {
 
@@ -16,7 +16,7 @@ export default function Tool_Chrono(params) {
 
     const update = () => {
 
-        M_Workspace.update_frame(_id, { tool_data: { chrono: data } })
+        Manager_Data.update_frame(_id, { tool_data: { chrono: data } })
 
     }
 
@@ -44,12 +44,12 @@ export default function Tool_Chrono(params) {
 
             let loop_id = setInterval(() => {
 
-                if (msec < 100) {
+                if (msec < 99) {
                     msec += 1
-                } else if (sec < 60) {
+                } else if (sec < 59) {
                     sec += 1
                     msec = 0
-                } else if (min < 60) {
+                } else if (min < 59) {
                     min += 1
                     sec = 0
                 } else {

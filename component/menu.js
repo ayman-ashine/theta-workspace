@@ -1,7 +1,6 @@
 import styles from '@/styles/Menu.module.css'
 import { useState } from 'react'
-import M_Workspace from '@/component/m_workspace'
-
+import { Manager_Data } from '@/utils/modules'
 
 export default function Menu(params) {
 
@@ -13,7 +12,7 @@ export default function Menu(params) {
         if(prev_color_check) prev_color_check.classList.remove(styles.color_check)
         e.target.classList.add(styles.color_check)
 
-        M_Workspace.update_frame(data.id, {color: e.target.getAttribute('color')})
+        Manager_Data.update_frame(data.id, {color: e.target.getAttribute('color')})
 
     }
 
@@ -26,25 +25,25 @@ export default function Menu(params) {
             }
         })
 
-        M_Workspace.update_frame(data.id, {title: e.target.value})
+        Manager_Data.update_frame(data.id, {title: e.target.value})
 
     }
 
     const hide_frame = () => {
 
-        M_Workspace.update_frame(data.id, { menu: null })
+        Manager_Data.update_frame(data.id, { menu: null })
 
     }
 
     const remove_frame = () => {
 
-        M_Workspace.remove_frame(data.id)
+        Manager_Data.remove_frame(data.id)
 
     }
 
     const hide_menu = () => {
 
-        M_Workspace.update_frame(data.id, { menu: null })
+        Manager_Data.update_frame(data.id, { menu: null })
 
     }
 

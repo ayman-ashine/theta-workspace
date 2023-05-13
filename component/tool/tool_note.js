@@ -1,5 +1,5 @@
 import styles from '@/styles/Tool_Note.module.css'
-import M_Workspace from '@/component/m_workspace'
+import { Manager_Data } from '@/utils/modules'
 
 export default function Tool_Note(params) {
 
@@ -8,7 +8,7 @@ export default function Tool_Note(params) {
 
     const update = ( e ) => {
 
-        M_Workspace.update_frame(_id, { tool_data: { text: e.target.value } })
+        Manager_Data.update_frame(_id, { tool_data: { text: e.target.value } })
 
     }
 
