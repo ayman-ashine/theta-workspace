@@ -24,10 +24,16 @@ export default function Frame(params) {
       document.removeEventListener('mousemove', _move)
       document.removeEventListener('mouseup', _rest)
 
+      document.removeEventListener('touchmove', _move)
+      document.removeEventListener('touchend', _rest)
+
     }
 
     document.addEventListener('mousemove', _move)
     document.addEventListener('mouseup', _rest)
+
+    document.addEventListener('touchmove', _move)
+    document.addEventListener('touchend', _rest)
 
   }
 
