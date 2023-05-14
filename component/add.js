@@ -89,6 +89,7 @@ export default function Add(params) {
     }
 
     document.addEventListener('contextmenu', open_menu)
+    document.addEventListener('touchcancel', open_menu)
     document.addEventListener('mousedown', rest)
 
   }
