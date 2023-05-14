@@ -1,11 +1,11 @@
 ## Theta Workspace
 ### Description :
-> Theta Workspace is a web application to manage your time and daily tasks for more productivity and efficiency.
+> Theta Workspace is a web application dedicated to those who want to manage their time and daily tasks for more productivity and efficiency.
 ### Available tools :
-`Sticky Notes`
+`Notes`
 `To Do List`
 `Timer`
-`Calendar`
+`Chrono`
 ### Host :
 > Hosting by vercel.com
 

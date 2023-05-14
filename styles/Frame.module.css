@@ -5,22 +5,23 @@
   overflow: hidden;
   border-radius: var(--br);
   /* Make blur as an option because it's need more resources */
-  /* @ backdrop-filter: blur(var(--blur)); */ 
-  /* box-shadow: 0 0 var(--br-shadow) var(--low-dark); */ 
+  /*  backdrop-filter: blur(var(--blur)); */
+  box-shadow: 0 0 var(--br-shadow) var(--low-dark);
 }
 
 .head {
-  background-color: var(--low-light);
   padding: calc( var(--sm-un) / 2 ) var(--sm-un);
   display: grid;
   align-items: center;
   grid-template-columns: repeat(8, 1fr) auto;
   width: 100%;
-  box-shadow: 0 0 10px var(--low-dark);
+}
+
+.head:hover {
+  background-color: var(--low-light);
 }
 
 .title {
-  color: var(--dark);
   grid-column: span 8;
   width: 100%;
   overflow: hidden;

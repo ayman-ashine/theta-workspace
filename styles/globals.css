@@ -6,22 +6,22 @@
   --gray: rgb(20, 30, 40);
   --low-dark: rgb(0, 0, 0, .5);
   --low-light: rgb(255, 255, 255, .1);
-  --red: #e35d6aC0;
-  --pink: #de5c9dC0;
-  --purple: #8c68cdC0;
-  --indigo: #8540f5C0;
-  --blue: #3d8bfdC0;
-  --cyan: #3dd5f3C0;
-  --teal: #4dd4acC0;
-  --green: #479f76C0;
-  --yellow: #D9E76CC0;
-  --orange: #fd9843C0;
+  --red: #ea868fc0;
+  --pink: #e685b5c0;
+  --purple: #a98edac0;
+  --indigo: #a370f7c0;
+  --blue: #6ea8fec0;
+  --cyan: #6edff6c0;
+  --teal: #79dfc1c0;
+  --green: #75b798c0;
+  --yellow: #ffda6ac0;
+  --orange: #feb272c0;
 
   --lg-un: 1.5rem;
   --md-un: 1rem;
   --sm-un: 0.5rem;
 
-  --br: 5px;
+  --br: 10px;
   --full-br: 50%;
 
   --br-shadow: 20px;
@@ -66,7 +66,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  border: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,14 +75,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray);
+  background: var(--low-light);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark);
+  background: var(--light);
 }
 
 ::placeholder {
-  color: var(--dark);
+  color: var(--light);
   opacity: 0.5;
 }

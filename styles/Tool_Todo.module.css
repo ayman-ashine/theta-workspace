@@ -1,10 +1,12 @@
 .container {
     width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
 
 .todo {
-    border-bottom: 1px solid var(--low-dark);
+    border-top: 1px solid var(--low-light);
+    border-bottom: 1px solid var(--low-light);
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: var(--sm-un);
@@ -26,7 +28,7 @@
 }
 
 .complete {
-    border: 1px solid var(--low-dark);
+    border: 1px solid var(--light);
     grid-column: 2;
     display: flex;
     justify-content: center;
@@ -44,7 +46,7 @@
 }
 
 .title {
-    color: var(--dark);
+
     width: 100%;
     background-color: transparent;
     border: none;

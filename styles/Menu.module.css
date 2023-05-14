@@ -27,11 +27,6 @@
   outline: none;
 }
 
-.input::placeholder {
-  color: var(--light);
-  opacity: 0.5;
-}
-
 .colors {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
