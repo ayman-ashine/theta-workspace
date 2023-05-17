@@ -1,7 +1,7 @@
 .container {
-  background-color: var(--low-dark);
+  background-color: var(--gray);
   position: absolute;
-  padding: var(--sm-un) var(--lg-un);
+  padding: var(--md-un);
   border: 1px solid var(--low-light);
   border-radius: var(--br);
   backdrop-filter: blur(var(--blur));
@@ -12,7 +12,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--md-un);
+  gap: var(--sm-un);
   border-radius: var(--br);
   padding: var(--sm-un);
   margin: var(--sm-un) 0;
@@ -23,10 +23,6 @@
   cursor: pointer;
 }
 
-.info {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  padding: var(--lg-un);
+.name {
+  color: var(--light);
 }

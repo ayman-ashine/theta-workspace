@@ -1,17 +1,29 @@
 .container {
     background-color: var(--gray);
     width: 100%;
-    height: 50px;
+    height: 40px;
     position: relative;
     display: flex;
 }
 
-.tabs {
+.menu {
+    background-color: var(--dark);
+    border-right: 1px solid var(--low-light);
+    display: flex;
+    gap: var(--sm-un);
+    align-items: center;
+    padding: var(--sm-un);
+    width: 100%;
+    height: 100%;
+    color: var(--light);
+}
+
+.container_tab {
     width: 100%;
     height: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(10, auto);
+    grid-template-columns: repeat(8, 1fr);
     grid-auto-flow: column;
     overflow: hidden;
     transition: all .5s;
@@ -19,15 +31,15 @@
 
 .tab {
     background-color: var(--gray);
-    border-right: 2px solid var(--low-light);
+    border-right: 1px solid var(--low-light);
     height: 100%;
     width: 100%;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(6, auto);
+    gap: var(--sm-un);
     padding: var(--sm-un);
     transition: .2s;
-    animation: tab-kfs .2s;
     opacity: 0.5;
 }
 
@@ -48,6 +60,7 @@
     grid-column: span 4;
     white-space: nowrap;
     overflow: hidden;
+    color: var(--light);
 }
 
 .remove {
@@ -57,11 +70,6 @@
     justify-content: end;
 }
 
-.remove_icon:hover {
-    background-color: var(--low-light);
-    cursor: pointer;
-    border-radius: var(--full-br);
-}
 
 .add {
     display: flex;
@@ -71,21 +79,8 @@
     padding: var(--sm-un);
 }
 
-.add_icon:hover {
+.icon:hover {
     background-color: var(--low-light);
     cursor: pointer;
     border-radius: var(--br);
-}
-
-.save {
-    background-color: var(--dark);
-    display: flex;
-    padding: var(--sm-un);
-}
-
-@keyframes tab-kfs {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
 }

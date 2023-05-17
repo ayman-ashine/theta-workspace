@@ -99,12 +99,12 @@ export default function Tool_Chrono(params) {
                 <div className={styles.control}>
 
                     <div className={[styles.btn, 'circle'].join(' ')} onClick={start_pause}>
-                        <img className={data.start ? 'hide' : ''} src="https://img.icons8.com/material-outlined/40/ffffff/circled-play.png" />
-                        <img className={data.start ? '' : 'hide'} src="https://img.icons8.com/material-outlined/40/ffffff/circled-pause.png" />
+                        <img className={data.start ? 'hide' : ''} src="https://img.icons8.com/material-outlined/40/null/circled-play.png" />
+                        <img className={data.start ? '' : 'hide'} src="https://img.icons8.com/material-outlined/40/null/circled-pause.png" />
                     </div>
 
                     <div className={[styles.btn, 'circle'].join(' ')} onClick={reset}>
-                        <img src="https://img.icons8.com/material-outlined/40/ffffff/restart--v1.png" />
+                        <img src="https://img.icons8.com/material-outlined/40/null/restart--v1.png" />
                     </div>
 
                 </div>

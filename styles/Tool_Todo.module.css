@@ -5,13 +5,16 @@
 }
 
 .todo {
-    border-top: 1px solid var(--low-light);
-    border-bottom: 1px solid var(--low-light);
+    border-top: 1px solid var(--low-dark);
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: var(--sm-un);
     padding: var(--sm-un) 0;
     position: relative;
+}
+
+.todo:last-child {
+    border-bottom: 1px solid var(--low-dark);
 }
 
 .todo_over:hover {
@@ -28,7 +31,7 @@
 }
 
 .complete {
-    border: 1px solid var(--light);
+    border: 1px solid var(--low-dark);
     grid-column: 2;
     display: flex;
     justify-content: center;
@@ -46,12 +49,16 @@
 }
 
 .title {
-
+    color: var();
     width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
     padding: 0 var(--sm-un);
+}
+
+.title::placeholder {
+    color: var(--dark);
 }
 
 .remove {

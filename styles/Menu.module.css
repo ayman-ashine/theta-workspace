@@ -6,7 +6,7 @@
 }
 
 .menu {
-  background-color: var(--low-dark);
+  background-color: var(--gray);
   position: absolute;
   padding: var(--sm-un);
   display: flex;
@@ -25,6 +25,7 @@
   background-color: transparent;
   width: 100%;
   outline: none;
+  color: var(--light);
 }
 
 .colors {
@@ -36,6 +37,7 @@
   height: 80px;
   border: 1px solid var(--low-light);
   cursor: pointer;
+  border-radius: var(--br);
 }
 
 .color {
@@ -46,6 +48,8 @@
 .btn {
   border: 1px solid var(--low-light);
   padding: var(--sm-un);
+  color: var(--light);
+  border-radius: var(--br);
 }
 
 .btn:hover {

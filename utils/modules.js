@@ -1,6 +1,7 @@
 // APP MODULES //
 
 // component
+export { default as Loading } from '@/component/loading'
 export { default as Workspace } from '@/component/workspace'
 export { default as Navigator } from '@/component/navigator'
 export { default as Add } from '@/component/add'

@@ -1,0 +1,73 @@
+.container {
+    background-color: var(--dark);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.word {
+    color: transparent;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.word::before {
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    border-right: 4px solid var(--light);
+    overflow: hidden;
+    color: var(--light);
+    animation: load91371 2s linear infinite;
+}
+
+@keyframes load91371 {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    10%,
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80%,
+    90%,
+    100% {
+        border-right-color: transparent;
+    }
+
+    11%,
+    21%,
+    31%,
+    41%,
+    51%,
+    61%,
+    71%,
+    81%,
+    91% {
+        border-right-color: var(--light);
+    }
+
+    60%,
+    80% {
+        width: 100%;
+    }
+}

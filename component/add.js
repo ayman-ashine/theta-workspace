@@ -119,7 +119,7 @@ export default function Add(params) {
                 key={tool.id}
                 onMouseDown={() => create_frame(tool)}>
                 <img src={tool.icon_url} />
-                <div>{tool.name}</div>
+                <div className={styles.name}>{tool.name}</div>
               </div>
 
             )
@@ -129,7 +129,7 @@ export default function Add(params) {
 
       </div>
 
-      <img className={[styles.info, data.info ? '' : 'hide'].join(' ')} src="https://img.icons8.com/ios/100/FFFFFF/mouse-right-click.png"/>
+      {/* <img className={[styles.info, data.info ? '' : 'hide'].join(' ')} src="https://img.icons8.com/ios/100/FFFFFF/mouse-right-click.png"/> */}
 
     </>
 

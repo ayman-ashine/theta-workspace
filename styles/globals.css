@@ -1,30 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
 
 :root {
-  --dark: rgb(0, 15, 20);
+  --dark: rgb(20, 20, 20);
   --light: rgb(255, 255, 255);
-  --gray: rgb(20, 30, 40);
+  --gray: rgb(30, 30, 30);
   --low-dark: rgb(0, 0, 0, .5);
-  --low-light: rgb(255, 255, 255, .1);
-  --red: #ea868fc0;
-  --pink: #e685b5c0;
-  --purple: #a98edac0;
-  --indigo: #a370f7c0;
-  --blue: #6ea8fec0;
-  --cyan: #6edff6c0;
-  --teal: #79dfc1c0;
-  --green: #75b798c0;
-  --yellow: #ffda6ac0;
-  --orange: #feb272c0;
+  --low-light: rgb(255, 255, 255, .2);
+  --red: #ea868f;
+  --pink: #e685b5;
+  --purple: #a98eda;
+  --indigo: #a370f7;
+  --blue: #6ea8fe;
+  --cyan: #6edff6;
+  --teal: #79dfc1;
+  --green: #75b798;
+  --yellow: #ffda6a;
+  --orange: #feb272;
 
   --lg-un: 1.5rem;
   --md-un: 1rem;
   --sm-un: 0.5rem;
 
-  --br: 10px;
+  --br: 5px;
   --full-br: 50%;
 
-  --br-shadow: 20px;
+  --br-shadow: 10px;
 
   --blur: 10px;
 
@@ -44,7 +44,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: var(--light);
+  color: var(--gray);
   font-family: var(--f);
   font-size: var(--normal-fs);
   font-weight: var(--normal-fw);
@@ -82,7 +82,6 @@ body {
   background: var(--light);
 }
 
-::placeholder {
-  color: var(--light);
+input[type="text"]::placeholder {
   opacity: 0.5;
 }

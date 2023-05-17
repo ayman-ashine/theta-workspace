@@ -6,7 +6,7 @@ export default function Navigator() {
 
     const [workspace, setWorkspace] = useContext(Context)
 
-    const add_workspace = () => {
+    const workspace_add = () => {
 
         Manager_Data.select_workspace('')
 
@@ -16,7 +16,7 @@ export default function Navigator() {
                 select: true,
                 name: 'new tab',
                 frames: [],
-            }    
+            }
         )
 
     }
@@ -39,7 +39,17 @@ export default function Navigator() {
 
         <div className={styles.container}>
 
-            <div className={styles.tabs}>
+            <div className={styles.container_tab}>
+
+                <div className={styles.menu}>
+
+                    <img
+                        className={styles.icon}
+                        onClick={() => LocalSaveData(workspace)}
+                        src="https://img.icons8.com/ios-glyphs/25/FFFFFF/bookmark-ribbon.png"
+                    />
+
+                </div>
 
                 {
                     workspace.map((ws, index) => {
@@ -51,11 +61,11 @@ export default function Navigator() {
                                 key={ws.id}
                                 onClick={() => Manager_Data.select_workspace(ws.id)}
                             >
-                                <img className={styles.icon} src="https://img.icons8.com/material-outlined/20/FFFFFF/tab.png"/>
+                                <img className={styles.icon} src="https://img.icons8.com/material-outlined/20/FFFFFF/tab.png" />
                                 <div className={styles.name}>{ws.name}</div>
                                 <div className={styles.remove}>
                                     <img
-                                        className={styles.remove_icon}
+                                        className={styles.icon}
                                         onClick={(e) => workspace_remove(e, ws.id, index)}
                                         src="https://img.icons8.com/windows/20/FFFFFF/delete-sign.png"
                                     />
@@ -69,20 +79,12 @@ export default function Navigator() {
 
                 <div className={styles.add}>
                     <img
-                        className={styles.add_icon}
-                        onClick={add_workspace}
-                        src="https://img.icons8.com/ios/20/FFFFFF/plus-math--v1.png"
+                        className={styles.icon}
+                        onClick={workspace_add}
+                        src="https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png"
                     />
                 </div>
 
-            </div>
-
-            <div className={styles.save}>
-                <img
-                    className={styles.add_icon}
-                    onClick={() => LocalSaveData(workspace)}
-                    src="https://img.icons8.com/ios-glyphs/20/FFFFFF/bookmark-ribbon.png"
-                />
             </div>
 
         </div>

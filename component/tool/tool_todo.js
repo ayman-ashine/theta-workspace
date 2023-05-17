@@ -134,12 +134,12 @@ export default function Tool_Todo(params) {
                         <div className={styles.todo} key={index}>
 
                             <div className={[styles.grab, 'circle'].join(' ')} onMouseDown={() => grab(todo.id)}>
-                                <img src="https://img.icons8.com/material-sharp/20/ffffff/menu-2.png"/>
+                                <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png"/>
                             </div>
                             <div className={[styles.complete, todo.complete?'bkg-teal':'circle'].join(' ')} onClick={() => complete(todo.id)}>
                                 <img
                                     className={todo.complete?'':'hide'}
-                                    src="https://img.icons8.com/material-rounded/20/ffffff/checkmark--v1.png"
+                                    src="https://img.icons8.com/material-rounded/20/null/checkmark--v1.png"
                                     />
                             </div>
                             <div className={styles.input}>
@@ -152,7 +152,7 @@ export default function Tool_Todo(params) {
                                     />
                             </div>
                             <div className={[styles.remove, 'circle'].join(' ')} onClick={() => remove(todo.id)}>
-                                <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/ffffff/delete-sign--v1.png"/>
+                                <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png"/>
                             </div>
 
                             <div className={[styles.face, todo.show_face?'':'hide'].join(' ')} id={todo.id}></div>
@@ -167,7 +167,7 @@ export default function Tool_Todo(params) {
             <div className={styles.add}>
 
                 <p className={[styles.add_icon, 'circle'].join(' ')} onClick={add}>
-                    <img src="https://img.icons8.com/ios/20/ffffff/plus-math--v1.png" />
+                    <img src="https://img.icons8.com/ios/20/null/plus-math--v1.png" />
                 </p>
 
             </div>
