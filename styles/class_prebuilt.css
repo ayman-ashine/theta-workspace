@@ -132,11 +132,18 @@
     height: 100%;
 }
 
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
 .circle::before {
     content: "";
+    width: 120%;
+    height: 120%;
     position: absolute;
-    width: 30px;
-    height: 30px;
     background-color: var(--low-light);
     border-radius: var(--full-br);
     display: none;
@@ -146,11 +153,18 @@
     display: block;
 }
 
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
 .square::before {
     content: "";
+    width: 120%;
+    height: 120%;
     position: absolute;
-    width: 30px;
-    height: 30px;
     background-color: var(--low-light);
     border-radius: var(--br);
     display: none;

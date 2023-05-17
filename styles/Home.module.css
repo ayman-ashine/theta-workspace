@@ -15,14 +15,17 @@
     margin-bottom: var(--lg-un);
     font-size: var(--md-fs);
     font-weight: 600;
+    color: var(--light);
 }
 
 .description {
     padding: var(--sm-un) 0;
     margin-bottom: var(--lg-un);
+    color: var(--light);
 }
 
 .btn {
+    color: var(--light);
     position: relative;
     padding: var(--sm-un);
     margin-bottom: var(--lg-un);

@@ -1,32 +1,13 @@
 .container {
     background-color: var(--gray);
     width: 100%;
-    height: 40px;
+    height: 50px;
     position: relative;
-    display: flex;
-}
-
-.menu {
-    background-color: var(--dark);
-    border-right: 1px solid var(--low-light);
-    display: flex;
-    gap: var(--sm-un);
-    align-items: center;
-    padding: var(--sm-un);
-    width: 100%;
-    height: 100%;
-    color: var(--light);
-}
-
-.container_tab {
-    width: 100%;
-    height: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(10, 150px);
     grid-auto-flow: column;
-    overflow: hidden;
-    transition: all .5s;
+
 }
 
 .tab {
@@ -43,7 +24,7 @@
     opacity: 0.5;
 }
 
-.tab:hover:not(.select) {
+.tab:hover {
     opacity: 1;
 }
 
@@ -64,19 +45,17 @@
 }
 
 .remove {
-    opacity: 0;
-    grid-column: span 1;
     display: flex;
     justify-content: end;
+    opacity: 0;
 }
-
 
 .add {
     display: flex;
     align-items: center;
-    width: auto;
-    height: 100%;
+    justify-content: start;
     padding: var(--sm-un);
+    width: auto;
 }
 
 .icon:hover {

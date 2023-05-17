@@ -5,16 +5,14 @@
 }
 
 .todo {
-    border-top: 1px solid var(--low-dark);
+    background-color: var(--low-light);
+    border-radius: var(--br);
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: var(--sm-un);
     padding: var(--sm-un) 0;
+    margin: var(--sm-un);
     position: relative;
-}
-
-.todo:last-child {
-    border-bottom: 1px solid var(--low-dark);
 }
 
 .todo_over:hover {
@@ -25,7 +23,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: grab;
     grid-column: 1;
     position: relative;
 }
@@ -49,7 +46,6 @@
 }
 
 .title {
-    color: var();
     width: 100%;
     background-color: transparent;
     border: none;
@@ -80,14 +76,16 @@
 }
 
 .add {
-    padding: var(--sm-un);
+    background-color: var(--low-light);
+    border-radius: var(--br);
+    padding: var(--sm-un) 0;
+    margin: var(--sm-un);
     display: flex;
     justify-content: center;
-    align-items: center;
+    opacity: .8;
 }
 
-.add_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.add:hover {
+    opacity: 1;
+    cursor: pointer;
 }
