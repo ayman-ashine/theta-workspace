@@ -1,37 +1,57 @@
 .container {
-    border: 1px solid var(--low-light);
-    padding: var(--sm-un) var(--lg-un);
-    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.frame_1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    border-radius: var(--br);
+    transform: translate(-100%, -50%);
+    padding: var(--md-un);
+    width: 400px;
+}
+
+.frame_2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    padding: var(--md-un);
+    width: 400px;
 }
 
 .title {
-    padding: var(--sm-un);
     margin-bottom: var(--lg-un);
     font-size: var(--md-fs);
     font-weight: 600;
     color: var(--light);
 }
 
+.logo {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    margin-right: var(--md-un);
+}
+
 .description {
-    padding: var(--sm-un) 0;
     margin-bottom: var(--lg-un);
     color: var(--light);
+    opacity: .5;
 }
 
 .btn {
+    padding: var(--sm-un);
+    border-radius: var(--br);
+    border: 1px solid var(--light);
+    font-size: calc(var(--md-fs) / 2);
     color: var(--light);
     position: relative;
-    padding: var(--sm-un);
-    margin-bottom: var(--lg-un);
-    border-radius: var(--br);
-    border: 1px solid var(--low-light);
-    font-size: calc(var(--md-fs) / 2);
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
@@ -52,9 +72,9 @@
 }
 
 .btn:hover::before {
-    -webkit-animation: sh02 0.5s 0s linear;
-    -moz-animation: sh02 0.5s 0s linear;
-    animation: sh02 0.5s 0s linear;
+    -webkit-animation: kfs-00 0.5s 0s linear;
+    -moz-animation: kfs-00 0.5s 0s linear;
+    animation: kfs-00 0.5s 0s linear;
 }
 
 .btn::before {
@@ -66,8 +86,8 @@
     top: 7%;
     left: 0%;
     opacity: 0;
-    background: #fff;
-    box-shadow: 0 0 50px 30px #fff;
+    background: white;
+    box-shadow: 0 0 50px 30px white;
     -webkit-transform: skewX(-20deg);
     -moz-transform: skewX(-20deg);
     -ms-transform: skewX(-20deg);
@@ -75,7 +95,13 @@
     transform: skewX(-20deg);
 }
 
-@keyframes sh02 {
+.workspace {
+    width: 100%;
+    height: 100%;
+    animation: kfs-01 5s infinite ease-in-out alternate;
+}
+
+@keyframes kfs-00 {
     from {
         opacity: 0;
         left: 0%;
@@ -88,5 +114,14 @@
     to {
         opacity: 0;
         left: 100%;
+    }
+}
+
+@keyframes kfs-01 {
+    0% {
+        transform: skew(2deg) translateY(0%);
+    }
+    100% {
+        transform: skew(-2deg) translateY(10%);
     }
 }

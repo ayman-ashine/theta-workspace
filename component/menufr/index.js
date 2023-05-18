@@ -1,8 +1,8 @@
-import styles from '@/styles/Menu.module.css'
+import styles from './styles.module.css'
 import { useState } from 'react'
 import { Manager_Data } from '@/utils/modules'
 
-export default function Menu(params) {
+export default function MenuFr(params) {
 
     const [data, setData] = useState(params.data)
 

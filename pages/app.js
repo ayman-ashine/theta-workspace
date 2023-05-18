@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Manager_Data, Navigator, Workspace, LocalLoadData, Context, Loading } from '@/utils/modules'
+import { Manager_Data, Bar, Workspace, LocalLoadData, Context, Loading } from '@/utils/modules'
 
 export default function App() {
 
@@ -9,7 +9,7 @@ export default function App() {
   useEffect( () => {
 
     setWorkspace(LocalLoadData())
-    setLoading(true)
+    setTimeout( () => setLoading(true), 2000)
 
   }, [])
 
@@ -18,7 +18,7 @@ export default function App() {
     <Context.Provider value={[workspace, setWorkspace]}>
 
       <Manager_Data/>
-      <Navigator/>
+      <Bar/>
       <Workspace/>
       
       { loading ? null : <Loading/> }

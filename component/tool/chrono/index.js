@@ -1,8 +1,8 @@
-import styles from '@/styles/Tool_Chrono.module.css'
+import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
 import { Manager_Data } from '@/utils/modules'
 
-export default function Tool_Chrono(params) {
+export default function Chrono(params) {
 
     const _id = params.id
     const _data = params.data.chrono ? params.data.chrono : { min: '00', sec: '00', msec: '00', start: false, loop_id: 0 }

@@ -1,5 +1,5 @@
-import styles from '@/styles/Frame.module.css'
-import { Manager_Data, Menu, Tool } from '@/utils/modules'
+import styles from './styles.module.css'
+import { Manager_Data, MenuFr, Tool } from '@/utils/modules'
 
 export default function Frame(params) {
 
@@ -41,7 +41,7 @@ export default function Frame(params) {
 
     if (e && e.stopPropagation) e.stopPropagation();
 
-    Manager_Data.update_frame(data.id, { menu: <Menu data={{
+    Manager_Data.update_frame(data.id, { menu: <MenuFr data={{
       id: data.id,
       title: data.title,
       pos_x: data.width + data.pos_x - 10,

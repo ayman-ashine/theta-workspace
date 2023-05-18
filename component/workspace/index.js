@@ -1,6 +1,6 @@
-import styles from '@/styles/Workspace.module.css'
+import styles from './styles.module.css'
 import { useContext } from 'react'
-import { Add, Frame, Context } from '@/utils/modules'
+import { Context, Frame, MenuWs } from '@/utils/modules'
 
 export default function Workspace() {
 
@@ -18,7 +18,7 @@ export default function Workspace() {
         })
       }
 
-      <Add/>
+      <MenuWs/>
 
     </div>
 

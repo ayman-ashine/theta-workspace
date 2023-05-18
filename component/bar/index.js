@@ -1,8 +1,8 @@
-import styles from '@/styles/Navigator.module.css'
+import styles from './styles.module.css'
 import { useContext } from 'react'
 import { Manager_Data, LocalSaveData, Context, Generator } from '@/utils/modules'
 
-export default function Navigator() {
+export default function Bar() {
 
     const [workspace, setWorkspace] = useContext(Context)
 

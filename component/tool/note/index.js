@@ -1,7 +1,7 @@
-import styles from '@/styles/Tool_Note.module.css'
+import styles from './styles.module.css'
 import { Manager_Data } from '@/utils/modules'
 
-export default function Tool_Note(params) {
+export default function Note(params) {
 
     const _id = params.id
     const _data = params.data

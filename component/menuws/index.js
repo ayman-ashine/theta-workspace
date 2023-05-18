@@ -1,4 +1,4 @@
-import styles from '@/styles/Add.module.css'
+import styles from './styles.module.css'
 import { useState, useRef, useEffect } from 'react'
 import { Manager_Data, Generator } from '@/utils/modules'
 
@@ -30,7 +30,7 @@ const LOCAL_DATA = {
 
 }
 
-export default function Add(params) {
+export default function MenuWs(params) {
 
   const add = useRef()
   const [data, setData] = useState({
@@ -49,7 +49,7 @@ export default function Add(params) {
     Manager_Data.add_frame({
 
       id: Generator(),
-      title: _tool.name,
+      title: null,
       color: 'bkg-purple',
       width: 350,
       height: 350,

@@ -1,0 +1,108 @@
+.container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.timer {
+    background-color: var(--low-light);
+    border-radius: var(--br);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding: var(--sm-un) 0;
+    margin: var(--sm-un);
+    position: relative;
+}
+
+.grab {
+    grid-column: span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.input_container {
+    grid-column: span 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--md-fs);
+}
+
+.input_number {
+    text-align: center;
+    font-size: var(--md-fs);
+}
+
+/* --------- Switch --------- */
+
+.switch {
+    grid-column: span 2;
+    background-color: var(--dark);
+    position: relative;
+    display: inline-block;
+    border-radius: 2rem;
+    width: 40px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.circle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    border: 3px solid var(--dark);
+    background-color: var(--light);
+}
+
+.checkbox:checked+.circle {
+    background-color: var(--teal);
+    transform: translate(100%, -50%);
+}
+
+/* --------------------------- */
+
+.remove {
+    grid-column: span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+    opacity: .5;
+    transition: .2s;
+}
+
+.add:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.face:hover {
+    background-color: var(--low-light);
+}
