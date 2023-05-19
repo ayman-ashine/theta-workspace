@@ -70,7 +70,7 @@
     background-color: var(--light);
 }
 
-.checkbox:checked+.circle {
+.checkbox:checked + .circle {
     background-color: var(--teal);
     transform: translate(100%, -50%);
 }

@@ -116,7 +116,7 @@ export default function Todo(params) {
 
     }
 
-    function remove(_id) {
+    const remove = (_id) => {
 
         setData(state => state.filter(todo => todo.id !== _id))
 

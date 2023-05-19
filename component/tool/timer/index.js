@@ -22,102 +22,69 @@ export default function Timer(params) {
 
     const add = () => {
 
-        setData(state => [...state, {
+        setData( state => [...state, {
             id: Generator(),
-            complete: false,
-            show_face: false,
-            title: '',
+            active: false,
+            hour: 0,
+            min: 0,
+            sec: 0
         }])
 
     }
 
-    const sort = (_id, __id) => {
+    const remove = ( _id ) => {
 
-        let from = 0
-        let to = 0
-
-        const swap = () => {
-
-            let c_data = [...data]
-            let c_todo = c_data[from]
-            c_data[from] = c_data[to]
-            c_data[to] = c_todo
-
-            setData(c_data)
-
-        }
-
-        setData(state => state.map((todo, index) => {
-
-            if (todo.id === _id) from = index
-            if (todo.id === __id) to = index
-            return todo
-
-        }))
-
-        swap()
+        setData( state => state.filter( timer => timer.id !== _id ))
 
     }
 
-    const grab = (_id) => {
+    const activate = ( _id ) => {
 
-        let pos_x = 0
-        let pos_y = 0
+        setData( state => state.map( timer => {
 
-        setData(state => state.map(todo => {
-            if (todo.id !== _id) return { ...todo, show_face: true }
-            else return todo
-        }))
+            if(timer.id == _id) return {...timer, active: timer.active ? false : true }
+            else return timer
 
-        document.addEventListener('mousemove', move)
-        document.addEventListener('mouseup', rest)
-
-        function move(e) {
-
-            pos_x = e.x
-            pos_y = e.y
-
-        }
-
-        function rest() {
-
-            let todo = document.elementFromPoint(pos_x, pos_y)
-            let __id = todo.getAttribute('id')
-
-            if (__id) sort(_id, __id)
-
-            setData(state => state.map(todo => {
-                return { ...todo, show_face: false }
-            }))
-
-            document.removeEventListener('mousemove', move)
-            document.removeEventListener('mouseup', rest)
-
-        }
-
-    }
-
-    const complete = (_id) => {
-
-        setData(state => state.map(todo => {
-            if (todo.id === _id) return { ...todo, complete: !todo.complete }
-            else return todo
         }))
 
     }
 
-    const title = (e, _id) => {
+    const add_zero = (_num) => {
 
-        setData(state => state.map(todo => {
-            if (todo.id === _id) return { ...todo, title: e.target.value }
-            else return todo
+        return _num < 10 ? '0' + _num : String(_num)
+
+    }
+
+    const change_hour = (_id, _value) => {
+
+        setData( state => state.map( timer => {
+
+            if(timer.id == _id) return {...timer, hour: _value}
+            else return timer
+
         }))
 
     }
 
-    function remove(_id) {
+    const change_min = (_id, _value) => {
 
-        setData(state => state.filter(todo => todo.id !== _id))
+        setData( state => state.map( timer => {
+
+            if(timer.id == _id) return {...timer, min: _value}
+            else return timer
+
+        }))
+
+    }
+
+    const change_sec = (_id, _value) => {
+
+        setData( state => state.map( timer => {
+
+            if(timer.id == _id) return {...timer, sec: _value}
+            else return timer
+
+        }))
 
     }
 
@@ -129,7 +96,7 @@ export default function Timer(params) {
 
                 <div className={styles.timer} key={index}>
 
-                    <div className={styles.grab} onMouseDown={() => grab(timer.id)}>
+                    <div className={styles.grab}>
 
                         <div className="circle">
                             <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png" />
@@ -142,26 +109,31 @@ export default function Timer(params) {
                         <input
                             className={styles.input_number}
                             type='number'
-                            value='00'
-                            onChange={(e) => {}}
+                            value={add_zero(timer.hour)}
+                            onChange={(e) => { change_hour(timer.id, e.target.value) }}
                         />
                         <input
                             className={styles.input_number}
                             type='number'
-                            value='00'
-                            onChange={(e) => {}}
+                            value={add_zero(timer.min)}
+                            onChange={(e) => { change_min(timer.id, e.target.value) }}
                         />
                         <input
                             className={styles.input_number}
                             type='number'
-                            value='00'
-                            onChange={(e) => {}}
+                            value={add_zero(timer.sec)}
+                            onChange={(e) => { change_sec(timer.id, e.target.value) }}
                         />
 
                     </div>
 
-                    <label className={styles.switch}>
-                        <input className={styles.checkbox} type="checkbox"/>
+                    <label className={styles.switch} onClick={() => activate(timer.id)}>
+                        {
+                            timer.active ?
+                            <input className={styles.checkbox} type="checkbox" checked />
+                            :
+                            <input className={styles.checkbox} type="checkbox"/>
+                        }
                         <span className={styles.circle}></span>
                     </label>
 
@@ -170,8 +142,6 @@ export default function Timer(params) {
                             <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png" />
                         </div>
                     </div>
-
-                    <div className={[styles.face, timer.show_face ? '' : 'hide'].join(' ')} id={timer.id}></div>
 
                 </div>
             )
