@@ -72,7 +72,7 @@ export default function Frame(params) {
           <span className={styles.title}>
             {data.title}
           </span>
-          <span className={styles.menu + ' circle'} onMouseDown={menu}>
+          <span className='circle' onMouseDown={menu}>
             <img src="https://img.icons8.com/material-outlined/20/null/menu-2.png" />
           </span>
         </div>

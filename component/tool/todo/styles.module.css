@@ -8,9 +8,9 @@
     background-color: var(--low-light);
     border-radius: var(--br);
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     gap: var(--sm-un);
-    padding: var(--sm-un) 0;
+    padding: var(--sm-un);
     margin: var(--sm-un);
     position: relative;
 }
@@ -20,16 +20,16 @@
 }
 
 .grab {
+    grid-column: span 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-column: 1;
     position: relative;
 }
 
 .complete {
+    grid-column: span 1;
     border: 1px solid var(--low-dark);
-    grid-column: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@
 }
 
 .input {
-    grid-column: 3 / 8;
+    grid-column: span 7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +58,7 @@
 }
 
 .remove {
-    grid-column: 8;
+    grid-column: span 1;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -65,13 +65,10 @@ export default function Bar() {
 
         <div className={styles.container}>
 
-            <div className={[styles.tab, styles.select].join(' ')}>
+            <div className={styles.tab}>
 
                 <div className='square' onClick={() => LocalSaveData(workspace)}>
-                    <img
-                        className="square"
-                        src="https://img.icons8.com/ios-glyphs/25/FFFFFF/bookmark-ribbon.png"
-                    />
+                    <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/bookmark-ribbon.png"/>
                 </div>
 
             </div>
@@ -81,9 +78,7 @@ export default function Bar() {
             <div className={styles.add}>
 
                 <div className='square' onClick={workspace_add}>
-                    <img
-                        src="https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png"
-                    />
+                    <img src="https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png"/>
                 </div>
 
             </div>

@@ -1,164 +1,180 @@
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import { Manager_Data, Generator } from '@/utils/modules'
+import { Manager_Data } from '@/utils/modules'
 
 export default function Timer(params) {
 
-    const _id = params.id
-    const _data = params.data.list ? params.data.list : []
-    const [data, setData] = useState(_data)
+    const frame_id = params.id
+    const initial_data = params.data.timer ? params.data.timer : { start: false, loop_id: 0, hour: 0, min: 0, sec: 0, s_hour: 0, s_min: 0, s_sec: 0 }
+    const [data, setData] = useState(initial_data)
 
-    useEffect(() => {
-
-        update()
-
-    }, [data])
+    useEffect(() => { update() }, [data])
 
     const update = () => {
 
-        Manager_Data.update_frame(_id, { tool_data: { list: data } })
+        Manager_Data.update_frame(frame_id, { tool_data: { timer: data } })
 
     }
 
-    const add = () => {
+    const add_zero = (num) => { return num < 10 ? '0' + num : String(num) }
 
-        setData( state => [...state, {
-            id: Generator(),
-            active: false,
-            hour: 0,
-            min: 0,
-            sec: 0
-        }])
+    const start_pause = () => {
 
-    }
+        if (data.start) {
 
-    const remove = ( _id ) => {
+            clearInterval(data.loop_id)
+            setData(state => { return { ...state, start: false } })
 
-        setData( state => state.filter( timer => timer.id !== _id ))
+        } else if(data.hour || data.min || data.sec) {
 
-    }
+            let hour = data.hour
+            let min = data.min
+            let sec = data.sec
 
-    const activate = ( _id ) => {
+            let loop_id = setInterval(() => {
 
-        setData( state => state.map( timer => {
+                if (sec > 0) sec -= 1
+                else if (min > 0) {
+                    min -= 1
+                    sec = 59
+                } else if (hour > 0) {
+                    hour -= 1
+                    min = 59
+                } else {
+                    clearInterval(loop_id)
+                    setData(state => { return { ...state, start: false } })
+                    sound()
+                }
 
-            if(timer.id == _id) return {...timer, active: timer.active ? false : true }
-            else return timer
+                setData(state => {
+                    return { ...state, hour, min, sec }
+                })
 
-        }))
 
-    }
+            }, 1000)
 
-    const add_zero = (_num) => {
+            setData(state => { return { ...state, start: true, loop_id } })
 
-        return _num < 10 ? '0' + _num : String(_num)
+        }
 
-    }
 
-    const change_hour = (_id, _value) => {
-
-        setData( state => state.map( timer => {
-
-            if(timer.id == _id) return {...timer, hour: _value}
-            else return timer
-
-        }))
-
-    }
-
-    const change_min = (_id, _value) => {
-
-        setData( state => state.map( timer => {
-
-            if(timer.id == _id) return {...timer, min: _value}
-            else return timer
-
-        }))
 
     }
 
-    const change_sec = (_id, _value) => {
+    const rest = () => {
 
-        setData( state => state.map( timer => {
-
-            if(timer.id == _id) return {...timer, sec: _value}
-            else return timer
-
-        }))
+        if (data.start) start_pause()
+        setData( state => { return {...state, hour: 0, min: 0, sec: 0} })
 
     }
 
-    const get_timers = () => {
+    const sound = () => {
 
-        return data.map((timer, index) => {
-
-            return (
-
-                <div className={styles.timer} key={index}>
-
-                    <div className={styles.grab}>
-
-                        <div className="circle">
-                            <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png" />
-                        </div>
-
-                    </div>
-                    
-                    <div className={styles.input_container}>
-
-                        <input
-                            className={styles.input_number}
-                            type='number'
-                            value={add_zero(timer.hour)}
-                            onChange={(e) => { change_hour(timer.id, e.target.value) }}
-                        />
-                        <input
-                            className={styles.input_number}
-                            type='number'
-                            value={add_zero(timer.min)}
-                            onChange={(e) => { change_min(timer.id, e.target.value) }}
-                        />
-                        <input
-                            className={styles.input_number}
-                            type='number'
-                            value={add_zero(timer.sec)}
-                            onChange={(e) => { change_sec(timer.id, e.target.value) }}
-                        />
-
-                    </div>
-
-                    <label className={styles.switch} onClick={() => activate(timer.id)}>
-                        {
-                            timer.active ?
-                            <input className={styles.checkbox} type="checkbox" checked />
-                            :
-                            <input className={styles.checkbox} type="checkbox"/>
-                        }
-                        <span className={styles.circle}></span>
-                    </label>
-
-                    <div className={styles.remove} onClick={() => remove(timer.id)}>
-                        <div className="circle">
-                            <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png" />
-                        </div>
-                    </div>
-
-                </div>
-            )
-
-        })
+        const timer_done_sound = new Audio('/timer_done_sound.wav')
+        timer_done_sound.play()
 
     }
 
     return (
 
-        <div className={styles.container}>
+        <div className='container flex-center'>
 
-            { get_timers() }
+            <div>
 
-            <div className={[styles.timer, styles.add].join(' ')} onClick={add}>
+                <div className='flex-center lg-fs lg-my'>
 
-                <img src="https://img.icons8.com/ios/25/null/plus-math--v1.png" />
+                    <div className={styles.num}>
+
+                        <div
+                            className={`${styles.btn_plus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.hour < 59 ? { ...state, hour: state.hour + 1 } : state
+                                })
+                            }}>
+                            +
+                        </div>
+
+                        {add_zero(data.hour)}
+
+                        <div
+                            className={`${styles.btn_minus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.hour > 0 ? { ...state, hour: state.hour - 1 } : state
+                                })
+                            }}>
+                            -
+                        </div>
+
+                    </div>
+                    :
+                    <div className={styles.num}>
+
+                        <div
+                            className={`${styles.btn_plus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.min < 59 ? { ...state, min: state.min + 1 } : state
+                                })
+                            }}>
+                            +
+                        </div>
+
+                        {add_zero(data.min)}
+
+                        <div
+                            className={`${styles.btn_minus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.min > 0 ? { ...state, min: state.min - 1 } : state
+                                })
+                            }}>
+                            -
+                        </div>
+
+                    </div>
+                    :
+                    <div className={styles.num}>
+
+                        <div
+                            className={`${styles.btn_plus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.sec < 59 ? { ...state, sec: state.sec + 1 } : state
+                                })
+                            }}>
+                            +
+                        </div>
+
+                        {add_zero(data.sec)}
+
+                        <div
+                            className={`${styles.btn_minus} flex-center full-br`}
+                            onMouseDown={() => {
+                                setData(state => {
+                                    return state.sec > 0 ? { ...state, sec: state.sec - 1 } : state
+                                })
+                            }}>
+                            -
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className='flex-center lg-my lg-g'>
+
+                    <div className='circle' onClick={start_pause}>
+                        <img className={data.start ? 'hide' : ''} src="https://img.icons8.com/material-outlined/40/null/circled-play.png" />
+                        <img className={data.start ? '' : 'hide'} src="https://img.icons8.com/material-outlined/40/null/circled-pause.png" />
+                    </div>
+
+                    <div className='circle' onClick={rest}>
+                        <img src="https://img.icons8.com/material-outlined/40/null/restart--v1.png" />
+                    </div>
+
+                </div>
 
             </div>
 
@@ -166,4 +182,4 @@ export default function Timer(params) {
 
     )
 
-}
+    }

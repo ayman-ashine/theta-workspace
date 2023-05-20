@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--gray);
+    background-color: var(--low-dark);
     width: 100%;
     height: 50px;
     position: relative;
@@ -11,7 +11,7 @@
 }
 
 .tab {
-    background-color: var(--gray);
+    background-color: var(--low-dark);
     border-right: 1px solid var(--low-light);
     height: 100%;
     width: 100%;

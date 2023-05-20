@@ -1,20 +1,16 @@
 .container {
+  overflow: hidden;
   position: absolute;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
-  overflow: hidden;
   border-radius: var(--br);
-  /* Make blur as an option because it's need more resources */
-  /*  backdrop-filter: blur(var(--blur)); */
-  box-shadow: 0 0 var(--br-shadow) var(--low-dark);
 }
 
 .head {
-  padding: calc( var(--sm-un) / 2 ) var(--sm-un);
+  padding: 0 var(--sm-un);
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(8, 1fr) auto;
-  width: 100%;
+  grid-template-columns: repeat(9, 1fr) auto;
 }
 
 .head:hover {
@@ -22,20 +18,13 @@
 }
 
 .title {
-  grid-column: span 8;
+  grid-column: span 9;
   width: 100%;
   overflow: hidden;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
 .body {
-  grid-row: span 9;
+  grid-row: span 10;
   width: 100%;
   height: 100%;
 }

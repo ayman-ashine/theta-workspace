@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
 
 :root {
-  --dark: rgb(15, 15, 15);
+  --dark: rgb(20, 25, 30);
   --light: rgb(255, 255, 255);
-  --gray: rgb(30, 30, 30);
+  --gray: rgb(40, 45, 50);
   --low-dark: rgb(0, 0, 0, .5);
-  --low-light: rgb(255, 255, 255, .2);
+  --low-light: rgb(255, 255, 255, .25);
   --red: #ea868f;
   --pink: #e685b5;
   --purple: #a98eda;
@@ -44,7 +44,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: var(--gray);
+  color: var(--white);
   font-family: var(--f);
   font-size: var(--normal-fs);
   font-weight: var(--normal-fw);
