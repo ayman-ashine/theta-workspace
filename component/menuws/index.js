@@ -50,7 +50,7 @@ export default function MenuWs(params) {
 
       id: Generator(),
       title: null,
-      color: 'bkg-purple',
+      color: 'bkg-blue',
       width: 350,
       height: 350,
       parent: {},

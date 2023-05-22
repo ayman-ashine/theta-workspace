@@ -4,9 +4,10 @@ import Link from "next/link"
 export default function Home() {
 
     return (
-        <div className={styles.container}>
 
-            <div className={styles.frame_1}>
+        <div className='flex-center'>
+
+            <div className={styles.container}>
 
                 <h1 className={styles.title}>
                     <img className={styles.logo} src="/logo.png"/>
@@ -14,22 +15,24 @@ export default function Home() {
                 </h1>
                 
                 <p className={styles.description}>
-                    Theta Workspace is a web application dedicated to those who want to manage their time and daily tasks for more productivity and efficiency.
+                    Welcome to Theta Workspace,
+                    Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
+                    Take control of your day and embark on a journey towards a more efficient and productive future.
+                    Get started now and unlock your true potential.
                 </p>
 
                 <Link href='/app'>
-                    <button className={styles.btn}>
-                        Get started
-                    </button>
+                    <button className={styles.btn}>get started</button>
                 </Link>
                 
             </div>
 
-            <div className={styles.frame_2}>
+            <div className={styles.container}>
                 <img className={styles.workspace} src="/workspace.png"/>
             </div>
 
         </div>
+
     )
 
 }
