@@ -251,12 +251,43 @@
     overflow-y: auto;
 }
 
+.flex-start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
 .flex-center {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flex-end {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.sm-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.md-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.lg-icon {
+    width: 50px;
+    height: 50px;
 }
 
 .hide {
@@ -275,14 +306,14 @@
     opacity: 1;
 }
 
-.circle {
+.hover-effect-circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
 }
-.circle::before {
+.hover-effect-circle::before {
     content: "";
     width: 120%;
     height: 120%;
@@ -292,18 +323,18 @@
     display: none;
 }
 
-.circle:hover::before {
+.hover-effect-circle:hover::before {
     display: block;
 }
 
-.square {
+.hover-effect-square {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
 }
-.square::before {
+.hover-effect-square::before {
     content: "";
     width: 120%;
     height: 120%;
@@ -313,6 +344,6 @@
     display: none;
 }
 
-.square:hover::before {
+.hover-effect-square:hover::before {
     display: block;
 }

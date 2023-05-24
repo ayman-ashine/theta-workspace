@@ -134,14 +134,14 @@ export default function Todo(params) {
                             <div className={styles.todo} key={index}>
 
                                 <div className={styles.grab} >
-                                    <div className="circle" onMouseDown={() => grab(todo.id)}>
-                                        <img src="https://img.icons8.com/material-sharp/20/null/menu-2.png" />
+                                    <div className="hover-effect-circle" onMouseDown={() => grab(todo.id)}>
+                                        <img  className='sm-icon' src="https://img.icons8.com/material-sharp/50/null/menu-2.png" />
                                     </div>
                                 </div>
-                                <div className={[styles.complete, todo.complete ? 'bkg-teal' : 'square'].join(' ')} onClick={() => complete(todo.id)}>
+                                <div className={[styles.complete, todo.complete ? 'bkg-teal' : 'hover-effect-square'].join(' ')} onClick={() => complete(todo.id)}>
                                     <img
-                                        className={todo.complete ? '' : 'hide'}
-                                        src="https://img.icons8.com/material-rounded/20/null/checkmark--v1.png"
+                                        className={todo.complete ? 'sm-icon' : 'hide'}
+                                        src="https://img.icons8.com/material-rounded/50/null/checkmark--v1.png"
                                     />
                                 </div>
                                 <div className={styles.input}>
@@ -154,8 +154,8 @@ export default function Todo(params) {
                                     />
                                 </div>
                                 <div className={styles.remove} onClick={() => remove(todo.id)}>
-                                    <div className="circle">
-                                        <img className={styles.icon} src="https://img.icons8.com/ios-filled/20/null/delete-sign--v1.png" />
+                                    <div className='hover-effect-circle'>
+                                        <img className='sm-icon' src="https://img.icons8.com/ios-filled/50/null/delete-sign--v1.png" />
                                     </div>
                                 </div>
 
@@ -166,9 +166,9 @@ export default function Todo(params) {
                     })
                 }
 
-                <div className={styles.add} onClick={add}>
+                <div className={`${styles.add} flex-center bkg-low-light br sm-m sm-py`} onClick={add}>
 
-                    <img src="https://img.icons8.com/ios/25/null/plus-math--v1.png" />
+                    <img className='md-icon' src="https://img.icons8.com/ios/50/null/plus-math--v1.png" />
 
                 </div>
 

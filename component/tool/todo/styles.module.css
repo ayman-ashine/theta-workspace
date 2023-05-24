@@ -33,7 +33,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     border-radius: var(--br);
 }
 
@@ -42,7 +41,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .title {
@@ -62,7 +60,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .face {
@@ -76,16 +73,10 @@
 }
 
 .add {
-    background-color: var(--low-light);
-    border-radius: var(--br);
-    padding: var(--sm-un) 0;
-    margin: var(--sm-un);
-    display: flex;
-    justify-content: center;
-    opacity: .8;
+    width: auto;
 }
 
 .add:hover {
-    opacity: 1;
+    backdrop-filter: brightness(1.2);
     cursor: pointer;
 }

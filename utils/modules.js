@@ -4,6 +4,7 @@
 export { default as Loading } from '@/component/loading'
 export { default as Workspace } from '@/component/workspace'
 export { default as Bar } from '@/component/bar'
+export { default as Menu_Main } from '@/component/menu'
 export { default as MenuWs } from '@/component/menuws'
 export { default as MenuFr } from '@/component/menufr'
 export { default as Frame } from '@/component/frame'
@@ -14,7 +15,6 @@ export { default as Info } from '@/component/info'
 // data
 export { Context } from '@/component/data/context'
 export { Manager_Data } from '@/component/data/manager_data'
-export { LocalLoadData, LocalSaveData } from '@/component/data/local_storage'
 
 // tool
 export { default as Tool } from '@/component/tool'

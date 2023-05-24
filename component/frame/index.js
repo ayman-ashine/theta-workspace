@@ -72,8 +72,8 @@ export default function Frame(params) {
           <span className={styles.title}>
             {data.title}
           </span>
-          <span className='circle' onMouseDown={menu}>
-            <img src="https://img.icons8.com/material-outlined/20/null/menu-2.png" />
+          <span className='hover-effect-circle' onMouseDown={menu}>
+            <img className='md-icon' src="https://img.icons8.com/external-linear-outline-icons-papa-vector/50/external-Menu-interface-linear-outline-icons-papa-vector-4.png" />
           </span>
         </div>
 

@@ -1,21 +1,16 @@
 import styles from './styles.module.css'
-import { useContext } from 'react'
-import { Manager_Data, LocalSaveData, Context, Generator } from '@/utils/modules'
+import { useContext, useState } from 'react'
+import { Manager_Data, Context, Menu_Main } from '@/utils/modules'
 
 export default function Bar() {
 
     const [workspace, setWorkspace] = useContext(Context)
-
+    const [mainMenu, setMainMenu] = useState({menu: null, display: false})
+    
     const add_workspace = () => {
 
         Manager_Data.select_workspace('')
-
-        Manager_Data.add_workspace( {
-            id: Generator(),
-            name: 'new tab',
-            select: true,
-            frames: [],
-        })
+        Manager_Data.add_workspace()
 
     }
 
@@ -63,11 +58,11 @@ export default function Bar() {
                     onClick={() => select_grab_workspace(ws.id)}
                     key={ws.id}
                 >
-                    <img src="https://img.icons8.com/material-outlined/20/FFFFFF/tab.png" />
+                    <img className='sm-icon' src="https://img.icons8.com/material-outlined/50/FFFFFF/tab.png" />
                     <div className={styles.name}>{ws.name}</div>
                     <div className={styles.remove}>
-                        <div className="circle" onClick={(e) => remove_workspace(e, ws.id, index)}>
-                            <img src="https://img.icons8.com/windows/20/FFFFFF/delete-sign.png"/>
+                        <div className='hover-effect-circle' onClick={(e) => remove_workspace(e, ws.id, index)}>
+                            <img className='sm-icon' src="https://img.icons8.com/windows/50/FFFFFF/delete-sign.png"/>
                         </div>
                     </div>
                 </div>
@@ -78,27 +73,64 @@ export default function Bar() {
 
     }
 
+    /* Open Main Menu */
+    const open_menu = (e) => {
+
+        if(!mainMenu.display) {
+
+            let pos_x = e.target.offsetLeft
+            let pos_y = e.target.offsetParent.offsetHeight
+
+            setMainMenu({
+                menu: <Menu_Main pos_x={pos_x} pos_y={pos_y} display={true} close={close_menu}/>,
+                display: true
+            })
+
+        } else close_menu()
+      
+    }
+
+    const close_menu = () => {
+
+        setMainMenu({
+            menu: null,
+            display: false
+        })
+
+    }
+
     return (
 
         <div className={styles.container}>
 
-            <div className={[styles.tab, styles.control].join(' ')}>
+            <div className={[styles.control].join(' ')}>
 
-                <div className='square' onClick={() => LocalSaveData(workspace)}>
-                    <img src="https://img.icons8.com/fluency-systems-regular/25/FFFFFF/menu--v1.png"/>
+                <div className='flex-start'>
+                    <div className='hover-effect-square' onClick={open_menu}>
+                        <img className='md-icon' src="https://img.icons8.com/fluency-systems-regular/50/FFFFFF/menu--v1.png"/>
+                    </div>
+                </div>
+
+                <div className='flex-start'>
+                    <label class={styles.switch}>
+                        <input type="checkbox"/>
+                        <span class={styles.slider}></span>
+                    </label>
                 </div>
 
             </div>
 
             { tabs() }
 
-            <div className={styles.add}>
+            <div className='flex-start sm-p'>
 
-                <div className='square' onClick={add_workspace}>
-                    <img src="https://img.icons8.com/ios/25/FFFFFF/plus-math--v1.png"/>
+                <div className='hover-effect-square' onClick={add_workspace}>
+                    <img className='md-icon' src="https://img.icons8.com/ios/50/FFFFFF/plus-math--v1.png"/>
                 </div>
 
             </div>
+
+            { mainMenu.menu }
 
         </div>
 

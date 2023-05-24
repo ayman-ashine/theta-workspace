@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Manager_Data, Bar, Workspace, LocalLoadData, Context, Loading } from '@/utils/modules'
+import { Manager_Data, Bar, Workspace, Context, Loading } from '@/utils/modules'
 
 export default function App() {
 
@@ -8,7 +8,7 @@ export default function App() {
 
   useEffect( () => {
 
-    setWorkspace(LocalLoadData())
+    Manager_Data.local_load()
     setTimeout( () => setLoading(true), 2000)
 
   }, [])
