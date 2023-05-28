@@ -28,7 +28,9 @@ export default function Home() {
             </div>
 
             <div className={styles.container}>
+
                 <img className={styles.workspace} src="/workspace.png"/>
+            
             </div>
 
         </div>

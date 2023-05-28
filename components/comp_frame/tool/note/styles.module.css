@@ -1,0 +1,4 @@
+.textarea {
+    padding: var(--sm-un);
+    overflow-y: auto;
+}

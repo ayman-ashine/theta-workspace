@@ -1,29 +1,41 @@
-import { useEffect, useState } from 'react'
-import { Manager_Data, Bar, Workspace, Context, Loading } from '@/utils/modules'
+import { useState, useEffect } from 'react'
+import {
+  App_Context,
+  Manager_Data,
+  Manager_Settings,
+  Comp_Header,
+  Comp_Loader,
+  Comp_Workspace
+} from '@/utils/modules'
 
 export default function App() {
 
-  const [workspace, setWorkspace] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [appData, setAppData] = useState([])
+  const [appSettings, setAppSettings] = useState({})
+  const [loader, setLoader] = useState(false)
 
   useEffect( () => {
 
-    Manager_Data.local_load()
-    setTimeout( () => setLoading(true), 2000)
+    Manager_Data.load()
+    Manager_Settings.load()
+    setTimeout( () => setLoader(true), 1000)
 
   }, [])
 
   return (
 
-    <Context.Provider value={[workspace, setWorkspace]}>
+    <App_Context.Provider value={{
+      appData, setAppData,
+      appSettings, setAppSettings
+    }}>
 
       <Manager_Data/>
-      <Bar/>
-      <Workspace/>
-      
-      { loading ? null : <Loading/> }
+      <Manager_Settings/>
+      <Comp_Loader loader={loader}/>
+      <Comp_Header/>
+      <Comp_Workspace/>
 
-    </Context.Provider>
+    </App_Context.Provider>
 
   )
 

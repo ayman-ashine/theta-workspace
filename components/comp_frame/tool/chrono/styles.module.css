@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.screen {
+    margin: var(--lg-un) 0;
+}
+
+.character {
+    font-size: var(--xl-fs);
+}
+
+.control {
+    margin: var(--lg-un) 0;
+    display: flex;
+    gap: var(--lg-un);
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

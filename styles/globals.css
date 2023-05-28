@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
 
 :root {
-  --dark: rgb(20, 25, 30);
-  --light: rgb(255, 255, 255);
-  --gray: rgb(40, 45, 50);
+
+  --dark: rgb(10, 12, 15);
+  --light: rgb(190, 195, 200);
+  --gray: rgb(20, 25, 30);
+  --light-gray: rgb(220, 225, 230);
+
   --low-dark: rgb(0, 0, 0, .5);
-  --low-light: rgb(255, 255, 255, .25);
+  --low-light: rgb(255, 255, 255, .2);
   --low-blue: rgb(50, 150, 255, .5);
+
   --red: #ea868f;
   --pink: #e685b5;
   --purple: #a98eda;
@@ -18,7 +22,7 @@
   --yellow: #ffda6a;
   --orange: #feb272;
 
-  --lg-un: 1.5rem;
+  --lg-un: 2rem;
   --md-un: 1rem;
   --sm-un: 0.5rem;
 
@@ -29,9 +33,10 @@
 
   --blur: 10px;
 
-  --normal-fs: 15px;
+  --sm-fs: 15px;
   --md-fs: 20px;
   --lg-fs: 25px;
+  --xl-fs: 50px;
 
   --normal-fw: 400;
   --bold-fw: 600;
@@ -45,15 +50,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: var(--white);
+  color: var(--light);
   font-family: var(--f);
-  font-size: var(--normal-fs);
+  font-size: var(--sm-fs);
   font-weight: var(--normal-fw);
   user-select: none;
 }
 
 body {
-  background-color: var(--dark);
+  background-color: var(--gray);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -83,13 +88,16 @@ body {
   background: var(--light);
 }
 
-input {
+input, textarea {
   width: 100%;
-  background-color: transparent;
+  height: 100%;
   border: none;
   outline: none;
+  resize: none;
+  background-color: transparent;
 }
 
-input[type="text"]::placeholder {
+input[type="text"]::placeholder, textarea::placeholder {
   opacity: 0.5;
+  color: var(--light);
 }

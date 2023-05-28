@@ -7,8 +7,10 @@ export default function App({ Component, pageProps }) {
     <>
     
       <Head>
+
         <title>Theta Workspace</title>
         <link rel='shortcut icon' href='/logo.png' />
+        
       </Head>
 
       <Component {...pageProps} />

@@ -232,7 +232,7 @@
 /* Font size - Font weight */
 
 .sm-fs {
-    font-size: var(--normal-fs);
+    font-size: var(--sm-fs);
 }
 
 .md-fs {
@@ -243,13 +243,15 @@
     font-size: var(--lg-fs);
 }
 
-/* Containers */
-
-.container {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
+.normal-fw {
+    font-weight: var(--normal-fw);
 }
+
+.bold-fw {
+    font-weight: var(--bold-fw);
+}
+
+/* Containers */
 
 .flex-start {
     width: 100%;
