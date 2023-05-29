@@ -1,4 +1,4 @@
-import { Manager_Data } from '@/utils/modules'
+import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Comp_Add_Tab() {
 
@@ -12,8 +12,8 @@ export default function Comp_Add_Tab() {
     return (
 
         <div className='flex-start sm-p'>
-            <div className='hover-effect-square' onClick={add_workspace}>
-                <img className='sm-icon' src="https://img.icons8.com/ios/50/FFFFFF/plus-math--v1.png"/>
+            <div onClick={add_workspace}>
+                <Comp_Icon data={{ icon_type: 'add', icon_styles: ['sm-icon', 'light-icon'] }} />
             </div>
         </div>
 

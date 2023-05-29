@@ -9,6 +9,7 @@ export { Manager_Settings } from '@/components/data/manager_settings'
 
 // components
 export { App_Context } from '@/components/context/app_context'
+export { default as Comp_Icon } from '@/components/comp_icon'
 export { default as Comp_Loader } from '@/components/comp_loader'
 export { default as Comp_Header } from '@/components/comp_header'
 export { default as Comp_Workspace } from '@/components/comp_workspace'

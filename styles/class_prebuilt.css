@@ -292,6 +292,22 @@
     height: 50px;
 }
 
+.dark-icon {
+    fill: var(--dark);
+}
+
+.light-icon {
+    fill: var(--light);
+}
+
+.const-dark-icon {
+    fill: var(--const-dark);
+}
+
+.const-light-icon {
+    fill: var(--const-light);
+}
+
 .hide {
     display: none;
 }

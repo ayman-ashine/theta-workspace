@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import { Manager_Data, Generate_Unique_Id } from '@/utils/modules'
+import { Comp_Icon, Manager_Data, Generate_Unique_Id } from '@/utils/modules'
 
 
 export default function Todo(params) {
@@ -129,20 +129,24 @@ export default function Todo(params) {
 
                 {
                     data.map((todo, index) => {
+
                         return (
+
                             <div className={styles.todo} key={index}>
 
-                                <div className={styles.grab} >
-                                    <div className="hover-effect-circle" onMouseDown={() => grab(todo.id)}>
-                                        <img  className='sm-icon' src="https://img.icons8.com/material-sharp/50/null/menu-2.png" />
-                                    </div>
+                                <div className={styles.grab} onMouseDown={() => grab(todo.id)}>
+
+                                    <Comp_Icon data={{ icon_type: 'grab', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
+
                                 </div>
+
                                 <div className={[styles.complete, todo.complete ? 'bkg-teal' : 'hover-effect-square'].join(' ')} onClick={() => complete(todo.id)}>
                                     <img
                                         className={todo.complete ? 'sm-icon' : 'hide'}
                                         src="https://img.icons8.com/material-rounded/50/null/checkmark--v1.png"
                                     />
                                 </div>
+
                                 <div className={styles.container_input}>
                                     <input
                                         className={styles.input}
@@ -152,22 +156,23 @@ export default function Todo(params) {
                                         placeholder="..."
                                     />
                                 </div>
+
                                 <div className={styles.remove} onClick={() => remove(todo.id)}>
-                                    <div className='hover-effect-circle'>
-                                        <img className='sm-icon' src="https://img.icons8.com/ios-filled/50/null/delete-sign--v1.png" />
-                                    </div>
+                                    <Comp_Icon data={{ icon_type: 'remove', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
                                 </div>
 
                                 <div className={[styles.face, todo.show_face ? '' : 'hide'].join(' ')} id={todo.id}></div>
 
                             </div>
+
                         )
+
                     })
                 }
 
                 <div className={`${styles.add} flex-center bkg-low-light br sm-m sm-py`} onClick={add}>
 
-                    <img className='md-icon' src="https://img.icons8.com/ios/50/null/plus-math--v1.png" />
+                    <Comp_Icon data={{ icon_type: 'add', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
 
                 </div>
 

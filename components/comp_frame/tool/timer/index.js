@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import { Manager_Data } from '@/utils/modules'
+import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Timer(params) {
 
@@ -60,7 +60,7 @@ export default function Timer(params) {
 
     }
 
-    const rest = () => {
+    const reset = () => {
 
         if (data.start) start_pause()
         setData( state => { return {...state, hour: 0, min: 0, sec: 0} })
@@ -168,13 +168,13 @@ export default function Timer(params) {
 
                 <div className='flex-center lg-my lg-g'>
 
-                    <div className='hover-effect-circle' onClick={start_pause}>
-                        <img className={data.start ? 'hide' : 'lg-icon'} src="https://img.icons8.com/material-outlined/50/null/circled-play.png" />
-                        <img className={data.start ? 'lg-icon' : 'hide'} src="https://img.icons8.com/material-outlined/50/null/circled-pause.png" />
+                    <div onClick={start_pause}>
+                        <Comp_Icon data={{ icon_type: 'start', icon_styles: ['lg-icon', 'const-dark-icon', data.start ? 'hide' : null] }} />
+                        <Comp_Icon data={{ icon_type: 'pause', icon_styles: ['lg-icon', 'const-dark-icon', data.start ? null : 'hide'] }} />
                     </div>
 
-                    <div className='hover-effect-circle' onClick={rest}>
-                        <img className='lg-icon' src="https://img.icons8.com/material-outlined/50/null/restart--v1.png" />
+                    <div onClick={reset}>
+                        <Comp_Icon data={{ icon_type: 'reset', icon_styles: ['lg-icon', 'const-dark-icon'] }} />
                     </div>
 
                 </div>

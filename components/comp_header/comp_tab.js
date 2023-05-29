@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { useState } from 'react'
-import { Manager_Data } from '@/utils/modules'
+import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Comp_Tab({ workspace }) {
 
@@ -48,19 +48,19 @@ export default function Comp_Tab({ workspace }) {
             />
 
             <div className={styles.remove}>
-                <div className='hover-effect-circle' onClick={switch_edit_mode}>
+                <div onClick={switch_edit_mode}>
                     {
                         editMode?
-                        <img className='sm-icon' src="https://img.icons8.com/ios-glyphs/50/FFFFFF/checkmark--v1.png"/>
+                        <Comp_Icon data={{ icon_type: 'checkmark', icon_styles: ['sm-icon', 'light-icon'] }} />
                         :
-                        <img className='sm-icon' src="https://img.icons8.com/material-outlined/50/FFFFFF/pencil-tip.png"/>
+                        <Comp_Icon data={{ icon_type: 'edit', icon_styles: ['sm-icon', 'light-icon'] }} />
                     }
                 </div>
             </div>
 
             <div className={styles.remove}>
-                <div className='hover-effect-circle' onClick={(e) => remove_workspace(e, workspace.id)}>
-                    <img className='sm-icon' src="https://img.icons8.com/windows/50/FFFFFF/delete-sign.png"/>
+                <div onClick={(e) => remove_workspace(e, workspace.id)}>
+                    <Comp_Icon data={{ icon_type: 'remove', icon_styles: ['sm-icon', 'light-icon'] }} />
                 </div>
             </div>
 

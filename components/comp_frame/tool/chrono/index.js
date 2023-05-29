@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import { Manager_Data} from '@/utils/modules'
+import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Chrono(params) {
 
@@ -71,7 +71,7 @@ export default function Chrono(params) {
 
     const reset = () => {
 
-        if(data.start) clearInterval(data.loop_id)
+        if (data.start) clearInterval(data.loop_id)
 
         setData(state => {
             return { ...state, min: '00', sec: '00', msec: '00', start: false }
@@ -97,13 +97,13 @@ export default function Chrono(params) {
 
                 <div className={styles.control}>
 
-                    <div className={[styles.btn, 'hover-effect-circle'].join(' ')} onClick={start_pause}>
-                        <img className={data.start ? 'hide' : 'lg-icon'} src="https://img.icons8.com/material-outlined/50/null/circled-play.png" />
-                        <img className={data.start ? 'lg-icon' : 'hide'} src="https://img.icons8.com/material-outlined/50/null/circled-pause.png" />
+                    <div className={styles.btn} onClick={start_pause}>
+                        <Comp_Icon data={{ icon_type: 'start', icon_styles: ['lg-icon', 'const-dark-icon', data.start ? 'hide' : null] }} />
+                        <Comp_Icon data={{ icon_type: 'pause', icon_styles: ['lg-icon', 'const-dark-icon', data.start ? null : 'hide'] }} />
                     </div>
 
-                    <div className={[styles.btn, 'hover-effect-circle'].join(' ')} onClick={reset}>
-                        <img className='lg-icon' src="https://img.icons8.com/material-outlined/40/null/restart--v1.png" />
+                    <div className={styles.btn} onClick={reset}>
+                        <Comp_Icon data={{ icon_type: 'reset', icon_styles: ['lg-icon', 'const-dark-icon'] }} />
                     </div>
 
                 </div>

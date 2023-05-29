@@ -1,6 +1,7 @@
 import styles from './styles.module.css'
 import { useState } from 'react'
 import Control_Menu from './control_menu'
+import { Comp_Icon } from '@/utils/modules'
 
 export default function Comp_Control() {
 
@@ -8,7 +9,7 @@ export default function Comp_Control() {
 
     const open_menu = (e) => {
 
-        if(menu) setMenu(null)
+        if (menu) setMenu(null)
         else setMenu(<Control_Menu
             pos_x={e.target.offsetParent.offsetLeft}
             pos_y={e.target.offsetParent.offsetHeight}
@@ -23,15 +24,10 @@ export default function Comp_Control() {
 
         <div className={styles.control}>
 
-            <div className='flex-start' onClick={open_menu}>
-                <div className='hover-effect-square'>
-                    <img
-                        className='md-icon'
-                        src="https://img.icons8.com/fluency-systems-regular/50/FFFFFF/menu--v1.png"
-                    />
-                </div>
+            <div onClick={open_menu}>
+                <Comp_Icon data={{ icon_type: 'menu-1', icon_styles: ['md-icon', 'light-icon'] }} />
             </div>
-
+            
             {menu}
 
         </div>

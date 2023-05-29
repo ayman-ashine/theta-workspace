@@ -1,7 +1,8 @@
 import styles from './styles.module.css'
-import { useState } from 'react'    
+import { useState } from 'react'
+import { Comp_Icon } from '@/utils/modules'    
 
-export default function Comp_Menu_Option(params) {
+export default function Comp_Menu_Option({ name, icon_data, func, sub_menu }) {
 
     const [subMenu, setSubMenu] = useState(false)
 
@@ -9,26 +10,26 @@ export default function Comp_Menu_Option(params) {
 
             <div
                 className={styles.option}
-                onClick={params.func}
+                onClick={func}
                 onMouseEnter={() => setSubMenu(true)}
                 onMouseLeave={() => setSubMenu(false)}
             >
                 {
-                    params.icon?
-                    <img className='sm-icon' src={params.icon}/>
+                    icon_data?
+                    <Comp_Icon data={icon_data} />
                     :
                     null
                 }
 
                 <div className={styles.option_name}>
-                    {params.name}
+                    {name}
                 </div>
 
-                <div className={[styles.option_extend, params.sub_menu?'':'hide'].join(' ')}>▶</div>
+                <div className={[styles.option_extend, sub_menu?'':'hide'].join(' ')}>▶</div>
                 
                 <div className={[styles.option_sub_menu, subMenu?'':'hide'].join(' ')}>
 
-                    {params.sub_menu}
+                    {sub_menu}
                     
                 </div>
 

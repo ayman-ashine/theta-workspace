@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import Menu from './menu'
 import Tool from './tool'
-import { Manager_Data } from '@/utils/modules'
+import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Comp_Frame(params) {
 
@@ -32,16 +32,18 @@ export default function Comp_Frame(params) {
 
   }
 
-  const open_menu = ( e ) => {
+  const open_menu = (e) => {
 
     if (e && e.stopPropagation) e.stopPropagation();
 
-    Manager_Data.update_frame(data.id, { menu: <Menu data={{
-      id: data.id,
-      title: data.title,
-      pos_x: data.width + data.pos_x - 10,
-      pos_y: data.pos_y + 20,
-    }}/> })
+    Manager_Data.update_frame(data.id, {
+      menu: <Menu data={{
+        id: data.id,
+        title: data.title,
+        pos_x: data.width + data.pos_x - 10,
+        pos_y: data.pos_y + 20,
+      }} />
+    })
 
   }
 
@@ -67,21 +69,21 @@ export default function Comp_Frame(params) {
             {data.title}
           </span>
 
-          <span className='hover-effect-circle' onClick={open_menu}>
-            <img className='md-icon' src="https://img.icons8.com/external-linear-outline-icons-papa-vector/50/external-Menu-interface-linear-outline-icons-papa-vector-4.png" />
+          <span onClick={open_menu}>
+            <Comp_Icon data={{ icon_type: 'menu-2', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
           </span>
 
         </div>
 
         <div className={styles.body}>
 
-          { Tool(data.tool_id, data.id, data.tool_data) }
-          
+          {Tool(data.tool_id, data.id, data.tool_data)}
+
         </div>
 
       </div>
 
-      { data.menu }
+      {data.menu}
 
     </>
 

@@ -11,27 +11,27 @@ const DATA = {
         {
             id: 't-note',
             name: 'Note',
-            icon: 'https://img.icons8.com/material-outlined/50/FFFFFF/note.png'
+            icon_data: { icon_type: 'note', icon_styles: ['md-icon', 'light-icon']}
         },
         {
             id: 't-todo',
             name: 'Todo List',
-            icon: 'https://img.icons8.com/material-outlined/50/FFFFFF/todo-list--v2.png'
+            icon_data: { icon_type: 'todo', icon_styles: ['md-icon', 'light-icon']}
         },
         {
             id: 't-timer',
             name: 'Timer',
-            icon: 'https://img.icons8.com/material-outlined/50/FFFFFF/retro-alarm-clock.png'
+            icon_data: { icon_type: 'timer', icon_styles: ['md-icon', 'light-icon']}
         },
         {
             id: 't-chrono',
             name: 'Chrono',
-            icon: 'https://img.icons8.com/material-outlined/50/FFFFFF/time.png'
+            icon_data: { icon_type: 'chrono', icon_styles: ['md-icon', 'light-icon']}
         },
         {
             id: 't-calendar',
             name: 'Calendar',
-            icon: 'https://img.icons8.com/ios/50/FFFFFF/calendar--v1.png'
+            icon_data: { icon_type: 'calendar', icon_styles: ['md-icon', 'light-icon']}
         },
     ],
 }
@@ -72,7 +72,7 @@ export default function Menu(params) {
                     return (
 
                         <Comp_Menu_Option
-                            icon={option.icon}
+                            icon_data={option.icon_data}
                             name={option.name}
                             func={() => add_frame(option.id)}
                         />
