@@ -21,6 +21,7 @@
   grid-column: span 9;
   width: 100%;
   overflow: hidden;
+  color: var(--const-dark);
 }
 
 .body {

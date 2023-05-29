@@ -1,10 +1,11 @@
-.num {
+.character {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: inherit;
     position: relative;
     font-size: var(--xl-fs);
+    color: var(--const-dark);
 }
 
 .btn_plus {

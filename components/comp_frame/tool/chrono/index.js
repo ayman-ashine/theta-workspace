@@ -97,13 +97,13 @@ export default function Chrono(params) {
 
                 <div className={styles.control}>
 
-                    <div className={[styles.btn, 'circle'].join(' ')} onClick={start_pause}>
-                        <img className={data.start ? 'hide' : ''} src="https://img.icons8.com/material-outlined/40/null/circled-play.png" />
-                        <img className={data.start ? '' : 'hide'} src="https://img.icons8.com/material-outlined/40/null/circled-pause.png" />
+                    <div className={[styles.btn, 'hover-effect-circle'].join(' ')} onClick={start_pause}>
+                        <img className={data.start ? 'hide' : 'lg-icon'} src="https://img.icons8.com/material-outlined/50/null/circled-play.png" />
+                        <img className={data.start ? 'lg-icon' : 'hide'} src="https://img.icons8.com/material-outlined/50/null/circled-pause.png" />
                     </div>
 
-                    <div className={[styles.btn, 'circle'].join(' ')} onClick={reset}>
-                        <img src="https://img.icons8.com/material-outlined/40/null/restart--v1.png" />
+                    <div className={[styles.btn, 'hover-effect-circle'].join(' ')} onClick={reset}>
+                        <img className='lg-icon' src="https://img.icons8.com/material-outlined/40/null/restart--v1.png" />
                     </div>
 
                 </div>

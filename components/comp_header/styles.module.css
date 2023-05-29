@@ -46,7 +46,7 @@
 }
 
 .focus {
-    border-bottom: 1px solid var(--light);
+    border-bottom: 1px solid var(--low-light);
 }
 
 .remove {

@@ -3,9 +3,14 @@
 :root {
 
   --dark: rgb(10, 12, 15);
-  --light: rgb(190, 195, 200);
+  --light: rgb(255, 255, 255);
   --gray: rgb(20, 25, 30);
-  --light-gray: rgb(220, 225, 230);
+  --light-gray: rgb(200, 205, 210);
+
+  --const-dark: rgb(10, 12, 15);
+  --const-light: rgb(255, 255, 255);
+  --const-gray: rgb(20, 25, 30);
+  --const-light-gray: rgb(200, 205, 210);
 
   --low-dark: rgb(0, 0, 0, .5);
   --low-light: rgb(255, 255, 255, .2);
@@ -38,8 +43,8 @@
   --lg-fs: 25px;
   --xl-fs: 50px;
 
-  --normal-fw: 400;
-  --bold-fw: 600;
+  --normal-fw: 600;
+  --bold-fw: 700;
   
   --f: 'Titillium Web', sans-serif;
 }

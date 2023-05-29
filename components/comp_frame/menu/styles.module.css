@@ -6,61 +6,46 @@
 }
 
 .menu {
-  background-color: var(--gray);
+  background-color: var(--dark);
   position: absolute;
-  padding: var(--sm-un);
+  width: 200px;
+  padding: var(--md-un) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--md-un) 0;
   border: 1px solid var(--low-light);
-  border-radius: var(--br);
   backdrop-filter: blur(var(--blur));
   box-shadow: 0 0 var(--br-shadow) var(--low-dark);
 }
 
 .input {
-  border: none;
   border-bottom: 1px solid var(--low-light);
-  padding: var(--sm-un);
-  background-color: transparent;
-  width: 100%;
-  outline: none;
-  color: var(--light);
+  padding: var(--sm-un) var(--md-un);
+  margin-bottom: var(--sm-un);
 }
 
 .colors {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--sm-un);
-  padding: var(--sm-un);
+  grid-template-columns: repeat(10, 1fr);
   width: 100%;
-  height: 80px;
-  border: 1px solid var(--low-light);
+  height: 50px;
   cursor: pointer;
-  border-radius: var(--br);
-}
-
-.color {
-  width: 100%;
-  height: 100%;
 }
 
 .btn {
-  border: 1px solid var(--low-light);
-  padding: var(--sm-un);
+  padding: var(--sm-un) var(--md-un);
   color: var(--light);
-  border-radius: var(--br);
 }
 
 .btn:hover {
-  background-color: var(--low-light);
+  background-color: var(--low-blue);
   cursor: pointer;
 }
 
 .color_check {
-  background-image: url("https://img.icons8.com/material-outlined/50/FFFFFF/checkmark--v1.png");
+  background-image: url("https://img.icons8.com/material-outlined/50/checkmark--v1.png");
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   animation: check-mark-kfs .2s ease-in-out;
 }
 

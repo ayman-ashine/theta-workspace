@@ -36,23 +36,24 @@
     border-radius: var(--br);
 }
 
-.input {
+.container_input {
     grid-column: span 7;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.title {
+.input {
     width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
     padding: 0 var(--sm-un);
+    color: var(--const-dark);
 }
 
-.title::placeholder {
-    color: var(--dark);
+.input::placeholder {
+    color: var(--const-dark) !important;
 }
 
 .remove {

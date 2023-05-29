@@ -82,7 +82,7 @@ export default function Timer(params) {
 
                 <div className='flex-center lg-fs lg-my'>
 
-                    <div className={styles.num}>
+                    <div className={styles.character}>
 
                         <div
                             className={`${styles.btn_plus} flex-center full-br`}
@@ -107,8 +107,10 @@ export default function Timer(params) {
                         </div>
 
                     </div>
-                    :
-                    <div className={styles.num}>
+
+                    <div className={styles.character}>:</div>
+
+                    <div className={styles.character}>
 
                         <div
                             className={`${styles.btn_plus} flex-center full-br`}
@@ -133,8 +135,10 @@ export default function Timer(params) {
                         </div>
 
                     </div>
-                    :
-                    <div className={styles.num}>
+
+                    <div className={styles.character}>:</div>
+                    
+                    <div className={styles.character}>
 
                         <div
                             className={`${styles.btn_plus} flex-center full-br`}
@@ -164,12 +168,12 @@ export default function Timer(params) {
 
                 <div className='flex-center lg-my lg-g'>
 
-                    <div className='circle' onClick={start_pause}>
+                    <div className='hover-effect-circle' onClick={start_pause}>
                         <img className={data.start ? 'hide' : 'lg-icon'} src="https://img.icons8.com/material-outlined/50/null/circled-play.png" />
                         <img className={data.start ? 'lg-icon' : 'hide'} src="https://img.icons8.com/material-outlined/50/null/circled-pause.png" />
                     </div>
 
-                    <div className='circle' onClick={rest}>
+                    <div className='hover-effect-circle' onClick={rest}>
                         <img className='lg-icon' src="https://img.icons8.com/material-outlined/50/null/restart--v1.png" />
                     </div>
 

@@ -143,13 +143,13 @@ export default function Todo(params) {
                                         src="https://img.icons8.com/material-rounded/50/null/checkmark--v1.png"
                                     />
                                 </div>
-                                <div className={styles.input}>
+                                <div className={styles.container_input}>
                                     <input
-                                        className={styles.title}
+                                        className={styles.input}
                                         value={todo.title}
                                         onChange={(e) => title(e, todo.id)}
                                         type="text"
-                                        placeholder="Your title"
+                                        placeholder="..."
                                     />
                                 </div>
                                 <div className={styles.remove} onClick={() => remove(todo.id)}>
