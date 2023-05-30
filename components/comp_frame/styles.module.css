@@ -14,14 +14,16 @@
 }
 
 .head:hover {
-  background-color: var(--low-light);
+  background-color: var(--const-low-light);
 }
 
 .title {
+  color: var(--const-dark);
+  font-weight: var(--bb-fw);
   grid-column: span 9;
   width: 100%;
   overflow: hidden;
-  color: var(--const-dark);
+
 }
 
 .body {

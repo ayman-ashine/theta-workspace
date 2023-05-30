@@ -39,6 +39,8 @@ export function Manager_Settings() {
         ROOT.root.style.setProperty('--light', ROOT.colors.light)
         ROOT.root.style.setProperty('--gray', ROOT.colors.gray)
         ROOT.root.style.setProperty('--light-gray', ROOT.colors.light_gray)
+        ROOT.root.style.setProperty('--low-dark', ROOT.colors.low_dark)
+        ROOT.root.style.setProperty('--low-light', ROOT.colors.low_light)
 
     }
 
@@ -48,6 +50,8 @@ export function Manager_Settings() {
         ROOT.root.style.setProperty('--light', ROOT.colors.dark)
         ROOT.root.style.setProperty('--gray', ROOT.colors.light_gray)
         ROOT.root.style.setProperty('--light-gray', ROOT.colors.gray)
+        ROOT.root.style.setProperty('--low-dark', ROOT.colors.low_light)
+        ROOT.root.style.setProperty('--low-light', ROOT.colors.low_dark)
 
     }
 
@@ -81,6 +85,8 @@ export function Manager_Settings() {
                 light: root_props.getPropertyValue('--light'),
                 gray: root_props.getPropertyValue('--gray'),
                 light_gray: root_props.getPropertyValue('--light-gray'),
+                low_dark: root_props.getPropertyValue('--low-dark'),
+                low_light: root_props.getPropertyValue('--low-light'),
             }
         }
 

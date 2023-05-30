@@ -140,11 +140,8 @@ export default function Todo(params) {
 
                                 </div>
 
-                                <div className={[styles.complete, todo.complete ? 'bkg-teal' : 'hover-effect-square'].join(' ')} onClick={() => complete(todo.id)}>
-                                    <img
-                                        className={todo.complete ? 'sm-icon' : 'hide'}
-                                        src="https://img.icons8.com/material-rounded/50/null/checkmark--v1.png"
-                                    />
+                                <div className={styles.complete} onClick={() => complete(todo.id)}>
+                                    <Comp_Icon data={{ icon_type: 'checkmark', icon_styles: ['sm-icon', 'const-dark-icon', todo.complete? null : 'unvisible'] }} />
                                 </div>
 
                                 <div className={styles.container_input}>
@@ -170,7 +167,7 @@ export default function Todo(params) {
                     })
                 }
 
-                <div className={`${styles.add} flex-center bkg-low-light br sm-m sm-py`} onClick={add}>
+                <div className={`${styles.add} flex-center br sm-m sm-py`} onClick={add}>
 
                     <Comp_Icon data={{ icon_type: 'add', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
 

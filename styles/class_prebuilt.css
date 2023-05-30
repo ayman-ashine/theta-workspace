@@ -312,38 +312,11 @@
     display: none;
 }
 
+.unvisible {
+    opacity: 0;
+}
+
 /* Hover effects */
-
-.hover-effect-opacity {
-    opacity: .8;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.hover-effect-opacity:hover {
-    opacity: 1;
-}
-
-.hover-effect-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-}
-.hover-effect-circle::before {
-    content: "";
-    width: 120%;
-    height: 120%;
-    position: absolute;
-    background-color: var(--low-light);
-    border-radius: var(--full-br);
-    display: none;
-}
-
-.hover-effect-circle:hover::before {
-    display: block;
-}
 
 .hover-effect-square {
     display: flex;
@@ -352,12 +325,13 @@
     position: relative;
     cursor: pointer;
 }
+
 .hover-effect-square::before {
     content: "";
     width: 120%;
     height: 120%;
     position: absolute;
-    background-color: var(--low-light);
+    background-color: var(--const-low-light);
     border-radius: var(--br);
     display: none;
 }

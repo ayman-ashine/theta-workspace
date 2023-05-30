@@ -56,22 +56,16 @@ export default function Menu(params) {
     return (
 
         <div
-            className={styles.container}
-            onClick={close_menu}
+            className={styles.back}
+            onMouseDown={close_menu}
             >
 
             <div
                 className={styles.menu}
-                onClick={stop_propagation}
-                style={{
-                    left: data.pos_x + 'px',
-                    top: data.pos_y + 'px'
-                }}
+                onMouseDown={stop_propagation}
+                style={{ left: data.pos_x + 'px', top: data.pos_y + 'px'}}
             >
-                
-                <div className={styles.option}>
-                    <input className={styles.input} value={data.title} type='text' placeholder='title' onChange={change_title} />
-                </div>
+
                 <div className={styles.option}>
                     <div className={styles.colors}>
                         <div className={`${styles.color} bkg-red`} color="bkg-red" onClick={check_color}></div>
@@ -86,11 +80,17 @@ export default function Menu(params) {
                         <div className={`${styles.color} bkg-orange`} color="bkg-orange" onClick={check_color}></div>
                     </div>
                 </div>
+
+                <div className={styles.option}>
+                    <input className={styles.input} value={data.title} type='text' placeholder='Title' onChange={change_title} />
+                </div>
+
                 <div className={styles.option} onClick={hide_frame}>
                     <div className={styles.btn}>
                         Hide
                     </div>
                 </div>
+
                 <div className={styles.option} onClick={remove_frame}>
                     <div className={styles.btn}>
                         Remove

@@ -5,7 +5,7 @@
 }
 
 .todo {
-    background-color: var(--low-light);
+    background-color: var(--const-low-light);
     border-radius: var(--br);
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -13,10 +13,6 @@
     padding: var(--sm-un);
     margin: var(--sm-un);
     position: relative;
-}
-
-.todo_over:hover {
-    background-color: var(--low-light);
 }
 
 .grab {
@@ -29,11 +25,10 @@
 
 .complete {
     grid-column: span 1;
-    border: 1px solid var(--low-dark);
+    border: 1px solid var(--const-low-dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--br);
 }
 
 .container_input {
@@ -70,14 +65,15 @@
 }
 
 .face:hover {
-    background-color: var(--low-light);
+    background-color: var(--const-low-light);
 }
 
 .add {
+    background-color: var(--const-low-light);
     width: auto;
 }
 
 .add:hover {
-    backdrop-filter: brightness(1.2);
+    backdrop-filter: brightness(1.1);
     cursor: pointer;
 }

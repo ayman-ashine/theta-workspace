@@ -11,7 +11,7 @@ export default function Comp_Control() {
 
         if (menu) setMenu(null)
         else setMenu(<Control_Menu
-            pos_x={e.target.offsetParent.offsetLeft}
+            pos_x={e.target.offsetLeft}
             pos_y={e.target.offsetParent.offsetHeight}
             close={close_menu}
         />)

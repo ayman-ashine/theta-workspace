@@ -28,7 +28,7 @@ export default function Comp_Icon({ data }) {
             
             return (
                 <svg className={_styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="50px" height="50px" >
-                    <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z"/>
+                    <polygon points="25,15 17,15 17,7 15,7 15,15 7,15 7,17 15,17 15,25 17,25 17,17 25,17  "/>
                 </svg>
             )
 
@@ -47,8 +47,8 @@ export default function Comp_Icon({ data }) {
         'remove': (_styles) => {
             
             return (
-                <svg className={_styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="50px" height="50px" >
-                    <path d="M114,100l49-49a9.9,9.9,0,0,0-14-14L100,86,51,37A9.9,9.9,0,0,0,37,51l49,49L37,149a9.9,9.9,0,0,0,14,14l49-49,49,49a9.9,9.9,0,0,0,14-14Z"/>
+                <svg className={_styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="50px" height="50px" >
+                    <polygon points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"/>
                 </svg>
             )
 
@@ -92,6 +92,16 @@ export default function Comp_Icon({ data }) {
                 </svg>
             )
 
+        },
+
+        'checkmark': (_styles) => {
+
+            return (
+                <svg className={_styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="50px" height="50px" >
+                    <path d="M27.704,8.397c-0.394-0.391-1.034-0.391-1.428,0  L11.988,22.59l-6.282-6.193c-0.394-0.391-1.034-0.391-1.428,0c-0.394,0.391-0.394,1.024,0,1.414l6.999,6.899  c0.39,0.386,1.039,0.386,1.429,0L27.704,9.811C28.099,9.421,28.099,8.787,27.704,8.397C27.31,8.006,28.099,8.787,27.704,8.397z"/>
+                </svg>
+            )
+            
         },
 
         'note': (_styles) => {
