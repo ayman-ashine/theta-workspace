@@ -12,6 +12,7 @@
 }
 
 .character {
+    font-family: monospace;
     font-size: var(--xl-fs);
     color: var(--const-dark);
 }

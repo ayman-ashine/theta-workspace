@@ -4,6 +4,7 @@
     align-items: center;
     font-size: inherit;
     position: relative;
+    font-family: monospace;
     font-size: var(--xl-fs);
     color: var(--const-dark);
 }

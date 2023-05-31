@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
 
 :root {
 
@@ -52,7 +52,7 @@
   --bb-fw: 600;
   --bb-fw: 700;
   
-  --f: 'Poppins', sans-serif;
+  --f: 'Josefin Sans', sans-serif;
 }
 
 *::before,
@@ -65,6 +65,7 @@
   font-family: var(--f);
   font-size: var(--sm-fs);
   font-weight: var(--normal-fw);
+  line-height: 1.5rem;
   user-select: none;
 }
 
