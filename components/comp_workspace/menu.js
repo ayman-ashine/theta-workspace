@@ -7,40 +7,56 @@ import {
 
 const DATA = {
 
-    options: [
+    tools: [
         {
             id: 't-note',
             name: 'Note',
-            icon_data: { icon_type: 'note', icon_styles: ['md-icon', 'light-icon']}
+            icon_data: {
+                icon_type: 'note',
+                icon_styles: ['md-icon', 'light-icon']
+            }
         },
         {
             id: 't-todo',
             name: 'Todo List',
-            icon_data: { icon_type: 'todo', icon_styles: ['md-icon', 'light-icon']}
+            icon_data: {
+                icon_type: 'todo',
+                icon_styles: ['md-icon', 'light-icon']
+            }
         },
         {
             id: 't-timer',
             name: 'Timer',
-            icon_data: { icon_type: 'timer', icon_styles: ['md-icon', 'light-icon']}
+            icon_data: {
+                icon_type: 'timer',
+                icon_styles: ['md-icon', 'light-icon']
+            }
         },
         {
             id: 't-chrono',
             name: 'Chrono',
-            icon_data: { icon_type: 'chrono', icon_styles: ['md-icon', 'light-icon']}
+            icon_data: {
+                icon_type: 'chrono',
+                icon_styles: ['md-icon', 'light-icon']
+            }
         },
         {
             id: 't-calendar',
             name: 'Calendar',
-            icon_data: { icon_type: 'calendar', icon_styles: ['md-icon', 'light-icon']}
+            icon_data: {
+                icon_type: 'calendar',
+                icon_styles: ['md-icon', 'light-icon']
+            }
         },
     ],
+
 }
 
-export default function Menu(params) {
+export default function Menu({ pos_x, pos_y, close }) {
 
     const callback = (func) => func()
 
-    const add_frame = (_tool_id) => {
+    const add_frame = (t_id) => {
 
         Manager_Data.add_frame({
 
@@ -50,31 +66,31 @@ export default function Menu(params) {
             width: 350,
             height: 350,
             parent: {},
-            pos_x: params.pos_x,
-            pos_y: params.pos_y,
+            pos_x: pos_x,
+            pos_y: pos_y,
             menu: null,
-            tool_id: _tool_id,
+            tool_id: t_id,
             tool_data: {},
 
         })
 
-        callback(params.close)
+        callback(close)
 
     }
 
     return (
 
-        <Comp_Menu pos_x={params.pos_x} pos_y={params.pos_y} close={params.close}>
-
+        <Comp_Menu pos_x={pos_x} pos_y={pos_y} close={close}>
+            
             {
-                DATA.options.map(option => {
+                DATA.tools.map(tool => {
 
                     return (
 
                         <Comp_Menu_Option
-                            icon_data={option.icon_data}
-                            name={option.name}
-                            func={() => add_frame(option.id)}
+                            icon_data={tool.icon_data}
+                            name={tool.name}
+                            func={() => add_frame(tool.id)}
                         />
 
                     )

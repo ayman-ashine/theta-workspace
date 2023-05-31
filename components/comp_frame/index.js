@@ -1,13 +1,14 @@
 import styles from './styles.module.css'
 import Menu from './menu'
-import Tool from './tool'
-import { Comp_Icon, Manager_Data } from '@/utils/modules'
+import {
+  Comp_Icon,
+  Comp_Tools,
+  Manager_Data
+} from '@/utils/modules'
 
-export default function Comp_Frame(params) {
+export default function Comp_Frame({ data }) {
 
-  const data = params.data
-
-  const move = (e) => {
+  const move_frame = (e) => {
 
     let shift_x = e.clientX - data.pos_x
     let shift_y = e.clientY - data.pos_y
@@ -25,6 +26,7 @@ export default function Comp_Frame(params) {
 
       document.removeEventListener('mousemove', _move)
       document.removeEventListener('mouseup', _rest)
+
     }
 
     document.addEventListener('mousemove', _move)
@@ -63,21 +65,27 @@ export default function Comp_Frame(params) {
         }
       >
 
-        <div className={styles.head} onMouseDown={move}>
+        <div className={styles.head} onMouseDown={move_frame}>
 
           <span className={styles.title}>
+            
             {data.title}
+
           </span>
 
           <span onClick={open_menu}>
+
             <Comp_Icon data={{ icon_type: 'menu-2', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
+          
           </span>
 
         </div>
 
         <div className={styles.body}>
 
-          {Tool(data.tool_id, data.id, data.tool_data)}
+          {
+            Comp_Tools(data.tool_id, data.id, data.tool_data)
+          }
 
         </div>
 

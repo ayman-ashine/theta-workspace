@@ -218,7 +218,6 @@
     gap: var(--lg-un);
 }
 
-
 /* Radius */
 
 .br {
@@ -227,28 +226,6 @@
 
 .full-br {
     border-radius: var(--full-br);
-}
-
-/* Font size - Font weight */
-
-.sm-fs {
-    font-size: var(--sm-fs);
-}
-
-.md-fs {
-    font-size: var(--md-fs);
-}
-
-.lg-fs {
-    font-size: var(--lg-fs);
-}
-
-.normal-fw {
-    font-weight: var(--normal-fw);
-}
-
-.bold-fw {
-    font-weight: var(--bold-fw);
 }
 
 /* Containers */
@@ -314,6 +291,11 @@
 
 .unvisible {
     opacity: 0;
+}
+
+.title {
+    font-size: var(--md-un);
+    font-weight: var(--bb-fw);
 }
 
 /* Hover effects */

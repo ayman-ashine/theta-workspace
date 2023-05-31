@@ -16,6 +16,7 @@ export function Manager_Data() {
             id: _id,
             name: 'Workspace',
             current: true,
+            active: false,
             frames: [],
         }])
 
@@ -45,6 +46,16 @@ export function Manager_Data() {
 
         setAppData(state => state.map(workspace => {
             if (workspace.id === _id) workspace.name = _name
+            return workspace
+        }))
+
+    }
+
+    // @
+    Manager_Data.activate_workspace = (_id) => {
+
+        setAppData(state => state.map(workspace => {
+            if (workspace.id === _id) workspace.active = true
             return workspace
         }))
 

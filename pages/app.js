@@ -1,3 +1,4 @@
+import styles from '@/styles/App.module.css'
 import { useState, useEffect } from 'react'
 import {
   App_Context,
@@ -23,19 +24,23 @@ export default function App() {
   }, [])
 
   return (
+    
+    <div className={styles.container}>
 
-    <App_Context.Provider value={{
-      appData, setAppData,
-      appSettings, setAppSettings
-    }}>
+      <App_Context.Provider value={{
+        appData, setAppData,
+        appSettings, setAppSettings
+      }}>
 
-      <Manager_Data/>
-      <Manager_Settings/>
-      <Comp_Loader loader={loader}/>
-      <Comp_Header/>
-      <Comp_Workspace/>
+        <Manager_Data/>
+        <Manager_Settings/>
+        <Comp_Loader loader={loader}/>
+        <Comp_Header/>
+        <Comp_Workspace/>
 
-    </App_Context.Provider>
+      </App_Context.Provider>
+
+    </div>
 
   )
 

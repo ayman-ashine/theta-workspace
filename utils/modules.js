@@ -14,6 +14,8 @@ export { default as Comp_Loader } from '@/components/comp_loader'
 export { default as Comp_Header } from '@/components/comp_header'
 export { default as Comp_Workspace } from '@/components/comp_workspace'
 export { default as Comp_Frame } from '@/components/comp_frame'
+export { default as Comp_Tools } from '@/components/comp_tools'
+export { default as Comp_Info } from '@/components/comp_info'
 
 // components - menu
 export { default as Comp_Menu } from '@/components/comp_menu/comp_menu'

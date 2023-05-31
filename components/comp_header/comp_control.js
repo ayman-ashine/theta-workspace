@@ -10,11 +10,13 @@ export default function Comp_Control() {
     const open_menu = (e) => {
 
         if (menu) setMenu(null)
-        else setMenu(<Control_Menu
-            pos_x={e.target.offsetLeft}
-            pos_y={e.target.offsetParent.offsetHeight}
-            close={close_menu}
-        />)
+        else setMenu(
+            <Control_Menu
+                pos_x={e.target.offsetLeft}
+                pos_y={e.target.offsetParent.offsetHeight}
+                close={close_menu}
+            />
+        )
 
     }
 
