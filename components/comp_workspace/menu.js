@@ -83,7 +83,7 @@ export default function Menu({ pos_x, pos_y, close }) {
         <Comp_Menu pos_x={pos_x} pos_y={pos_y} close={close}>
             
             {
-                DATA.tools.map(tool => {
+                DATA.tools.map( (tool, index) => {
 
                     return (
 
@@ -91,6 +91,7 @@ export default function Menu({ pos_x, pos_y, close }) {
                             icon_data={tool.icon_data}
                             name={tool.name}
                             func={() => add_frame(tool.id)}
+                            key={index}
                         />
 
                     )

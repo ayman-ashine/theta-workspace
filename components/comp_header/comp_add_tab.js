@@ -10,7 +10,7 @@ export default function Comp_Add_Tab() {
 
     return (
 
-        <div className='flex-start sm-p'>
+        <div className='flex h-start v-center sm-p'>
 
             <div onClick={add_workspace}>
 

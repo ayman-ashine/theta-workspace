@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { App_Context, Generate_Unique_Id } from '@/utils/modules'
 
 const APP_DATA_NAME = 'user_data'
@@ -121,7 +121,8 @@ export function Manager_Data() {
 
     Manager_Data.save = () => {
 
-        localStorage.setItem(APP_DATA_NAME, JSON.stringify(appData))
+        if(appData.length)
+            localStorage.setItem(APP_DATA_NAME, JSON.stringify(appData))
 
     }
 
@@ -135,5 +136,7 @@ export function Manager_Data() {
         }
 
     }
+
+    useEffect(() => Manager_Data.save(), [appData])
 
 }

@@ -51,13 +51,6 @@ export default function Control_Menu(params) {
 
     }
 
-    const func_save = () => {
-
-        Manager_Data.save()
-        callback(params.close)
-
-    }
-
     const func_clean_current_workspace = () => {
 
         Manager_Data.clean_current_workspace()
@@ -90,9 +83,7 @@ export default function Control_Menu(params) {
 
         <Comp_Menu pos_x={params.pos_x} pos_y={params.pos_y} close={params.close}>
 
-            <Comp_Menu_Option name={'Profile Settings'} func={func_save}/>
-            <Comp_Menu_Option name={'Save'} func={func_save}/>
-            <Comp_Menu_Option name={'Auto Save'} func={func_save}/>
+            <Comp_Menu_Option name={'Profile Settings'}/>
             <Comp_Menu_Option name={'Clean'} sub_menu={menu_clean()}/>
             <Comp_Menu_Option name={'Lighting'} sub_menu={menu_lighing()}/>
             <Comp_Menu_Option name={'Appearance'} sub_menu={menu_appearance()}/>

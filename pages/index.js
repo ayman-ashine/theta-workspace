@@ -1,5 +1,3 @@
-import styles from '@/styles/Home.module.css'
-import Link from "next/link"
 import { useRouter } from 'next/router'
 
 export default function Home() {
@@ -8,84 +6,97 @@ export default function Home() {
 
     return (
 
-        <div className={styles.container}>
-            <div className={styles.section}>
-                <div className={styles.title}>
+        <div className='container v-self-center flex v-flex lg-g'>
+
+            <hr className='unvisible'/>
+
+            <div className='row'>
+
+                <div className='col-5 flex v-center'>
+
                     <img className='md-icon' src="/logo.png"/>
                     <span className='title sm-mx'>Theta Workspace</span>
+
                 </div>
-                <div className={styles.links}>
-                    <span className={styles.btn}>Contact</span>
-                    <span className={styles.btn}>Info</span>
-                    <span className={styles.btn}>Login</span>
+
+                <div className='col-5 flex v-center h-end sm-g'>
+
+                    <span className='btn'>Contact</span>
+                    <span className='btn'>Info</span>
+                    <span className='btn'>Login</span>
+
                 </div>
+
             </div>
-            <div className={styles.section}>
-                <div className={styles.aside}>
-                    <h1 className='title'>Theta Workspace</h1>
-                    <br/>
-                    Welcome to Theta Workspace,
-                    Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
-                    Take control of your day and embark on a journey towards a more efficient and productive future.
-                    Get started now and unlock your true potential.
-                    <br/><br/>
-                    <span className={styles.btn} onClick={() => app_router.push('/app')}>Get Started</span>
+
+            <hr/>
+
+            <div className='row v-center'>
+
+                <div className='col-5 flex v-flex md-g'>
+
+                    <span className='title'>Welcome to Theta Workspace</span>
+                    <p>
+                        Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
+                        Take control of your day and embark on a journey towards a more efficient and productive future.
+                        Get started now and unlock your true potential.
+                    </p>
+                    <span className='btn w-50' onClick={() => app_router.push('/app')}>
+                        Get Started
+                    </span>
+
                 </div>
-                <div className={styles.aside}>
-                    <img className={styles.illustration} src="/workspace.png"/>
+
+                <div className='col-5 flex h-center v-center'>
+
+                    <img className='contain' src="illustrations/pc.png"/>
+
                 </div>
+
             </div>
-            <div className={styles.light_section}>
-                <div className={styles.light_aside}>
-                    <img className={styles.illustration} src="/work-deadline-concept-3d-illustration.jpg"/>
+
+            <hr/>
+
+            <div className='row v-center bkg-light br md-p'>
+
+                <div className='col-5 flex h-center'>
+                    <img className='contain' src="illustrations/illu_3.png"/>
                 </div>
-                <div className={styles.light_aside}>
-                    We provide you with a range of powerful tools to help you effectively manage your time and boost your productivity.
+
+                <div className='col-5 title clr-dark'>
+                    We provide you with a range of powerful tools to help you effectively manage your time.
                 </div>
+
             </div>
+
+            <div className='row v-center sm-g'>
+
+                <div className='col-2 flex v-flex v-center h-space-between bkg-light br hover-effect-brightness sm-g sm-p'>
+                    <div className='title clr-dark'>Note</div>
+                    <img className='contain w-100' src='illustrations/note.png'/>
+                </div>
+
+                <div className='col-2 flex v-flex v-center h-space-between bkg-light br hover-effect-brightness sm-g sm-p'>
+                    <div className='title clr-dark'>Todo List</div>
+                    <img className='contain w-100' src='illustrations/todo.png'/>
+                </div>
+
+                <div className='col-2 flex v-flex v-center h-space-between bkg-light br hover-effect-brightness sm-g sm-p'>
+                    <div className='title clr-dark'>Clock</div>
+                    <img className='contain w-100' src='illustrations/clock.png'/>
+                </div>
+
+                <div className='col-2 flex v-flex v-center h-space-between bkg-light br hover-effect-brightness sm-g sm-p'>
+                    <div className='title clr-dark'>Calendar</div>
+                    <img className='contain w-100' src='illustrations/calendar.png'/>
+                </div>
+
+            </div>
+            
+            <hr/>
+
         </div>
 
     )
 
 }
-
-/*
-<div className={styles.container}>
-
-            <div className={styles.header}>
-
-                <div className={styles.title}>
-                    <img className={styles.logo} src="/logo.png"/>
-                    Theta Workspace
-                </div>
-
-                <div className={styles.container_links}>
-                    <span className={styles.btn}>Info</span>
-                    <span className={styles.link}>login</span>
-                </div>
-
-            </div>
-
-            <div className={styles.aside}>
-                
-                <p className={styles.description}>
-                    Welcome to Theta Workspace,
-                    Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
-                    Take control of your day and embark on a journey towards a more efficient and productive future.
-                    Get started now and unlock your true potential.
-                </p>
-
-                <Link href='/app'>
-                    <button className={styles.btn}>get started</button>
-                </Link>
-                
-            </div>
-
-            <div className={styles.aside}>
-
-                <img className={styles.workspace} src="/workspace.png"/>
-            
-            </div>
-
-        </div>
-*/

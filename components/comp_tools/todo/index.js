@@ -167,7 +167,7 @@ export default function Todo(params) {
                     })
                 }
 
-                <div className={`${styles.add} flex-center br sm-m sm-py`} onClick={add}>
+                <div className={`${styles.add} flex h-center v-center br sm-m sm-py`} onClick={add}>
 
                     <Comp_Icon data={{ icon_type: 'add', icon_styles: ['sm-icon', 'const-dark-icon'] }} />
 

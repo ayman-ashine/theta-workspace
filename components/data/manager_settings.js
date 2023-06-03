@@ -3,9 +3,7 @@ import { App_Context } from '@/utils/modules'
 
 let ROOT = {}
 const NAME = 'user_settings'
-const INITIAL_SETTINGS = {
-    light_mode: false
-}
+const INITIAL_SETTINGS = {light_mode: false}
 
 export function Manager_Settings() {
 

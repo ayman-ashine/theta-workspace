@@ -4,8 +4,21 @@ import { Comp_Icon, Manager_Data } from '@/utils/modules'
 
 export default function Timer(params) {
 
-    const initial_data = params.data.timer ? params.data.timer : { start: false, loop_id: 0, hour: 0, min: 0, sec: 0, s_hour: 0, s_min: 0, s_sec: 0 }
-    const [data, setData] = useState(initial_data)
+    const [data, setData] = useState(
+
+        params.data.timer ?
+        params.data.timer : {
+            start: false,
+            loop_id: 0,
+            hour: 0,
+            min: 0,
+            sec: 0,
+            s_hour: 0,
+            s_min: 0,
+            s_sec: 0
+        }
+        
+    )
 
     useEffect(() => { update() }, [data])
 
@@ -70,22 +83,22 @@ export default function Timer(params) {
     const sound = () => {
 
         const timer_done_sound = new Audio('/timer_done_sound.wav')
-        timer_done_sound.play()
+        DONE_SOUND.play()
 
     }
 
     return (
 
-        <div className='container flex-center'>
+        <div className='h-100 w-100'>
 
             <div>
 
-                <div className='flex-center lg-fs lg-my'>
+                <div className='flex v-center h-center lg-fs lg-my'>
 
                     <div className={styles.character}>
 
                         <div
-                            className={`${styles.btn_plus} flex-center full-br`}
+                            className={`${styles.btn_plus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.hour < 59 ? { ...state, hour: state.hour + 1 } : state
@@ -97,7 +110,7 @@ export default function Timer(params) {
                         {add_zero(data.hour)}
 
                         <div
-                            className={`${styles.btn_minus} flex-center full-br`}
+                            className={`${styles.btn_minus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.hour > 0 ? { ...state, hour: state.hour - 1 } : state
@@ -113,7 +126,7 @@ export default function Timer(params) {
                     <div className={styles.character}>
 
                         <div
-                            className={`${styles.btn_plus} flex-center full-br`}
+                            className={`${styles.btn_plus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.min < 59 ? { ...state, min: state.min + 1 } : state
@@ -125,7 +138,7 @@ export default function Timer(params) {
                         {add_zero(data.min)}
 
                         <div
-                            className={`${styles.btn_minus} flex-center full-br`}
+                            className={`${styles.btn_minus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.min > 0 ? { ...state, min: state.min - 1 } : state
@@ -141,7 +154,7 @@ export default function Timer(params) {
                     <div className={styles.character}>
 
                         <div
-                            className={`${styles.btn_plus} flex-center full-br`}
+                            className={`${styles.btn_plus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.sec < 59 ? { ...state, sec: state.sec + 1 } : state
@@ -153,7 +166,7 @@ export default function Timer(params) {
                         {add_zero(data.sec)}
 
                         <div
-                            className={`${styles.btn_minus} flex-center full-br`}
+                            className={`${styles.btn_minus} flex v-center h-center full-br`}
                             onMouseDown={() => {
                                 setData(state => {
                                     return state.sec > 0 ? { ...state, sec: state.sec - 1 } : state
@@ -166,7 +179,7 @@ export default function Timer(params) {
 
                 </div>
 
-                <div className='flex-center lg-my lg-g'>
+                <div className='flex v-center h-center lg-my lg-g'>
 
                     <div onClick={start_pause}>
                         <Comp_Icon data={{ icon_type: 'start', icon_styles: ['lg-icon', 'const-dark-icon', data.start ? 'hide' : null] }} />
