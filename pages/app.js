@@ -1,46 +1,39 @@
-import styles from '@/styles/App.module.css'
 import { useState, useEffect } from 'react'
 import {
-  App_Context,
-  Manager_Data,
-  Manager_Settings,
-  Comp_Header,
-  Comp_Loader,
-  Comp_Workspace
+  appContext,
+  AppDataManager,
+  AppSettingsManager,
+  AppArchiveManager,
+  HeaderComp,
+  LoaderComp,
+  WorkspaceComp
 } from '@/utils/modules'
 
 export default function App() {
 
-  const [appData, setAppData] = useState([])
-  const [appSettings, setAppSettings] = useState({})
-  const [loader, setLoader] = useState(false)
+  const [appData, setAppData] = useState()
+  const [appSettings, setAppSettings] = useState()
+  const [loaderDisplay, setLoaderDisplay] = useState(true)
 
-  useEffect( () => {
+  useEffect(() => {
 
-    Manager_Data.load()
-    Manager_Settings.load()
-    setTimeout( () => setLoader(true), 1000)
+    AppArchiveManager.load()
+    setTimeout(() => setLoaderDisplay(false), 10)
 
   }, [])
 
   return (
-    
-    <div className={styles.container}>
 
-      <App_Context.Provider value={{
-        appData, setAppData,
-        appSettings, setAppSettings
-      }}>
+    <appContext.Provider value={{ appData, setAppData, appSettings, setAppSettings }}>
+      
+      <AppSettingsManager />
+      <AppDataManager />
 
-        <Manager_Data/>
-        <Manager_Settings/>
-        <Comp_Loader loader={loader}/>
-        <Comp_Header/>
-        <Comp_Workspace/>
+      <LoaderComp display={loaderDisplay} />
+      <HeaderComp />
+      <WorkspaceComp />
 
-      </App_Context.Provider>
-
-    </div>
+    </appContext.Provider>
 
   )
 

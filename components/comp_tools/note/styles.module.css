@@ -1,9 +1,0 @@
-.textarea {
-    padding: var(--sm-un);
-    color: var(--const-dark);
-    overflow-y: auto;
-}
-
-.textarea::placeholder {
-    color: var(--const-dark);
-}
