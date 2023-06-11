@@ -162,6 +162,7 @@
 .z-index {z-index: 100}
 .relative {position: relative}
 .absolute{position: absolute}
+.fixed {position: fixed}
 
 .hide {display: none}
 .unvisible {opacity: 0}

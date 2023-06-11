@@ -1,21 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-import { AppDataManager, GenerateUniqueId, IconsComp } from '@/utils/modules'
+import { generateUniqueId, IconComp } from '@/utils/modules'
 
-export default function TodoComp({ dataFrame }) {
+export default function TodoComp({ dt, disAppData }) {
 
-    const [localData, setLocalData] = useState((dataFrame.data ? dataFrame.data : []))
+    const [ldt, setLdt] = useState((dt.data ? dt.data : []))
     const [grabbedTodo, setGrabbedTodo] = useState({ id: null, posY: null, stockOrder: null })
-
-    useEffect(() => {
-
-        AppDataManager.updateFrame(dataFrame.id, { data: localData })
-
-    }, [localData])
 
     const addTodo = () => {
 
-        setLocalData(state => [...state, {
-            id: GenerateUniqueId(),
+        setLdt(state => [...state, {
+            id: generateUniqueId(),
             title: '',
             complete: false,
             order: state.length + 1
@@ -25,7 +19,7 @@ export default function TodoComp({ dataFrame }) {
 
     const removeTodo = (id) => {
 
-        setLocalData(state => state.filter(td => td.id !== id))
+        setLdt(state => state.filter(td => td.id !== id))
 
     }
 
@@ -42,7 +36,7 @@ export default function TodoComp({ dataFrame }) {
         const rest = () => {
             document.removeEventListener('mousemove', move)
             document.removeEventListener('mouseup', rest)
-            setLocalData(state => state.map(_td => {
+            setLdt(state => state.map(_td => {
                 if (_td.id === td.id) _td.order = grabbedTodo.stockOrder
                 return _td
             }))
@@ -59,7 +53,7 @@ export default function TodoComp({ dataFrame }) {
         if (grabbedTodo.id && grabbedTodo.id !== td.id) {
 
             const newStockOrder = td.order
-            setLocalData(state => state.map(_td => {
+            setLdt(state => state.map(_td => {
                 if (_td.id === td.id) _td.order = grabbedTodo.stockOrder
                 return _td
             }))
@@ -72,7 +66,7 @@ export default function TodoComp({ dataFrame }) {
 
     const completeTodo = (id) => {
 
-        setLocalData(state => state.map(td => {
+        setLdt(state => state.map(td => {
             if (td.id === id) td.complete = !td.complete
             return td
         }))
@@ -81,12 +75,18 @@ export default function TodoComp({ dataFrame }) {
 
     const changeTodoTitle = (e, id) => {
 
-        setLocalData(state => state.map(td => {
+        setLdt(state => state.map(td => {
             if (td.id === id) td.title = e.target.value
             return td
         }))
 
     }
+
+    useEffect(() => {
+
+        disAppData({ type: 'UPDATE_FRAME', id: dt.id, props: { data: ldt } })
+
+    }, [ldt])
 
     return (
 
@@ -94,7 +94,7 @@ export default function TodoComp({ dataFrame }) {
 
             <div>
                 {
-                    localData.map((td, index) => {
+                    ldt.map((td, index) => {
 
                         return (
 
@@ -109,11 +109,11 @@ export default function TodoComp({ dataFrame }) {
                             >
 
                                 <div className='col-1' onMouseDown={(e) => grabTodo(e, td)}>
-                                    <IconsComp data={{ icon_type: 'grab', icon_styles: ['sm-i', 'const-dark-i'] }} />
+                                    <IconComp type={'grab'} styles={['sm-i', 'const-dark-i']} />
                                 </div>
 
                                 <div className='col-1 const-dark-border' onClick={() => completeTodo(td.id)}>
-                                    <IconsComp data={{ icon_type: 'checkmark', icon_styles: ['sm-i', 'const-dark-i', td.complete ? null : 'unvisible'] }} />
+                                    <IconComp type={'checkmark'} styles={['sm-i', 'const-dark-i', td.complete ? null : 'unvisible']} />
                                 </div>
 
                                 <div className='col-7'>
@@ -127,7 +127,7 @@ export default function TodoComp({ dataFrame }) {
                                 </div>
 
                                 <div className='col-1' onClick={() => removeTodo(td.id)}>
-                                    <IconsComp data={{ icon_type: 'remove', icon_styles: ['sm-i', 'const-dark-i'] }} />
+                                    <IconComp type={'remove'} styles={['sm-i', 'const-dark-i']} />
                                 </div>
 
                             </div>
@@ -138,9 +138,9 @@ export default function TodoComp({ dataFrame }) {
                 }
             </div>
 
-            <div className='row v-center br relative bkg-const-low-light hover-effect-brightness sm-m sm-p' onClick={addTodo}>
-                <div className='col flex h-center'>
-                    <IconsComp data={{ icon_type: 'add', icon_styles: ['sm-i', 'const-dark-i'] }} />
+            <div className='sm-m sm-p' onClick={addTodo}>
+                <div className='flex v-center h-center'>
+                    <IconComp type={'add'} styles={['md-i', 'const-dark-i']} />
                 </div>
             </div>
 

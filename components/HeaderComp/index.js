@@ -1,23 +1,26 @@
-import { useContext } from 'react'
-import ControlComp from './ControlComp'
-import TabsComp from './TabsComp'
-import AddComp from './AddComp'
-import { appContext } from '@/utils/modules'
+import { memo } from 'react'
+import { Control, Workspaces, AddWorkspace } from './modules'
+import { AppDefaultData } from '@/utils/modules'
 
-export default function HeaderComp() {
-
-    const { appData } = useContext(appContext)
+const HeaderComp = ({ dt, dis }) => {
 
     return (
 
-        <div className='auto-row h-start bkg-dark-primary' style={{ height: 50 }}>
+        <div
+            className='auto-row h-start bkg-dark-primary'
+            style={{
+                height: AppDefaultData.HEADER.height
+            }}
+        >
 
-            <ControlComp />
-            <TabsComp appData={appData} />
-            <AddComp />
+            <Control disAppData={dis.disAppData} disAppSettings={dis.disAppSettings} />
+            <Workspaces appData={dt.appData} disAppData={dis.disAppData} />
+            <AddWorkspace disAppData={dis.disAppData} />
 
         </div>
 
     )
 
 }
+
+export default memo(HeaderComp)

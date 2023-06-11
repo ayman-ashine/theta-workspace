@@ -1,9 +1,10 @@
 import { useContext, useEffect, useRef } from 'react'
-import { appContext } from '@/utils/modules'
+import { GlobalContext } from '@/utils/modules'
 
 export default function AppDataManager() {
 
-    const { appData, setAppData } = useContext(appContext)
+    const { appData, dispatchAppData } = useContext(GlobalContext)
+    // Get initail data from data folder
     const localData = useRef({ dataName: 'USER_DATA', dataInitialValue: [], load: false })
 
     AppDataManager.appData = () => {

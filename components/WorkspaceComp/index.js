@@ -1,31 +1,27 @@
-import { useState, useContext, useEffect } from 'react'
-import {
-  AppDefaultData,
-  AppDataManager,
-  ToolsComp,
-  MenuFormatComp,
-  OptionFormatComp,
-  GenerateUniqueId,
-  appContext
-} from '@/utils/modules'
+import { memo, useState } from 'react'
+import { MenuAddTool, ToolComp } from '@/utils/modules'
 
-export default function WorkspaceComp() {
+const WorkspaceComp = ({ dt, dis }) => {
 
-  const { appData } = useContext(appContext)
-  const [localData, setLocalData] = useState({ menu: null })
+  const [ldt, setLdt] = useState({ menu: null })
 
-  const closeMenu = () => setLocalData(state => ({ ...state, menu: null }))
+  const closeMenu = () => setLdt(state => ({ ...state, menu: null }))
 
   const openMenu = (e) => {
 
-    if (e.target.id !== 'workspace') return
-
+    //if (e.target.id !== 'workspace') return
     e.preventDefault()
 
-    if (localData.menu) setLocalData(state => ({ ...state, menu: null }))
-    else setLocalData(state => ({
+    if (ldt.menu) setLdt(state => ({ ...state, menu: null }))
+    else if (dt.appData.length) setLdt(state => ({
       ...state,
-      menu: <MenuComp closeFunc={closeMenu} posX={e.clientX} posY={e.clientY}/>
+      menu:
+        <MenuAddTool
+          disAppData={dis.disAppData}
+          closeMenu={closeMenu}
+          posX={e.clientX}
+          posY={e.clientY}
+        />
     }))
 
   }
@@ -34,15 +30,15 @@ export default function WorkspaceComp() {
 
     <>
 
-      <div className='full relative overflow-hidden' id='workspace' onContextMenu={openMenu}>
+      <div id='workspace' className='full relative overflow-x-auto' onContextMenu={openMenu}>
 
-        {appData?.map(ws => {
+        {dt.appData?.map(ws => {
 
           if (ws.current) {
 
-            return ws.frames.map((dataFrame, index) => {
+            return ws.frames.map((dt, index) => {
 
-              return <ToolsComp dataFrame={dataFrame} key={index} />
+              return <ToolComp dt={dt} ws={{id: ws.id, activeFrame: ws.activeFrame}} disAppData={dis.disAppData} key={index} />
 
             })
 
@@ -52,7 +48,7 @@ export default function WorkspaceComp() {
 
       </div>
 
-      {localData.menu}
+      {ldt.menu}
 
     </>
 
@@ -60,38 +56,4 @@ export default function WorkspaceComp() {
 
 }
 
-export function MenuComp({ closeFunc, posX, posY }) {
-
-  const callback = (func) => func()
-
-  const addFrame = (toolId) => {
-
-    AppDataManager.addFrame({ ...AppDefaultData.defaultFrameData, id: GenerateUniqueId(), toolId, posX, posY, })
-    callback(closeFunc)
-
-  }
-
-  return (
-
-    <MenuFormatComp pos_x={posX} pos_y={posY} closeFunc={closeFunc}>
-
-      {
-        AppDefaultData.defaultMenuToolsData.map(tool => {
-
-          return (
-            <OptionFormatComp
-              iconData={tool.iconData}
-              name={tool.name}
-              func={() => addFrame(tool.id)}
-              key={tool.id}
-            />
-          )
-
-        })
-      }
-
-    </MenuFormatComp>
-
-  )
-
-}
+export default memo(WorkspaceComp)

@@ -1,40 +1,37 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useReducer } from 'react'
 import {
-  appContext,
-  AppDataManager,
-  AppSettingsManager,
-  AppArchiveManager,
+  AppDataReducer,
+  AppSettingsReducer,
+  AppSaver,
   HeaderComp,
-  LoaderComp,
-  WorkspaceComp
+  WorkspaceComp,
 } from '@/utils/modules'
 
-export default function App() {
+const App = () => {
 
-  const [appData, setAppData] = useState()
-  const [appSettings, setAppSettings] = useState()
-  const [loaderDisplay, setLoaderDisplay] = useState(true)
+  const [appData, disAppData] = useReducer(AppDataReducer, null)
+  const [appSettings, disAppSettings] = useReducer(AppSettingsReducer, null)
 
   useEffect(() => {
 
-    AppArchiveManager.load()
-    setTimeout(() => setLoaderDisplay(false), 10)
+    disAppData({ type: 'LOAD', dt: AppSaver({ action: 'LOAD' }) })
 
   }, [])
 
-  return (
+  // Save - AppData
+  useEffect(() => {
 
-    <appContext.Provider value={{ appData, setAppData, appSettings, setAppSettings }}>
-      
-      <AppSettingsManager />
-      <AppDataManager />
+    if (appData !== null) AppSaver({ action: 'SAVE', dt: appData })
 
-      <LoaderComp display={loaderDisplay} />
-      <HeaderComp />
-      <WorkspaceComp />
+  }, [appData])
 
-    </appContext.Provider>
+  return <>
 
-  )
+    <HeaderComp dt={{ appData, appSettings }} dis={{ disAppData, disAppSettings }} />
+    <WorkspaceComp dt={{ appData }} dis={{ disAppData }} />
+
+  </>
 
 }
+
+export default App

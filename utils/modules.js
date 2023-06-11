@@ -1,23 +1,24 @@
 // ---------- APP MODULES ---------- //
 
 // utils
-export { GenerateUniqueId } from '@/utils/GenerateUniqueId'
+export { generateUniqueId } from '@/utils/generateUniqueId'
 
 // data
-export { appContext } from '@/components/appData/appContext'
-export { AppDefaultData } from '@/components/appData/AppDefaultData'
-export { default as AppDataManager } from '@/components/appData/AppDataManager'
-export { default as AppSettingsManager } from '@/components/appData/AppSettingsManager'
-export { AppArchiveManager } from '@/components/appData/AppArchiveManager'
+export { AppDataReducer } from '@/data/AppDataReducer'
+export { AppSettingsReducer } from '@/data/AppSettingsReducer'
+export { AppDefaultData } from '@/data/AppDefaultData'
+export { AppSaver } from '@/data/AppSaver'
+// export { AppArchiveManager } from '@/components/data/AppArchiveManager'
+// export { default as AppSettingsManager } from '@/components/data/AppSettingsManager'
 
 // components
-export { default as IconsComp } from '@/components/IconsComp'
-export { default as LoaderComp } from '@/components/LoaderComp'
+export { default as IconComp } from '@/components/IconComp'
 export { default as HeaderComp } from '@/components/HeaderComp'
 export { default as WorkspaceComp } from '@/components/WorkspaceComp'
-export { default as FrameComp } from '@/components/FrameComp'
-export { default as ToolsComp } from '@/components/ToolsComp'
+export { default as ToolComp } from '@/components/ToolComp'
 
-// components - menu
-export { default as MenuFormatComp } from '@/components/MenuComp/MenuFormatComp'
-export { default as OptionFormatComp } from '@/components/MenuComp/OptionFormatComp'
+// components - menus
+export { default as MenuConrol } from '@/components/MenuComp/MenuConrol'
+export { default as MenuAddTool } from '@/components/MenuComp/MenuAddTool'
+export { default as MenuFrame } from '@/components/MenuComp/MenuFrame'
+export { default as MenuClip } from '@/components/MenuComp/MenuClip'
