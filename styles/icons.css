@@ -1,0 +1,13 @@
+/* Icons */
+.cover-i {object-fit: cover}
+.contain-i {object-fit: contain}
+
+.sm-i {width: 20px;height: 20px;}
+.md-i {width: 25px;height: 25px;}
+.lg-i {width: 40px;height: 40px;}
+.xl-i {width: 100px;height: 100px;}
+
+.dark-i {fill: var(--dark)}
+.light-i {fill: var(--light)}
+.const-dark-i {fill: var(--const-dark)}
+.const-light-i {fill: var(--const-light)}

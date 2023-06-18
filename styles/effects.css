@@ -1,0 +1,44 @@
+/* Effects */
+
+.br {border-radius: var(--br)}
+.br-2 {border-radius: calc( var(--br) * 2 )}
+.br-4 {border-radius: calc( var(--br) * 4 )}
+.full-br {border-radius: var(--full-br)}
+
+.hide {display: none}
+.unvisible {opacity: 0}
+.low {opacity: 0.5}
+.low-6 {opacity: 0.6}
+.low-7 {opacity: 0.7}
+.low-8 {opacity: 0.8}
+.low-9 {opacity: 0.9}
+.bright {backdrop-filter: brightness(1.2);}
+
+.hover-effect-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.hover-effect-square::before {
+    content: "";
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    background-color: var(--const-low-light);
+    border-radius: var(--br);
+    display: none;
+}
+.hover-effect-square:hover::before {display: block}
+.hover-effect-brightness {transition: .2s}
+.hover-effect-brightness:hover {backdrop-filter: brightness(1.2);cursor: pointer;}
+.hover-effect-opacity {opacity: 0.5;transition: .2s;}
+.hover-effect-opacity:hover {opacity: 1;cursor: pointer;}
+.hover-effect-option:hover {background-color: var(--low-blue)}
+
+.cursor-grab {cursor: grab;}
+.cursor-grabbing {cursor: grabbing}
+.cursor-pointer {cursor: pointer;}
+.cursor-move {cursor: move;}
+.cursor-auto {cursor: auto;}

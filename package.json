@@ -1,5 +1,5 @@
 {
-  "name": "theta-workspace",
+  "name": "timepro",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.4.4",
+    "@reduxjs/toolkit": "^1.9.5",
+    "next": "13.4.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.7"
   }
 }

@@ -1,0 +1,16 @@
+/* Font */
+.sm-fs {font-size: var(--sm-fs)}
+.md-fs {font-size: var(--md-fs)}
+.lg-fs {font-size: var(--lg-fs)}
+.xl-fs {font-size: var(--xl-fs)}
+
+.sm-fw {font-weight: var(--sm-fw)}
+.md-fw {font-weight: var(--md-fw)}
+.lg-fw {font-weight: var(--lg-fw)}
+.xl-fw {font-weight: var(--xl-fw)}
+
+.normal-f {font-family: sans-serif}
+
+.center-text { text-align: center}
+.start-text { text-align: start}
+.end-text { text-align: end}

@@ -1,0 +1,144 @@
+/* Buttons */
+
+.btn {
+    padding: var(--sm-un);
+    border-radius: var(--br);
+    border: 2px solid var(--low-light);
+    transition: .2s;
+    text-align: center;
+}
+
+.btn:hover {
+    backdrop-filter: brightness(1.5);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.ctabtn {
+    position: relative;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.ctabtn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: var(--low-light);
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.ctabtn span {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--light);
+}
+
+.ctabtn svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: var(--light);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.ctabtn:hover:before {
+    width: 100%;
+}
+
+.ctabtn:hover svg {
+    transform: translateX(0);
+}
+
+.ctabtn:active {
+    transform: scale(0.95);
+}
+
+.shwbtn {
+    position: relative;
+    padding: var(--sm-un);
+    border-radius: var(--br);
+    border: 1px solid var(--low-light);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    color: var(--light);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.shwbtn:hover {
+    background: var(--low-light);
+    color: var(--light);
+    box-shadow: 0 0 10px 2px var(--low-light);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.shwbtn:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.shwbtn::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: var(--light);
+    box-shadow: 0 0 20px 20px var(--light);
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+.shwbtn:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
