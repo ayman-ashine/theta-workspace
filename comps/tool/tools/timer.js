@@ -15,19 +15,16 @@ const Timer = ({ dt }) => {
         return num < 10 ? '0' + num : String(num)
 
     }
-
     const getCurrentTime = () => {
 
         const appDate = new Date()
         return Math.floor(appDate.getTime() / 1000)
 
     }
-
     const saveCurrentTime = () => {
 
         setLdt(state => ({ ...state, stockTime: getCurrentTime() }))
     }
-
     const startPauseTimer = () => {
 
         setLdt(state => ({ ...state, start: !state.start }))
@@ -40,18 +37,73 @@ const Timer = ({ dt }) => {
         clockWorker.postMessage(false)
 
     }
+    const updateTimer = (action) => {
 
+        switch (action) {
+            case 'PHOUR':
+                setLdt(
+                    state => ({
+                        ...state,
+                        hour: state.hour < 99 ? state.hour + 1 : state.hour
+                    }))
+                return
+            case 'MHOUR':
+                setLdt(
+                    state => ({
+                        ...state,
+                        hour: state.hour > 0 ? state.hour - 1 : state.hour
+                    }))
+                return
+            case 'PMIN':
+                setLdt(
+                    state => ({
+                        ...state,
+                        min: state.min < 59 ? state.min + 1 : state.min
+                    }))
+                return
+            case 'MMIN':
+                setLdt(
+                    state => ({
+                        ...state,
+                        min: state.min > 0 ? state.min - 1 : state.min
+                    }))
+                return
+            case 'PSEC':
+                setLdt(
+                    state => ({
+                        ...state,
+                        sec: state.sec < 59 ? state.sec + 1 : state.sec
+                    }))
+                return
+            case 'MSEC':
+                setLdt(
+                    state => ({
+                        ...state,
+                        sec: state.sec > 0 ? state.sec - 1 : state.sec
+                    }))
+                return
+        }
+
+    }
+    const timerIsDone = () => {
+
+        return ldt.hour || ldt.min || ldt.sec
+
+    }
     clockWorker.onmessage = () => {
 
-        if (ldt.sec < 59) {
-            setLdt(state => ({ ...state, sec: state.sec + 1 }))
-        } else if (ldt.min < 59) {
-            setLdt(state => ({ ...state, sec: 0, min: state.min + 1 }))
-        } else if (ldt.hour < 24) {
-            setLdt(state => ({ ...state, min: 0, hour: state.hour + 1 }))
-        } else resetChrono()
-
-        saveCurrentTime()
+        if (timerIsDone()) {
+            if (ldt.sec > 0) {
+                setLdt(state => ({ ...state, sec: state.sec - 1 }))
+            } else if (ldt.min > 0) {
+                setLdt(state => ({ ...state, sec: 59, min: state.min - 1 }))
+            } else if (ldt.hour > 0) {
+                setLdt(state => ({ ...state, min: 59, hour: state.hour - 1 }))
+            }
+            saveCurrentTime()
+        } else {
+            resetTimer()
+        }
 
     }
 
@@ -85,7 +137,7 @@ const Timer = ({ dt }) => {
     // }, [])
 
     useEffect(() => {
-
+        console.log(ldt.hour, ldt.min, ldt.sec)
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({ id: dt.id, props: { data: ldt } }))
 
     }, [ldt])
@@ -98,21 +150,33 @@ const Timer = ({ dt }) => {
 
                 <div className='col-6 flex v-center h-center sm-p'>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('PHOUR')}>
+                            <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.hour)}</span>
-                        <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('MHOUR')}>
+                            <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                     </div>
                     <span className='xl-fs normal-f clr-const-dark'>:</span>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('PMIN')}>
+                            <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.min)}</span>
-                        <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('MMIN')}>
+                            <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                     </div>
                     <span className='xl-fs normal-f clr-const-dark'>:</span>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('PSEC')}>
+                            <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.sec)}</span>
-                        <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        <div onClick={() => updateTimer('MSEC')}>
+                            <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
+                        </div>
                     </div>
                 </div>
 
@@ -129,15 +193,15 @@ const Timer = ({ dt }) => {
 
                 </div>
 
-            </div>
-
+            </div >
+{/* 
             <div className='col flex h-center v-center hover-effect-brightness br sm-p'>
 
                 <Icon type={'add'} styles={['sm-i', 'const-dark-icon']} effect={false} />
 
-            </div>
+            </div> */}
 
-        </div>
+        </div >
 
     )
 
