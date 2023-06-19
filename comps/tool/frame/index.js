@@ -66,13 +66,12 @@ const Frame = ({ dt, children }) => {
           left: position.posX + 'px',
           top: position.posY + 'px',
           width: dt.width + 'px',
-          height: dt.minimize ? 'auto' : dt.height + 'px',
+          height: 'auto'
         }
       }
       onMouseDown={stopPropagation}
       onMouseEnter={stopPropagation}
       onDoubleClick={stopPropagation}
-      onWheel={stopPropagation}
     >
 
       <div className='row bright sm-p cursor-grab' onMouseDown={moveFrame}>

@@ -89,7 +89,7 @@ const Workspace = ({dt}) => {
   return dt ? (
 
     <div
-      className='full cursor-grab bkg-dark-primary overflow-hidden'
+      className='full cursor-grab bkg-dark overflow-hidden'
       onMouseDown={moveWorkspace}
       onWheel={zoomInOutWorkspace}
       onDoubleClick={restWorkspacePosition}
