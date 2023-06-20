@@ -239,7 +239,7 @@ export const CHRONO_DATA = {
 export const TIMER_DATA = {
     default: {
         start: false,
-        timers: [],
+        lapses: [],
         stockTime: 0,
         hour: 0,
         min: 0,

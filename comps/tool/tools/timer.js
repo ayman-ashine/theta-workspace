@@ -106,35 +106,52 @@ const Timer = ({ dt }) => {
         }
 
     }
+    const lapsChrono = () => {
 
-    // useEffect(() => {
+        if (ldt.start) {
+            const time = `${addZero(ldt.hour)}:${addZero(ldt.min)}:${addZero(ldt.sec)}`
+            setLdt(state => ({
+                ...state,
+                lapses: [{ id: generateUniqueId(), time: time }, ...state.lapses]
+            }))
+        }
 
-    //     if (ldt.start) {
+    }
+    const removeLaps = (id) => {
 
-    //         const plusTime =
-    //             getCurrentTime()
-    //             - ldt.stockTime
-    //             + (ldt.hour * 60 * 60)
-    //             + (ldt.min * 60)
-    //             + (ldt.sec)
+        setLdt(state => ({
+            ...state,
+            lapses: state.lapses.filter(lp => lp.id !== id)
+        }))
 
-    //         const [hour, min, sec] = [
-    //             Math.floor(plusTime / (60 * 60)),
-    //             Math.floor((plusTime % (60 * 60)) / 60),
-    //             Math.floor((plusTime % (60 * 60)) % 60)
-    //         ]
+    }
 
-    //         setLdt(state => ({ ...state, hour, min, sec }))
-    //         clockWorker.postMessage(true)
+    useEffect(() => {
 
-    //     }
+        if (ldt.start) {
 
-    //     return () => {
+            const minusTime = ((ldt.hour * 60 * 60) + (ldt.min * 60) + (ldt.sec)) - (getCurrentTime() - ldt.stockTime)
 
-    //         clockWorker.postMessage(false)
-    //     }
+            if (minusTime < 0) {
+                setLdt(state => ({ ...state, start: false, hour: 0, min: 0, sec: 0 }))
+            } else {
+                const [hour, min, sec] = [
+                    Math.floor(minusTime / (60 * 60)),
+                    Math.floor((minusTime % (60 * 60)) / 60),
+                    Math.floor((minusTime % (60 * 60)) % 60)
+                ]
+                setLdt(state => ({ ...state, hour, min, sec }))
+                clockWorker.postMessage(true)
+            }
 
-    // }, [])
+        }
+
+        return () => {
+
+            clockWorker.postMessage(false)
+        }
+
+    }, [])
 
     useEffect(() => {
 
@@ -187,6 +204,10 @@ const Timer = ({ dt }) => {
                         <Icon type={'pause'} styles={['lg-i', 'const-dark-icon', ldt.start ? null : 'hide']} />
                     </div>
 
+                    <div onClick={lapsChrono}>
+                        <Icon type={'save'} styles={['lg-i', 'const-dark-icon', ldt.start ? null : 'low']} />
+                    </div>
+
                     <div onClick={resetTimer}>
                         <Icon type={'reset'} styles={['lg-i', 'const-dark-icon']} />
                     </div>
@@ -194,6 +215,26 @@ const Timer = ({ dt }) => {
                 </div>
 
             </div >
+
+            <div className='row overflow-y-auto'>
+
+                {
+                    ldt.lapses?.map((laps, index) => {
+
+                        return (
+                            <div className='col row v-center bright br sm-mt sm-p sm-g' key={laps.id}>
+                                <div className='col-1 normal-f center-text normal-f clr-const-dark bkg-const-low-light br'>{ldt.lapses.length - index}</div>
+                                <div className='col-8 md-fs normal-f center-text clr-const-dark'>{laps.time}</div>
+                                <div className='col-1' onClick={() => removeLaps(laps.id)}>
+                                    <Icon type={'remove'} styles={['sm-i', 'const-dark-icon']} />
+                                </div>
+                            </div>
+                        )
+
+                    })
+                }
+
+            </div>
 
         </div >
 
