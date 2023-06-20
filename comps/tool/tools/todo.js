@@ -45,7 +45,6 @@ export default function TodoComp({ dt }) {
         }
 
     }
-
     const completeTodo = (id) => {
 
         setLdt(state => state.map(td => {
@@ -53,7 +52,6 @@ export default function TodoComp({ dt }) {
         }))
 
     }
-
     const changeTodoTitle = (e, id) => {
 
         setLdt(state => state.map(td => {
@@ -74,14 +72,14 @@ export default function TodoComp({ dt }) {
 
             <div>
                 {
-                    ldt.map((td, index) => {
+                    ldt.map(td => {
 
                         return (
 
                             <div
                                 className={`row v-center br relative sm-p sm-mb sm-g ${td.complete ? 'bright' : 'bkg-const-low-light'} ${gTd && gTd.id === td.id ? 'low-7' : null}`}
-                                style={gTd && gTd.id === td.id ? { zIndex: 0 } : { zIndex: 1 }}
-                                key={index}
+                                style={gTd && gTd.id === td.id ? { zIndex: 0 } : null}
+                                key={td.id}
                                 onMouseEnter={() => switchTodo(td)}
                             >
 

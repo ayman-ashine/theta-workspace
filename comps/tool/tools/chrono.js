@@ -16,26 +16,23 @@ const Chrono = ({ dt }) => {
         clockWorker.postMessage(!ldt.start)
 
     }
-
     const resetChrono = () => {
 
         setLdt(CHRONO_DATA.default)
         clockWorker.postMessage(false)
 
     }
-
     const lapsChrono = () => {
 
         if (ldt.start) {
             const time = `${addZero(ldt.hour)}:${addZero(ldt.min)}:${addZero(ldt.sec)}`
             setLdt(state => ({
                 ...state,
-                lapses: [{ id: generateUniqueId(), time: time}, ...state.lapses]
+                lapses: [{ id: generateUniqueId(), time: time }, ...state.lapses]
             }))
         }
 
     }
-
     const removeLaps = (id) => {
 
         setLdt(state => ({
@@ -44,19 +41,16 @@ const Chrono = ({ dt }) => {
         }))
 
     }
-
     const getCurrentTime = () => {
 
         const appDate = new Date()
         return Math.floor(appDate.getTime() / 1000)
 
     }
-
     const saveCurrentTime = () => {
 
         setLdt(state => ({ ...state, stockTime: getCurrentTime() }))
     }
-
     const addZero = (num) => {
 
         return num < 10 ? '0' + num : String(num)
@@ -150,7 +144,7 @@ const Chrono = ({ dt }) => {
                     ldt.lapses?.map((laps, index) => {
 
                         return (
-                            <div className='col row v-center bright br sm-mt sm-p sm-g' key={index}>
+                            <div className='col row v-center bright br sm-mt sm-p sm-g' key={laps.id}>
                                 <div className='col-1 normal-f center-text normal-f clr-const-dark bkg-const-low-light br'>{ldt.lapses.length - index}</div>
                                 <div className='col-8 md-fs normal-f center-text clr-const-dark'>{laps.time}</div>
                                 <div className='col-1' onClick={() => removeLaps(laps.id)}>

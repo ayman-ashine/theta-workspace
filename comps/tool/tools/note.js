@@ -1,29 +1,30 @@
-import { memo } from "react"
+import { memo, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { WORKSPACE_ACTIONS } from "@/data/modules"
 
 const Note = ({ dt }) => {
 
-    //const [height, setHeight] = useState(0)
     const dispatch = useDispatch()
+    const note = useRef()
 
-    function autoGrow(e) {
+    function autoGrow() {
 
-        e.target.style.height = "5px"
-        e.target.style.height = (e.target.scrollHeight) + "px";
+        note.current.style.height = "5px"
+        note.current.style.height = (note.current.scrollHeight) + "px";
 
     }
 
-    const update = (e) => {
+    const update = () => {
 
-        autoGrow(e)
-
+        autoGrow()
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
             id: dt.id,
-            props: { data: e.target.value }
+            props: { data: note.current.value }
         }))
 
     }
+
+    useEffect(autoGrow, [])
 
     return (
 
@@ -33,6 +34,7 @@ const Note = ({ dt }) => {
             placeholder="..."
             defaultValue={dt.data}
             onInput={update}
+            ref={note}
         >
         </textarea>
 

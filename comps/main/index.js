@@ -48,7 +48,7 @@ const Main = () => {
 
         <>
             <Header />
-            {currentWorkspace ? <Workspace dt={currentWorkspace} /> : null}
+            {currentWorkspace ? <Workspace dt={currentWorkspace} key={currentWorkspace.id} /> : <div className='full bkg-dark'></div>}
             {menu ? <Menu menu={menu} /> : null}
             {loaderDisplay ? <Loader /> : null}
         </>

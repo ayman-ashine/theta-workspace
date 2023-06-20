@@ -137,50 +137,50 @@ const Timer = ({ dt }) => {
     // }, [])
 
     useEffect(() => {
-        console.log(ldt.hour, ldt.min, ldt.sec)
+
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({ id: dt.id, props: { data: ldt } }))
 
     }, [ldt])
 
     return (
 
-        <div className='row overflow-y-auto sm-p sm-g'>
+        <div className='flex v-flex sm-p'>
 
-            <div className='col row v-space-between bright br sm-p'>
+            <div className='row v-space-between bright br md-px'>
 
-                <div className='col-6 flex v-center h-center sm-p'>
+                <div className='col-5 flex v-center h-center sm-p'>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <div onClick={() => updateTimer('PHOUR')}>
+                        <div className={''} onClick={() => updateTimer('PHOUR')}>
                             <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.hour)}</span>
-                        <div onClick={() => updateTimer('MHOUR')}>
+                        <div className={''} onClick={() => updateTimer('MHOUR')}>
                             <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                     </div>
                     <span className='xl-fs normal-f clr-const-dark'>:</span>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <div onClick={() => updateTimer('PMIN')}>
+                        <div className={''} onClick={() => updateTimer('PMIN')}>
                             <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.min)}</span>
-                        <div onClick={() => updateTimer('MMIN')}>
+                        <div className={''} onClick={() => updateTimer('MMIN')}>
                             <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                     </div>
                     <span className='xl-fs normal-f clr-const-dark'>:</span>
                     <div className='flex v-flex v-center h-center sm-g'>
-                        <div onClick={() => updateTimer('PSEC')}>
+                        <div className={''} onClick={() => updateTimer('PSEC')}>
                             <Icon type={'chevron-up'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                         <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.sec)}</span>
-                        <div onClick={() => updateTimer('MSEC')}>
+                        <div className={''} onClick={() => updateTimer('MSEC')}>
                             <Icon type={'chevron-down'} styles={['sm-i', 'const-dark-icon']} />
                         </div>
                     </div>
                 </div>
 
-                <div className='col-4 flex v-center h-center sm-g'>
+                <div className='col-5 flex v-center h-end sm-g'>
 
                     <div onClick={startPauseTimer}>
                         <Icon type={'start'} styles={['lg-i', 'const-dark-icon', ldt.start ? 'hide' : null]} />
@@ -194,12 +194,6 @@ const Timer = ({ dt }) => {
                 </div>
 
             </div >
-{/* 
-            <div className='col flex h-center v-center hover-effect-brightness br sm-p'>
-
-                <Icon type={'add'} styles={['sm-i', 'const-dark-icon']} effect={false} />
-
-            </div> */}
 
         </div >
 

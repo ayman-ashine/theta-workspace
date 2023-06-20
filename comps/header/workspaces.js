@@ -11,8 +11,8 @@ const Workspaces = () => {
     return (
         <>
             {
-                workspace?.map((dt, index) => {
-                    return <Workspace dt={dt} key={index} />
+                workspace?.map(dt => {
+                    return <Workspace dt={dt} key={dt.id} />
                 })
             }
         </>

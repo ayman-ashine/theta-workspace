@@ -5,9 +5,9 @@ import { Tool } from '@/comps/modules'
 
 const MENU_TYPE = 'MENU_TOOL'
 
-const Workspace = ({dt}) => {
+const Workspace = ({ dt }) => {
 
-  const [position, setPosition] = useState({posX: dt.posX, posY: dt.posY, zoom: dt.zoom})
+  const [position, setPosition] = useState({ posX: dt.posX, posY: dt.posY, zoom: dt.zoom })
   const dispatch = useDispatch()
   const openMenu = (e) => {
 
@@ -32,7 +32,7 @@ const Workspace = ({dt}) => {
     const move = (e) => {
       posX = (e.clientX - shiftX)
       posY = (e.clientY - shiftY)
-      setPosition(state => ({...state, posX, posY }))
+      setPosition(state => ({ ...state, posX, posY }))
     }
 
     const rest = () => {
@@ -51,8 +51,8 @@ const Workspace = ({dt}) => {
     // !
     const calcShiftPos = () => {
 
-      const shiftX = parseInt( e.target.offsetWidth * dt.zoom )
-      const shiftY = parseInt( e.target.offsetHeight * dt.zoom )
+      const shiftX = parseInt(e.target.offsetWidth * dt.zoom)
+      const shiftY = parseInt(e.target.offsetHeight * dt.zoom)
       const posX = position.posX - shiftX
       const posY = position.posY - shiftY
       //console.log(shiftX, shiftY, posX, posY)
@@ -68,7 +68,7 @@ const Workspace = ({dt}) => {
         : (dt.zoom >= 2 ? 2 : dt.zoom + 0.05)
 
     }
-    setPosition(state => ({...state, zoom: calcZoom() }))
+    setPosition(state => ({ ...state, zoom: calcZoom() }))
     dispatch(WORKSPACE_ACTIONS.UPDATE({
       id: dt.id,
       props: {
@@ -81,18 +81,19 @@ const Workspace = ({dt}) => {
   }
   const restWorkspacePosition = () => {
 
-    setPosition({ posX: 0, posY: 0, zoom: 1  })
-    dispatch(WORKSPACE_ACTIONS.UPDATE({ id: dt.id, props: { posX: 0, posY: 0, zoom: 1} }))
+    setPosition({ posX: 0, posY: 0, zoom: 1 })
+    dispatch(WORKSPACE_ACTIONS.UPDATE({ id: dt.id, props: { posX: 0, posY: 0, zoom: 1 } }))
 
   }
 
-  return dt ? (
+  return (
 
     <div
-      className='full cursor-grab bkg-dark overflow-hidden'
+      className='full cursor-grab bkg-dark-primary overflow-hidden'
       onMouseDown={moveWorkspace}
       onWheel={zoomInOutWorkspace}
       onDoubleClick={restWorkspacePosition}
+      onContextMenu={openMenu}
     >
 
       <div
@@ -104,16 +105,15 @@ const Workspace = ({dt}) => {
           transform: `scale(${position.zoom})`,
           transformOrigin: 'center center',
         }}
-        onContextMenu={openMenu}
       >
 
-        { dt ? dt.tools.map((dt, index) => <Tool dt={dt} key={index} />) : null}
+        {dt.tools.map(dt => <Tool dt={dt} key={dt.id} />)}
 
       </div>
 
     </div>
 
-  ) : null
+  )
 
 }
 

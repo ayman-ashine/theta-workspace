@@ -75,13 +75,15 @@ const Frame = ({ dt, children }) => {
     >
 
       <div className='row bright sm-p cursor-grab' onMouseDown={moveFrame}>
-        <div className='col-9 xl-fw clr-const-dark overflow-hidden'>{dt.title}</div>
+        <div className={`col-9 lg-fw clr-const-dark overflow-hidden ${dt.title ? null : 'unvisible'}`}>
+          {dt.title ? dt.title : '.'}
+        </div>
         <div className='col-1 flex h-end' onMouseDown={openMenu}>
           <Icon type={'menu-2'} styles={['sm-i', 'const-dark-i']} />
         </div>
       </div>
 
-      <div className='full overflow-hidden' style={{ height: dt.minimize ? 0 : null }}>
+      <div className='full overflow-hidden' style={{ height: dt.minimize ? 0 : 'auto' }}>
 
         {children}
 
