@@ -74,7 +74,9 @@ const Clip = ({ dt }) => {
                     <div className='col-1 flex h-start'>
                         <Icon type={'clip'} styles={['sm-i', 'light-i']} effect={false} />
                     </div>
-                    <div className='col-8 xl-fw clr-light overflow-hidden'>{dt.title}</div>
+                    <div className={`col-8 xl-fw clr-light overflow-hidden ${dt.title ? null : 'unvisible'}`}>
+                        {dt.title ? dt.title : '.'}
+                    </div>
                     <div className='col-1 flex h-end' onMouseDown={openMenu}>
                         <Icon type={'menu-2'} styles={['sm-i', 'light-i']} />
                     </div>

@@ -7,7 +7,13 @@ const MENU_TYPE = 'MENU_TOOL'
 
 const Workspace = ({ dt }) => {
 
-  const [position, setPosition] = useState({ posX: dt.posX, posY: dt.posY, zoom: dt.zoom })
+  const [position, setPosition] = useState({
+    posX: dt.posX,
+    posY: dt.posY,
+    zoomPosX: 0,
+    zoomPosY: 0,
+    zoom: dt.zoom
+  })
   const dispatch = useDispatch()
   const openMenu = (e) => {
 
@@ -48,33 +54,29 @@ const Workspace = ({ dt }) => {
   }
   const zoomInOutWorkspace = (e) => {
 
-    // !
     const calcShiftPos = () => {
 
-      const shiftX = parseInt(e.target.offsetWidth * dt.zoom)
-      const shiftY = parseInt(e.target.offsetHeight * dt.zoom)
-      const posX = position.posX - shiftX
-      const posY = position.posY - shiftY
-      //console.log(shiftX, shiftY, posX, posY)
-      return [posX, posY]
+      return [
+        e.clientX - (position.posX),
+        e.clientY - (position.posY) - 50
+      ]
 
     }
-    calcShiftPos()
-
     const calcZoom = () => {
 
       return e.deltaY > 0 ?
-        (dt.zoom <= 0 ? 0 : dt.zoom - 0.05)
-        : (dt.zoom >= 2 ? 2 : dt.zoom + 0.05)
+        (position.zoom <= 0 ? 0 : position.zoom - 0.05)
+        : (position.zoom >= 2 ? 2 : position.zoom + 0.05)
 
     }
-    setPosition(state => ({ ...state, zoom: calcZoom() }))
+    setPosition(state => ({
+      ...state,
+      zoom: calcZoom(),
+    }))
     dispatch(WORKSPACE_ACTIONS.UPDATE({
       id: dt.id,
       props: {
         zoom: calcZoom(),
-        posX: calcShiftPos()[0],
-        posY: calcShiftPos()[1],
       }
     }))
 
@@ -98,12 +100,12 @@ const Workspace = ({ dt }) => {
 
       <div
         id='workspace'
-        className='full relative bkg-dark'
+        className='full relative h-self-center'
         style={{
           left: position.posX,
           top: position.posY,
           transform: `scale(${position.zoom})`,
-          transformOrigin: 'center center',
+          transformOrigin: `center`,
         }}
       >
 

@@ -10,6 +10,9 @@ export {
     MENU_DATA
 } from './appData'
 
+// App Date
+export { appDate } from './appDate'
+
 // Store
 export { store } from './store'
 

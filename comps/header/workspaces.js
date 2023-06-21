@@ -59,7 +59,7 @@ const Workspace = ({ dt }) => {
     return <>
 
         <div
-            className={`${dt.current ? 'bkg-dark' : null} row v-center light-border-right sm-p sm-g`}
+            className={`${dt.current ? 'bkg-dark' : null} row v-center light-border-right display-effect-2 sm-p sm-g`}
             style={{ width: 200 }}
             onClick={() => workspaceCurrent(dt.id)}
             onMouseLeave={hideOptions}

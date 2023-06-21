@@ -11,7 +11,7 @@ const Menu = ({ posX, posY, children }) => {
 
             <div className='full absolute z-index' onMouseDown={() => dispatch(MENU_ACTIONS.CLOSE())}></div>
             <div
-                className='row absolute z-index br bkg-dark-primary light-border sm-py'
+                className='row absolute z-index br bkg-dark-primary light-border display-effect-1 sm-py'
                 style={{ left: posX + 'px', top: posY + 'px', width: MENU_DATA.width }}
             >
 

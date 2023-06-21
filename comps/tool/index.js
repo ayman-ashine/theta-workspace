@@ -5,16 +5,17 @@ import Note from './tools/note'
 import Todo from './tools/todo'
 import Timer from './tools/timer'
 import Chrono from './tools/chrono'
+import Calendar from './tools/calendar'
 
 const getToolByType = ({ dt }) => {
 
     switch (dt.type) {
-        case 't-clip': return <Clip dt={dt} />
-        case 't-note': return <Note dt={dt} />
-        case 't-todo': return <Todo dt={dt} />
-        case 't-timer': return <Timer dt={dt} />
-        case 't-chrono': return <Chrono dt={dt} />
-        case 't-calendar': return null
+        case 'T_CLIP': return <Clip dt={dt} />
+        case 'T_NOTE': return <Note dt={dt} />
+        case 'T_TODO': return <Todo dt={dt} />
+        case 'T_TIMER': return <Timer dt={dt} />
+        case 'T_CHRONO': return <Chrono dt={dt} />
+        case 'T_CALENDAR': return <Calendar dt={dt} />
         default: return null
     }
 

@@ -13,6 +13,8 @@
 .low-8 {opacity: 0.8}
 .low-9 {opacity: 0.9}
 .bright {backdrop-filter: brightness(1.2);}
+.bright-2 {backdrop-filter: brightness(1.4);}
+.bright-4 {backdrop-filter: brightness(1.8);}
 
 .hover-effect-square {
     display: flex;
@@ -42,3 +44,22 @@
 .cursor-pointer {cursor: pointer;}
 .cursor-move {cursor: move;}
 .cursor-auto {cursor: auto;}
+
+/* Animations effect */
+
+.display-effect-1 {animation: display-effect-1 .2s;}
+.display-effect-2 {animation: display-effect-2 .2s;}
+
+@keyframes display-effect-1 {
+    0%{
+        transform: translateY(10%); 
+        opacity: 0;
+    }
+}
+
+@keyframes display-effect-2 {
+    0%{
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+}

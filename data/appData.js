@@ -202,8 +202,6 @@ export const WORKSPACE_DATA = {
         posX: 0,
         posY: 0,
         zoom: 1,
-        zoomPosX: 0,
-        zoomPosY: 0,
         tools: [],
     },
     tool: {
@@ -245,6 +243,10 @@ export const TIMER_DATA = {
         min: 0,
         sec: 0
     },
+    laps: {
+        id: null,
+        time: null,
+    },
 }
 
 export const MENU_DATA = {
@@ -260,7 +262,7 @@ export const MENU_DATA = {
 
 export const MENU_TOOLS_DATA = [
     {
-        type: 't-clip',
+        type: 'T_CLIP',
         frame: false,
         name: 'Clip',
         icon: {
@@ -269,7 +271,7 @@ export const MENU_TOOLS_DATA = [
         }
     },
     {
-        type: 't-note',
+        type: 'T_NOTE',
         frame: true,
         name: 'Note',
         icon: {
@@ -278,7 +280,7 @@ export const MENU_TOOLS_DATA = [
         }
     },
     {
-        type: 't-todo',
+        type: 'T_TODO',
         frame: true,
         name: 'Todo List',
         icon: {
@@ -287,7 +289,7 @@ export const MENU_TOOLS_DATA = [
         }
     },
     {
-        type: 't-timer',
+        type: 'T_TIMER',
         frame: true,
         name: 'Timer',
         icon: {
@@ -296,7 +298,7 @@ export const MENU_TOOLS_DATA = [
         }
     },
     {
-        type: 't-chrono',
+        type: 'T_CHRONO',
         frame: true,
         name: 'Chrono',
         icon: {
@@ -305,7 +307,7 @@ export const MENU_TOOLS_DATA = [
         }
     },
     {
-        type: 't-calendar',
+        type: 'T_CALENDAR',
         frame: true,
         name: 'Calendar',
         icon: {

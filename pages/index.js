@@ -14,7 +14,7 @@ export default function Home() {
 
                     <div className='col-5 flex v-center sm-g'>
                         <img className='md-i' src="https://img.icons8.com/fluency/200/sticky-notes.png" />
-                        <div className='lg-fw md-fs'>Timepro</div>
+                        <div className='lg-fw md-fs'>Theta Workspace</div>
                     </div>
                     <div className='col-5 flex v-center h-end sm-g'>
                         <div className='shwbtn'>About</div>
@@ -28,7 +28,7 @@ export default function Home() {
 
                     <div className='col-5 flex v-flex h-center v-center md-g'>
 
-                        <div className='md-fw md-fs'>Welcome to Timepro!</div>
+                        <div className='md-fw md-fs'>Welcome to Theta Workspace!</div>
                         <div className='low-8 center-text'>
                             Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
                             Take control of your day and embark on a journey towards a more efficient and productive future.
