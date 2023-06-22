@@ -12,9 +12,9 @@
 .low-7 {opacity: 0.7}
 .low-8 {opacity: 0.8}
 .low-9 {opacity: 0.9}
-.bright {backdrop-filter: brightness(1.2);}
-.bright-2 {backdrop-filter: brightness(1.4);}
-.bright-4 {backdrop-filter: brightness(1.8);}
+.bright {backdrop-filter: brightness(1.2)}
+.bright-2 {backdrop-filter: brightness(1.4)}
+.bright-4 {backdrop-filter: brightness(1.8)}
 
 .skew-5 {transform: skew(5deg);}
 
