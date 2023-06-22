@@ -7,8 +7,10 @@ const MENU_TYPE = 'MENU_CLIP'
 
 const Clip = ({ dt }) => {
 
-    const [ldt, setLdt] = useState(dt.data ? dt.data : [])
-    const [overClip, setOverClip] = useState(false)
+    const [ldt, setLdt] = useState(dt.data ? dt.data : {
+        height: 40,
+        tools: []
+    })
     const currentTool = useSelector(state => state.workspace.currentTool)
     const dispatch = useDispatch()
 
@@ -17,13 +19,11 @@ const Clip = ({ dt }) => {
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({ id: dt.id, props: { data: ldt } }))
 
     }, [ldt])
-
     useEffect(() => {
 
-        if(ldt.includes(currentTool)) setLdt( state => state.filter( id => id !== currentTool))
-        console.log(ldt)
-    }, [currentTool])
+        declip()
 
+    }, [currentTool])
     const openMenu = (e) => {
 
         if (e && e.stopPropagation) e.stopPropagation()
@@ -52,12 +52,12 @@ const Clip = ({ dt }) => {
                 id: dt.id,
                 props: { posX, posY }
             }))
-            ldt?.forEach(id => {
+            ldt.tools?.forEach((id, index) => {
                 dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
                     id: id,
-                    props: { posX, posY: posY + FRAME_DATA.headHeight }
+                    props: { posX: posX + 5 * ( index+1 ), posY: posY + FRAME_DATA.headHeight * ( index+1 ) }
                 }))
-            });
+            })
         }
         const rest = () => {
             document.removeEventListener('mousemove', move)
@@ -71,54 +71,66 @@ const Clip = ({ dt }) => {
     const clip = (e) => {
 
         stopPropagation(e)
-        setOverClip(true)
-        if(currentTool && !ldt.includes(currentTool)) {
-            console.log(currentTool, dt.posX)
-            setLdt(state => [...state, currentTool])
+        if (currentTool && !ldt.tools.includes(currentTool)) {
+
+            setLdt(state => ({
+                height: state.height + FRAME_DATA.headHeight,
+                tools: [ ...state.tools, currentTool ]
+            }))
+
             dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
                 id: currentTool,
-                props: { posX: dt.posX, posY: dt.posY, minimize: true }
+                props: { posX: dt.posX, posY: dt.posY + ldt.height, minimize: true, clip: true}
             }))
+
         }
-        
+
     }
     const declip = () => {
-        // ldt?.forEach(id => {
-        //     dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-        //         id: id,
-        //         props: { posX, posY: posY + FRAME_DATA.headHeight }
-        //     }))
-        // });
-        setOverClip(false)
+
+        if (ldt.tools.includes(currentTool)) {
+            setLdt(state => ({
+                height: state.height - FRAME_DATA.headHeight,
+                tools: state.tools.filter(id => id !== currentTool)
+            }))
+
+            dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
+                id: currentTool,
+                props: { minimize: false, clip: false}
+            }))
+        }
+
     }
+
     const stopPropagation = (e) => e.stopPropagation()
 
     return (
         <>
 
             <div
-                className={`flex v-flex br absolute light-border z-index ${overClip ? 'bright' : null}`}
+                className={`flex v-flex br absolute light-border z-index bright skew-6`}
                 style={
                     {
-                        left: dt.posX + 'px',
-                        top: dt.posY + 'px',
-                        width: dt.width,
-                        height: 'auto'
+                        left: dt.posX + 50,
+                        top: dt.posY,
+                        width: dt.width - 80,
+                        height: ldt.height,
+                        transition: 'height .2s'
                     }
                 }
                 onMouseEnter={clip}
-                onMouseLeave={declip}
+                onMouseLeave={stopPropagation}
                 onMouseDown={stopPropagation}
                 onDoubleClick={stopPropagation}
                 onWheel={stopPropagation}
             >
 
-                <div className='row sm-p' style={{height: FRAME_DATA.headHeight}} onMouseDown={moveClip}>
+                <div className='row sm-p' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveClip}>
                     <div className='col-1 flex h-start'>
-                        <Icon type={'clip'} styles={['sm-i', 'light-i']} effect={false} />
+                        <Icon type={'clip'} styles={['sm-i', 'light-i']} />
                     </div>
-                    <div className={`col-8 xl-fw clr-light overflow-hidden ${dt.title ? null : 'unvisible'}`}>
-                        {dt.title ? dt.title : '.'}
+                    <div className={`col-8 xl-fw clr-light overflow-hidden`}>
+                        {dt.title}
                     </div>
                     <div className='col-1 flex h-end' onMouseDown={openMenu}>
                         <Icon type={'menu-2'} styles={['sm-i', 'light-i']} />

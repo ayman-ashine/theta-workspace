@@ -1,6 +1,7 @@
 /* Containers */
 
-.z-index {z-index: 100}
+.z-index {z-index: 500}
+.z-index-0 {z-index: 0}
 .relative {position: relative}
 .absolute{position: absolute}
 .fixed {position: fixed}

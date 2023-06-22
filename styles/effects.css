@@ -16,6 +16,10 @@
 .bright-2 {backdrop-filter: brightness(1.4);}
 .bright-4 {backdrop-filter: brightness(1.8);}
 
+.skew-5 {transform: skew(5deg);}
+
+.skew-6 {transform: skew(8deg)}
+
 .hover-effect-square {
     display: flex;
     justify-content: center;

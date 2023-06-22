@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { MENU_ACTIONS, WORKSPACE_ACTIONS, FRAME_DATA } from '@/data/modules'
 import { Icon } from '@/comps/modules'
@@ -21,7 +21,7 @@ const Frame = ({ dt, children }) => {
     }))
 
   }
-  const moveFrame = (e) => {
+  const moveFrame = useCallback((e) => {
 
     let shiftX = e.clientX - dt.posX
     let shiftY = e.clientY - dt.posY
@@ -29,12 +29,17 @@ const Frame = ({ dt, children }) => {
     let posY = 0
 
     const move = (e) => {
-      posX = e.clientX - shiftX
-      posY = e.clientY - shiftY
-      dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-        id: dt.id,
-        props: { posX, posY }
-      }))
+
+      //if (dt.clip) rest()
+      //else {
+        posX = e.clientX - shiftX
+        posY = e.clientY - shiftY
+        dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
+          id: dt.id,
+          props: { posX, posY }
+        }))
+      //}
+
     }
 
     const rest = () => {
@@ -47,12 +52,12 @@ const Frame = ({ dt, children }) => {
     document.addEventListener('mouseup', rest)
     dispatch(WORKSPACE_ACTIONS.CURRENT_TOOL({ id: dt.id }))
 
-  }
+  }, [dt])
 
   return (
 
     <div
-      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color}`}
+      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color} ${dt.clip ? 'skew-5' : null}`}
       id={dt.id}
       style={
         {

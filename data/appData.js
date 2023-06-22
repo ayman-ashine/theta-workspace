@@ -211,6 +211,7 @@ export const WORKSPACE_DATA = {
         title: null,
         color: 'bkg-blue',
         minimize: false,
+        clip: false,
         posX: 0,
         posY: 0,
         width: 350,
