@@ -21,9 +21,10 @@ const Clip = ({ dt }) => {
     }, [ldt])
     useEffect(() => {
 
-        declip()
+        sortTools()
 
-    }, [currentTool])
+    }, [dt])
+
     const openMenu = (e) => {
 
         if (e && e.stopPropagation) e.stopPropagation()
@@ -38,8 +39,6 @@ const Clip = ({ dt }) => {
     }
     const moveClip = (e) => {
 
-        declip()
-
         let shiftX = e.clientX - dt.posX
         let shiftY = e.clientY - dt.posY
         let posX = 0
@@ -52,12 +51,6 @@ const Clip = ({ dt }) => {
                 id: dt.id,
                 props: { posX, posY }
             }))
-            ldt.tools?.forEach((id, index) => {
-                dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-                    id: id,
-                    props: { posX: posX, posY: posY + FRAME_DATA.headHeight * ( index+1 ) }
-                }))
-            })
         }
         const rest = () => {
             document.removeEventListener('mousemove', move)
@@ -71,24 +64,30 @@ const Clip = ({ dt }) => {
     const clip = (e) => {
 
         stopPropagation(e)
+
         if (currentTool && !ldt.tools.includes(currentTool)) {
 
             setLdt(state => ({
                 height: state.height + FRAME_DATA.headHeight,
-                tools: [ ...state.tools, currentTool ]
+                tools: [...state.tools, currentTool]
             }))
 
             dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
                 id: currentTool,
-                props: { posX: dt.posX, posY: dt.posY + ldt.height, minimize: true, clip: true}
+                props: { minimize: true, clip: true }
             }))
+
+            document.addEventListener('mouseup', rest)
 
         }
 
     }
-    const declip = () => {
+    const declip = (e) => {
+
+        stopPropagation(e)
 
         if (ldt.tools.includes(currentTool)) {
+
             setLdt(state => ({
                 height: state.height - FRAME_DATA.headHeight,
                 tools: state.tools.filter(id => id !== currentTool)
@@ -96,30 +95,50 @@ const Clip = ({ dt }) => {
 
             dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
                 id: currentTool,
-                props: { minimize: false, clip: false}
+                props: { minimize: false, clip: false }
             }))
+
         }
 
     }
+    const rest = () => {
 
+        document.removeEventListener('mouseup', rest)
+
+        dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
+            id: currentTool,
+            props: { posX: dt.posX, posY: dt.posY + ldt.height }
+        }))
+
+
+    }
+    const sortTools = () => {
+
+        ldt.tools?.forEach((id, index) => {
+            dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
+                id: id,
+                props: { posX: dt.posX, posY: dt.posY + FRAME_DATA.headHeight * (index + 1) }
+            }))
+        })
+
+    }
     const stopPropagation = (e) => e.stopPropagation()
 
     return (
         <>
 
             <div
-                className={`flex v-flex br absolute light-border z-index bright-2`}
+                className={`flex v-flex br absolute light-border z-index`}
                 style={
                     {
-                        left: dt.posX + 50,
+                        left: dt.posX,
                         top: dt.posY,
-                        width: dt.width - 50,
-                        height: ldt.height,
-                        transition: 'height .2s'
+                        width: dt.width,
+                        height: currentTool ? ldt.height : FRAME_DATA.headHeight
                     }
                 }
                 onMouseEnter={clip}
-                onMouseLeave={stopPropagation}
+                onMouseLeave={declip}
                 onMouseDown={stopPropagation}
                 onDoubleClick={stopPropagation}
                 onWheel={stopPropagation}

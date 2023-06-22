@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { MENU_ACTIONS, WORKSPACE_ACTIONS, FRAME_DATA } from '@/data/modules'
 import { Icon } from '@/comps/modules'
@@ -9,6 +9,7 @@ const Frame = ({ dt, children }) => {
 
   const dispatch = useDispatch()
   const stopPropagation = (e) => e.stopPropagation()
+
   const openMenu = (e) => {
 
     e.stopPropagation()
@@ -21,7 +22,7 @@ const Frame = ({ dt, children }) => {
     }))
 
   }
-  const moveFrame = useCallback((e) => {
+  const moveFrame = (e) => {
 
     let shiftX = e.clientX - dt.posX
     let shiftY = e.clientY - dt.posY
@@ -30,18 +31,15 @@ const Frame = ({ dt, children }) => {
 
     const move = (e) => {
 
-      //if (dt.clip) rest()
-      //else {
-        posX = e.clientX - shiftX
-        posY = e.clientY - shiftY
-        dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-          id: dt.id,
-          props: { posX, posY }
-        }))
-      //}
+      posX = e.clientX - shiftX
+      posY = e.clientY - shiftY
+
+      dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
+        id: dt.id,
+        props: { posX, posY }
+      }))
 
     }
-
     const rest = () => {
       document.removeEventListener('mousemove', move)
       document.removeEventListener('mouseup', rest)
@@ -52,7 +50,7 @@ const Frame = ({ dt, children }) => {
     document.addEventListener('mouseup', rest)
     dispatch(WORKSPACE_ACTIONS.CURRENT_TOOL({ id: dt.id }))
 
-  }, [dt])
+  }
 
   return (
 
