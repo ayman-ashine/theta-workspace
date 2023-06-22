@@ -55,7 +55,7 @@ const Clip = ({ dt }) => {
             ldt.tools?.forEach((id, index) => {
                 dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
                     id: id,
-                    props: { posX: posX + 5 * ( index+1 ), posY: posY + FRAME_DATA.headHeight * ( index+1 ) }
+                    props: { posX: posX, posY: posY + FRAME_DATA.headHeight * ( index+1 ) }
                 }))
             })
         }
@@ -108,12 +108,12 @@ const Clip = ({ dt }) => {
         <>
 
             <div
-                className={`flex v-flex br absolute light-border z-index bright skew-6`}
+                className={`flex v-flex br absolute light-border z-index bright-2`}
                 style={
                     {
                         left: dt.posX + 50,
                         top: dt.posY,
-                        width: dt.width - 80,
+                        width: dt.width - 50,
                         height: ldt.height,
                         transition: 'height .2s'
                     }

@@ -57,7 +57,7 @@ const Frame = ({ dt, children }) => {
   return (
 
     <div
-      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color} ${dt.clip ? 'skew-5' : null}`}
+      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color}`}
       id={dt.id}
       style={
         {
