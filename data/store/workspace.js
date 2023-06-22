@@ -24,9 +24,9 @@ const s = createSlice({
         },
         REMOVE(state, action) {
             state.workspaces = state.workspaces.filter(ws => {
-                if ( ws.id !== action.payload.id ) {
+                if (ws.id !== action.payload.id) {
                     return ws
-                } else if(ws.current) {
+                } else if (ws.current) {
                     state.currentWorkspace = null
                 }
             })
@@ -38,6 +38,9 @@ const s = createSlice({
                     { ...ws, current: true }
                     : { ...ws, current: false }
             })
+        },
+        CURRENT_TOOL(state, action) {
+            state.currentTool = action.payload.id
         },
         UPDATE(state, action) {
             state.workspaces = state.workspaces.map(ws => {
@@ -91,6 +94,15 @@ const s = createSlice({
                         })
                     }
                     : ws
+            })
+        },
+        GET_TOOL(state, action) {
+            state.workspaces.map(ws => {
+                if (ws.current) {
+                    ws.tools.map(tl => {
+                        if (tl.id === action.payload.id) return tl
+                    })
+                }
             })
         },
     }

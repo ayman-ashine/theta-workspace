@@ -214,9 +214,13 @@ export const WORKSPACE_DATA = {
         posX: 0,
         posY: 0,
         width: 350,
-        height: 350,
+        height: 0,
         data: null,
     }
+}
+
+export const FRAME_DATA = {
+    headHeight: 40,
 }
 
 export const CHRONO_DATA = {

@@ -109,7 +109,7 @@ const Workspace = ({ dt }) => {
         }}
       >
 
-        {dt.tools.map(dt => <Tool dt={dt} key={dt.id} />)}
+        {dt.tools.map(t => <Tool dt={t} key={t.id} />)}
 
       </div>
 
