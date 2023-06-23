@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { generateUniqueId } from '@/utils/modules'
-import { MENU_ACTIONS, MENU_TOOLS_DATA, WORKSPACE_ACTIONS } from '@/data/modules'
+import { MENU_ACTIONS, MENU_TOOLS_DATA, MENU_DATA, WORKSPACE_ACTIONS } from '@/data/modules'
 import { Menu, Option } from './format/modules'
 
 
@@ -23,7 +23,7 @@ const MenuTool = ({ posX, posY, dt }) => {
 
   return (
 
-    <Menu posX={posX} posY={posY}>
+    <Menu posX={posX - MENU_DATA.width} posY={posY - MENU_DATA.width * 1.5}>
 
       {
         MENU_TOOLS_DATA.map((tool, index) => {

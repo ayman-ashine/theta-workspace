@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { WORKSPACE_ACTIONS, MENU_ACTIONS } from '@/data/modules'
-import { Tool } from '@/comps/modules'
+import { Tool, Icon } from '@/comps/modules'
 
 const MENU_TYPE = 'MENU_TOOL'
 
@@ -95,12 +95,11 @@ const Workspace = ({ dt }) => {
       onMouseDown={moveWorkspace}
       onWheel={zoomInOutWorkspace}
       onDoubleClick={restWorkspacePosition}
-      onContextMenu={openMenu}
     >
 
       <div
         id='workspace'
-        className='full relative h-self-center'
+        className='full light-border relative h-self-center'
         style={{
           left: position.posX,
           top: position.posY,
@@ -110,6 +109,15 @@ const Workspace = ({ dt }) => {
       >
 
         {dt.tools.map(t => <Tool dt={t} key={t.id} />)}
+
+      </div>
+
+      <div
+        className='absolute bottom-0 right-0 md-m'
+        onClick={openMenu}
+      >
+
+        <Icon type={'add'} styles={['lg-i', 'light-i']}/>
 
       </div>
 
