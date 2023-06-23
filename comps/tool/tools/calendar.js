@@ -53,7 +53,7 @@ const Calendar = ({ dt }) => {
                 ldt.days?.map( d => {
                     return (
                         <div
-                            className={`col-1 flex v-center h-center br bkg-low-light hover-effect-brightness sm-p ${d.current ? 'dark-border' : null} ${d.check ? 'bright-2' : null}`}
+                            className={`col-1 flex v-center h-center br bkg-const-low-light hover-effect-brightness sm-p ${d.current ? 'dark-border' : null} ${d.check ? 'bright-2' : null}`}
                             onClick={() => checkDay(d.id)}
                             key={d.id}
                         >

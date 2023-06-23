@@ -66,6 +66,7 @@ const s = createSlice({
                 ...WORKSPACE_DATA.tool,
                 id: action.payload.id,
                 type: action.payload.type,
+                iconType: action.payload.iconType,
                 frame: action.payload.frame,
                 posX: action.payload.posX,
                 posY: action.payload.posY

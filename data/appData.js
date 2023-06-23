@@ -207,6 +207,7 @@ export const WORKSPACE_DATA = {
     tool: {
         id: null,
         type: null,
+        iconType: null,
         frame: null,
         title: null,
         color: 'bkg-blue',

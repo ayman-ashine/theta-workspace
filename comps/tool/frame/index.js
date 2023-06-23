@@ -55,7 +55,7 @@ const Frame = ({ dt, children }) => {
   return (
 
     <div
-      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color}`}
+      className={`flex v-flex br absolute overflow-hidden cursor-auto ${dt.color} display-effect-3`}
       id={dt.id}
       style={
         {
@@ -71,7 +71,10 @@ const Frame = ({ dt, children }) => {
     >
 
       <div className='row bright sm-p cursor-grab' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveFrame}>
-        <div className={`col-9 lg-fw clr-const-dark overflow-hidden`}>
+        <div className='col-1 flex h-start v-center'>
+          <Icon type={dt.iconType} styles={['sm-i', 'const-dark-i']} />
+        </div>
+        <div className={`col-8 lg-fw clr-const-dark overflow-hidden`}>
           {dt.title}
         </div>
         <div className='col-1 flex h-end' onMouseDown={openMenu}>

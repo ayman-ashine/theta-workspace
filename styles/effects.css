@@ -57,6 +57,7 @@
 
 .display-effect-1 {animation: display-effect-1 .2s;}
 .display-effect-2 {animation: display-effect-2 .2s;}
+.display-effect-3 {animation: display-effect-3 .2s;}
 
 @keyframes display-effect-1 {
     0%{
@@ -68,6 +69,13 @@
 @keyframes display-effect-2 {
     0%{
         transform: translateX(-10%);
+        opacity: 0;
+    }
+}
+
+@keyframes display-effect-3 {
+    0%{
+        transform: scale(0.5);
         opacity: 0;
     }
 }

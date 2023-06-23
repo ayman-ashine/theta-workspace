@@ -95,6 +95,7 @@ const Workspace = ({ dt }) => {
       onMouseDown={moveWorkspace}
       onWheel={zoomInOutWorkspace}
       onDoubleClick={restWorkspacePosition}
+      onContextMenu={openMenu}
     >
 
       <div
