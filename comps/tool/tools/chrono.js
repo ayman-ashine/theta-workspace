@@ -108,45 +108,45 @@ const Chrono = ({ dt }) => {
 
     return (
 
-        <div className='flex v-flex sm-p'>
+        <div className='flex flex-direction-column sm-p'>
 
             <div className='row v-space-between bright br sm-p'>
 
                 <div className='col-5 flex v-center h-center sm-p'>
-                    <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.hour)}</span>
-                    <span className='xl-fs normal-f clr-const-dark'>:</span>
-                    <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.min)}</span>
-                    <span className='xl-fs normal-f clr-const-dark'>:</span>
-                    <span className='xl-fs normal-f clr-const-dark'>{addZero(ldt.sec)}</span>
+                    <span className='xl-fs title normal-f text-c-dark'>{addZero(ldt.hour)}</span>
+                    <span className='xl-fs title normal-f text-c-dark'>:</span>
+                    <span className='xl-fs title normal-f text-c-dark'>{addZero(ldt.min)}</span>
+                    <span className='xl-fs title normal-f text-c-dark'>:</span>
+                    <span className='xl-fs title normal-f text-c-dark'>{addZero(ldt.sec)}</span>
                 </div>
                 <div className='col-5 flex v-center h-end sm-p sm-g'>
 
                     <div onClick={startPauseChrono}>
-                        <Icon type={'start'} styles={['lg-i', 'const-dark-icon', ldt.start ? 'hide' : null]} />
-                        <Icon type={'pause'} styles={['lg-i', 'const-dark-icon', ldt.start ? null : 'hide']} />
+                        <Icon type={'start'} styles={['xl-i', 'c-dark-i', ldt.start ? 'hide' : null]} />
+                        <Icon type={'pause'} styles={['xl-i', 'c-dark-i', ldt.start ? null : 'hide']} />
                     </div>
 
                     <div onClick={lapsChrono}>
-                        <Icon type={'save'} styles={['lg-i', 'const-dark-icon', ldt.start ? null : 'low']} />
+                        <Icon type={'save'} styles={['xl-i', 'c-dark-i', ldt.start ? null : 'low']} />
                     </div>
 
                     <div onClick={resetChrono}>
-                        <Icon type={'reset'} styles={['lg-i', 'const-dark-icon']} />
+                        <Icon type={'reset'} styles={['xl-i', 'c-dark-i']} />
                     </div>
 
                 </div>
 
             </div>
 
-            <div className='row overflow-y-auto'>
+            <div className='row'>
 
                 {
                     ldt.lapses?.map((laps, index) => {
 
                         return (
-                            <div className='col row v-center bright br sm-mt sm-p sm-g' key={laps.id}>
-                                <div className='col-1 normal-f center-text normal-f clr-const-dark bkg-const-low-light br'>{ldt.lapses.length - index}</div>
-                                <div className='col-8 md-fs normal-f center-text clr-const-dark'>{laps.time}</div>
+                            <div className='col-10 row v-center bright br sm-mt sm-p sm-g' key={laps.id}>
+                                <div className='col-1 normal-f text-center text-c-dark'>{ldt.lapses.length - index}</div>
+                                <div className='col-8 normal-f text-center text-c-dark'>{laps.time}</div>
                                 <div className='col-1' onClick={() => removeLaps(laps.id)}>
                                     <Icon type={'remove'} styles={['sm-i', 'const-dark-icon']} />
                                 </div>

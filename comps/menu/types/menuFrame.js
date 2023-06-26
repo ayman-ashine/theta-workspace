@@ -10,17 +10,17 @@ const MenuFrame = ({ posX, posY, dt }) => {
 
         return (
             <Menu>
-                <div className='col row sm-py md-px'>
-                    <div className={`col-1 hover-effect-brightness bkg-red lg-py`} color="bkg-red" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-pink`} color="bkg-pink" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-purple`} color="bkg-purple" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-indigo`} color="bkg-indigo" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-blue`} color="bkg-blue" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-cyan`} color="bkg-cyan" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-teal`} color="bkg-teal" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-green`} color="bkg-green" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-yellow`} color="bkg-yellow" onClick={funcChangeColorFrame}></div>
-                    <div className={`col-1 hover-effect-brightness bkg-orange`} color="bkg-orange" onClick={funcChangeColorFrame}></div>
+                <div className='col-10 row sm-py md-px'>
+                    <div className={`col-10 effect-brightness bg-red sm-p`} color="bg-red" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-pink sm-p`} color="bg-pink" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-purple sm-p`} color="bg-purple" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-indigo sm-p`} color="bg-indigo" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-blue sm-p`} color="bg-blue" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-cyan sm-p`} color="bg-cyan" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-teal sm-p`} color="bg-teal" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-green sm-p`} color="bg-green" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-yellow sm-p`} color="bg-yellow" onClick={funcChangeColorFrame}></div>
+                    <div className={`col-10 effect-brightness bg-orange sm-p`} color="bg-orange" onClick={funcChangeColorFrame}></div>
                 </div>
             </Menu>
         )
@@ -59,11 +59,11 @@ const MenuFrame = ({ posX, posY, dt }) => {
     return (
 
         <Menu posX={posX} posY={posY}>
-            <div className='col relative v-center h-space-between sm-py md-px'>
+            <div className='col-10 relative v-center h-space-between sm-py md-px'>
                 <input
-                    className='full br light-border sm-p'
+                    className='full br light-border light-placeholder sm-p'
                     type='text'
-                    placeholder='Title'
+                    placeholder='Write your title...'
                     defaultValue={dt.title}
                     onInput={funcChangeTitleFrame}
                 />

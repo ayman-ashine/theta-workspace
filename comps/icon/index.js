@@ -5,7 +5,7 @@ const Icon = ({ type, styles, effect = true }) => {
 
     return (
 
-        <div className={effect ? 'hover-effect-square' : 'flex v-center h-center'}>
+        <div className={effect ? 'effect-square' : 'effect-none'}>
             {SVG_DATA[type] ? SVG_DATA[type](styles) : null}
         </div>
 

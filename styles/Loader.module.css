@@ -9,7 +9,7 @@
     height: 20px;
     background-color: var(--low-light);
     border-radius: 10px;
-    animation: scale-up4 1s linear infinite;
+    animation: scale-up4 .5s linear infinite;
   }
   
   .bar:nth-child(2) {

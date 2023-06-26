@@ -1,0 +1,30 @@
+/*______Color______*/
+
+/* Background_Color */
+
+.bg-dark {background-color: var(--dark)}
+.bg-light {background-color: var(--light)}
+.bg-l-dark {background-color: var(--l-dark)}
+.bg-l-light {background-color: var(--l-light)}
+.bg-primary {background-color: var(--primary)}
+.bg-l-primary {background-color: var(--l-primary)}
+
+.bg-c-dark {background-color: var(--c-dark)}
+.bg-c-light {background-color: var(--c-light)}
+.bg-c-l-dark {background-color: var(--c-l-dark)}
+.bg-c-l-light {background-color: var(--c-l-light)}
+.bg-c-primary {background-color: var(--c-primary)}
+.bg-c-l-primary {background-color: var(--c-l-primary)}
+
+/* Custom_Color */
+
+.bg-purple {background-color: var(--purple)}
+.bg-red {background-color: var(--red)}
+.bg-pink {background-color: var(--pink)}
+.bg-indigo {background-color: var(--indigo)}
+.bg-blue {background-color: var(--blue)}
+.bg-cyan {background-color: var(--cyan)}
+.bg-teal {background-color: var(--teal)}
+.bg-green {background-color: var(--green)}
+.bg-yellow {background-color: var(--yellow)}
+.bg-orange {background-color: var(--orange)}

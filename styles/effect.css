@@ -1,0 +1,185 @@
+/*______Effects______*/
+
+/* Border */
+.light-border {border: 1px solid var(--l-light)}
+.light-border-r {border-right: 1px solid var(--l-light)}
+.light-border-l {border-left: 1px solid var(--l-light)}
+.light-border-b {border-bottom: 1px solid var(--l-light)}
+.light-border-t {border-top: 1px solid var(--l-light)}
+.dark-border {border: 1px solid var(--l-dark)}
+.dark-border-r {border-right: 1px solid var(--l-dark)}
+.dark-border-l {border-left: 1px solid var(--l-dark)}
+.dark-border-b {border-bottom: 1px solid var(--l-dark)}
+.dark-border-t {border-top: 1px solid var(--l-dark)}
+
+.c-light-border {border: 1px solid var(--c-l-light)}
+.c-light-border-r {border-right: 1px solid var(--c-l-light)}
+.c-light-border-l {border-left: 1px solid var(--c-l-light)}
+.c-light-border-b {border-bottom: 1px solid var(--c-l-light)}
+.c-light-border-t {border-top: 1px solid var(--c-l-light)}
+.c-dark-border {border: 1px solid var(--c-l-dark)}
+.c-dark-border-r {border-right: 1px solid var(--c-l-dark)}
+.c-dark-border-l {border-left: 1px solid var(--c-l-dark)}
+.c-dark-border-b {border-bottom: 1px solid var(--c-l-dark)}
+.c-dark-border-t {border-top: 1px solid var(--c-l-dark)}
+
+/* Placeholder */
+.dark-placeholder::placeholder{color: var(--dark); opacity: 0.5;}
+.light-placeholder::placeholder{color: var(--light); opacity: 0.5;}
+.c-dark-placeholder::placeholder{color: var(--c-dark); opacity: 0.5;}
+.c-light-placeholder::placeholder{color: var(--c-light); opacity: 0.5;}
+
+/* Border_Radius */
+.br {border-radius: var(--br)}
+.br-2 {border-radius: calc( var(--br) * 2 )}
+.br-3 {border-radius: calc( var(--br) * 3 )}
+.br-4 {border-radius: calc( var(--br) * 4 )}
+.br-5 {border-radius: calc( var(--br) * 5 )}
+.full-br {border-radius: var(--full-br)}
+
+/* Opacity */
+.low {opacity: 0.5}
+.unvisible {opacity: 0}
+.low-1 {opacity: 0.1}
+.low-2 {opacity: 0.2}
+.low-3 {opacity: 0.3}
+.low-4 {opacity: 0.4}
+.low-5 {opacity: 0.5}
+.low-6 {opacity: 0.6}
+.low-7 {opacity: 0.7}
+.low-8 {opacity: 0.8}
+.low-9 {opacity: 0.9}
+
+/* Brightness */
+.bright {backdrop-filter: brightness(1.2)}
+.bright-1 {backdrop-filter: brightness(1.1)}
+.bright-2 {backdrop-filter: brightness(1.2)}
+.bright-3 {backdrop-filter: brightness(1.3)}
+.bright-4 {backdrop-filter: brightness(1.4)}
+.bright-5 {backdrop-filter: brightness(1.5)}
+.bright-6 {backdrop-filter: brightness(1.6)}
+.bright-7 {backdrop-filter: brightness(1.7)}
+.bright-8 {backdrop-filter: brightness(1.8)}
+.bright-9 {backdrop-filter: brightness(1.9)}
+
+/* Blur */
+.blur {backdrop-filter: blur(5px)}
+.blur-1 {backdrop-filter: blur(5px)}
+.blur-2 {backdrop-filter: blur(10px)}
+.blur-3 {backdrop-filter: blur(15px)}
+.blur-4 {backdrop-filter: blur(20px)}
+.blur-5 {backdrop-filter: blur(25px)}
+.blur-6 {backdrop-filter: blur(30px)}
+.blur-7 {backdrop-filter: blur(35px)}
+.blur-8 {backdrop-filter: blur(40px)}
+.blur-9 {backdrop-filter: blur(45px)}
+
+/* Effects */
+.effect-none {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.effect-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 0;
+}
+.effect-square::before {
+    content: "";
+    width: 115%;
+    height: 115%;
+    position: absolute;
+    background-color: var(--l-light);
+    border-radius: var(--br);
+    z-index: -1;
+    opacity: 0;
+    transition: .2s;
+}
+.effect-square:hover::before {
+    opacity: 1;
+}
+
+.effect-brightness {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.effect-brightness:hover {
+    backdrop-filter: brightness(1.2);
+}
+
+.effect-opacity {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: .2s;
+}
+.effect-opacity:hover {
+    opacity: 1;
+}
+
+.effect-option {
+    cursor: pointer;
+    transition: .2s;
+}
+.effect-option:hover {
+    background-color: var(--l-light);
+}
+
+/* Cursor */
+.cursor-auto {cursor: auto}
+.cursor-default {cursor: default}
+.cursor-grab {cursor: grab}
+.cursor-grabbing {cursor: grabbing}
+.cursor-pointer {cursor: pointer}
+.cursor-move {cursor: move}
+.cursor-alias {cursor: alias}
+
+/* Animations */
+
+.animation-translateY {animation: animation-translateY .2s}
+.animation-translateY-long {animation: animation-translateY 2s}
+@keyframes animation-translateY {
+    0%{
+        transform: translateY(10%); 
+        opacity: 0;
+    }
+}
+
+.animation-translateX {animation: animation-translateX .2s}
+.animation-translateX-long {animation: animation-translateX 2s}
+@keyframes animation-translateX {
+    0%{
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+}
+
+.animation-scale {animation: animation-scale .2s}
+.animation-scale-long {animation: animation-scale 2s}
+@keyframes animation-scale {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.animation-rotate {animation: animation-rotate .2s}
+.animation-rotate-long {animation: animation-rotate 2s}
+@keyframes animation-rotate {
+    0%{
+        transform: rotate(5deg);
+        opacity: 0;
+    }
+}
+
+.animation-opacity {animation: animation-opacity .2s}
+.animation-opacity-long {animation: animation-opacity 2s}
+@keyframes animation-opacity {
+    0%{
+        opacity: 0;
+    }
+}

@@ -1,10 +1,14 @@
 import { Provider } from "react-redux"
-import { Main } from "@/comps/modules"
 import { store } from "@/data/modules"
+import { Main } from "@/comps/modules"
 
 const App = () => {
 
-  return <Provider store={store}><Main /></Provider>
+  return (
+
+    <Provider store={store}><Main /></Provider>
+    
+  )
 
 }
 

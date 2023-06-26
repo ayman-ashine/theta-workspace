@@ -43,7 +43,7 @@ const Calendar = ({ dt }) => {
                 ldt.daysName?.map((day, index) => {
                     return (
 
-                        <span className='col-1 flex v-center h-center clr-const-dark lg-fw' key={index}>{day}</span>
+                        <span className='col-1 flex v-center h-center text-c-dark' key={index}>{day}</span>
 
                     )
                 })
@@ -53,11 +53,11 @@ const Calendar = ({ dt }) => {
                 ldt.days?.map( d => {
                     return (
                         <div
-                            className={`col-1 flex v-center h-center br bkg-const-low-light hover-effect-brightness sm-p ${d.current ? 'dark-border' : null} ${d.check ? 'bright-2' : null}`}
+                            className={`col-1 flex v-center h-center br bg-c-l-light effect-brightness sm-p ${d.current ? 'dark-border' : null} ${d.check ? 'bright-2' : null}`}
                             onClick={() => checkDay(d.id)}
                             key={d.id}
                         >
-                            <span className='clr-const-dark xl-fw'>{d.day}</span>
+                            <span className='title text-c-dark'>{d.day}</span>
                         </div>
                     )
                 })

@@ -91,7 +91,7 @@ const Workspace = ({ dt }) => {
   return (
 
     <div
-      className='full cursor-grab bkg-dark overflow-hidden'
+      className='full display flex v-center h-center cursor-grab overflow-hidden'
       onMouseDown={moveWorkspace}
       onWheel={zoomInOutWorkspace}
       onDoubleClick={restWorkspacePosition}
@@ -99,8 +99,7 @@ const Workspace = ({ dt }) => {
     >
 
       <div
-        id='workspace'
-        className='full light-border relative h-self-center'
+        className='relative sm-p light-border'
         style={{
           left: position.posX,
           top: position.posY,
@@ -114,7 +113,7 @@ const Workspace = ({ dt }) => {
       </div>
 
       <div
-        className='absolute bottom-0 right-0 md-m'
+        className='absolute b-0 r-0 md-m'
         onClick={openMenu}
       >
 

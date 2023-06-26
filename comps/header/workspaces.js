@@ -56,10 +56,10 @@ const Workspace = ({ dt }) => {
 
     }
 
-    return <>
+    return (
 
         <div
-            className={`${dt.current ? 'bkg-dark' : null} row v-center light-border-right display-effect-2 sm-p sm-g`}
+            className={`${!dt.current ? 'low-5' : null} row v-center bg-dark light-border-r animation-translateX sm-p sm-g`}
             style={{ width: 200 }}
             onClick={() => workspaceCurrent(dt.id)}
             onMouseLeave={hideOptions}
@@ -67,13 +67,13 @@ const Workspace = ({ dt }) => {
         >
 
             <input
-                className={`col-8 ${ldt.displayInput ? 'light-border-bottom' : ''}`}
+                className={`col-8 title ${ldt.displayInput ? 'light-border' : null}`}
                 defaultValue={dt.name}
                 onInput={(e) => workspaceRename(e, dt.id)}
                 disabled={ldt.displayInput ? null : 'disabled'}
             />
 
-            <div className={`col-1 ${ldt.displayOptions ? null : 'hide'}`}>
+            <div className={`col-1 ${!ldt.displayOptions ? 'hide' : null}`}>
                 <div onClick={switchToEditMode}>
                     {
                         ldt.displayInput ?
@@ -83,7 +83,7 @@ const Workspace = ({ dt }) => {
                 </div>
             </div>
 
-            <div className={`col-1 ${ldt.displayOptions ? null : 'hide'}`}>
+            <div className={`col-1 ${!ldt.displayOptions ? 'hide' : null}`}>
                 <div onClick={(e) => workspaceRemove(e, dt.id)}>
                     <Icon type={'remove'} styles={['sm-i', 'light-i']} />
                 </div>
@@ -91,7 +91,7 @@ const Workspace = ({ dt }) => {
 
         </div>
 
-    </>
+    )
 
 }
 

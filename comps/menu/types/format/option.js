@@ -9,7 +9,7 @@ const Option = ({ icon, name, action, subMenu }) => {
     return <>
 
         <div
-            className='col row relative v-center h-space-between hover-effect-option sm-py md-px'
+            className='col-10 row relative v-center h-space-between effect-option sm-py md-px'
             onClick={action}
             onMouseEnter={() => setLdt(state => ({ ...state, menu: true }))}
             onMouseLeave={() => setLdt(state => ({ ...state, menu: false }))}
@@ -24,11 +24,11 @@ const Option = ({ icon, name, action, subMenu }) => {
                 null
             }
 
-            <div className='col-8 sm-px'>
+            <div className='col-8 sm-px title'>
                 {name}
             </div>
 
-            <div className={`col-last ${subMenu ? null : 'hide'}`}>
+            <div className={`col--1 ${subMenu ? null : 'hide'}`}>
                 <Icon type={'start'} styles={['sm-i', 'light-i']} effect={false} />
             </div>
 
@@ -37,7 +37,7 @@ const Option = ({ icon, name, action, subMenu }) => {
                 style={{
                     position: 'absolute',
                     whiteSpace: 'nowrap',
-                    top: 'calc( var(--sm-un) * -1 )',
+                    top: 'calc( var(--sm-u) * -1 )',
                     right: 0,
                     transform: 'translate(100%)',
                 }}

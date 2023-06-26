@@ -11,14 +11,14 @@ const Control = () => {
     const openMenu = (e) => {
         dispatch(MENU_ACTIONS.OPEN({
             type: MENU_TYPE,
-            posX: e.target.offsetLeft,
-            posY: e.target.offsetParent.offsetHeight,
+            posX: e.clientX,
+            posY: e.clientY,
         }))
     }
 
     return (
 
-        <div className='flex v-center h-center relative bkg-dark light-border-right' style={{ width: HEADER_DATA.control.width }}>
+        <div className='flex v-center h-center relative bg-dark light-border-r' style={{ width: HEADER_DATA.control.width }}>
             <div onClick={openMenu}>
                 <Icon type='menu-1' styles={['md-i', 'light-i']} />
             </div>

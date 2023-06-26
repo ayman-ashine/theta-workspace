@@ -14,11 +14,11 @@ const MenuFrame = ({ posX, posY, dt }) => {
     return (
 
         <Menu posX={posX} posY={posY}>
-            <div className='col relative v-center h-space-between sm-py md-px'>
+            <div className='col-10 relative v-center h-space-between sm-py md-px'>
                 <input
-                    className='full br light-border sm-p'
+                    className='full br light-border light-placeholder sm-p'
                     type='text'
-                    placeholder='Title'
+                    placeholder='Write your title...'
                     defaultValue={dt.title}
                     onInput={funcChangeTitleFrame}
                 />

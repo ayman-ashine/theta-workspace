@@ -1,0 +1,53 @@
+/*______Text______*/
+
+/* Text_Font */
+.normal-f {font-family: var(--f-play)}
+.title {
+    font-size: var(--sm-fs);
+    font-weight: var(--lg-fw);
+}
+
+/* Text_Size */
+.sm-fs {font-size: var(--sm-fs)}
+.md-fs {font-size: var(--md-fs)}
+.lg-fs {font-size: var(--lg-fs)}
+.xl-fs {font-size: var(--xl-fs)}
+.xxl-fs {font-size: var(--xxl-fs)}
+
+/* Text_Weight */
+.sm-fw {font-weight: var(--sm-fw)}
+.md-fw {font-weight: var(--md-fw)}
+.lg-fw {font-weight: var(--lg-fw)}
+.xl-fw {font-weight: var(--xl-fw)}
+.xxl-fw {font-weight: var(--xxl-fw)}
+
+/* Text_Align */
+.text-center { text-align: center}
+.text-start { text-align: start}
+.text-end { text-align: end}
+
+/* Text_Color */
+.text-dark {color: var(--dark)}
+.text-light {color: var(--light)}
+.text-l-dark {color: var(--l-dark)}
+.text-l-light {color: var(--l-light)}
+.text-primary {color: var(--primary)}
+.text-l-primary {color: var(--l-primary)}
+
+.text-c-dark {color: var(--c-dark)}
+.text-c-light {color: var(--c-light)}
+.text-c-l-dark {color: var(--c-l-dark)}
+.text-c-l-light {color: var(--c-l-light)}
+.text-c-primary {color: var(--c-primary)}
+.text-c-l-primary {color: var(--c-l-primary)}
+
+.text-purple {color: var(--purple)}
+.text-red {color: var(--red)}
+.text-pink {color: var(--pink)}
+.text-indigo {color: var(--indigo)}
+.text-blue {color: var(--blue)}
+.text-cyan {color: var(--cyan)}
+.text-teal {color: var(--teal)}
+.text-green {color: var(--green)}
+.text-yellow {color: var(--yellow)}
+.text-orange {color: var(--orange)}

@@ -1,0 +1,37 @@
+/*______Icons______*/
+
+/* Icon_Object_Fit */
+.cover {object-fit: cover}
+.contain {object-fit: contain}
+.fill {object-fit:fill}
+
+/* Icon_size */
+.sm-i {
+    width: 20px;
+    height: 20px;
+}
+.md-i {
+    width: 25px;
+    height: 25px;
+}
+.lg-i {
+    width: 30px;
+    height: 30px;
+}
+.xl-i {
+    width: 35px;
+    height: 35px;
+}
+.xxl-i {
+    width: 40px;
+    height: 40px;
+}
+
+/* Icon_Color */
+.dark-i {fill: var(--dark)}
+.light-i {fill: var(--light)}
+.primary-i {fill: var(--primary)}
+
+.c-dark-i {fill: var(--c-dark)}
+.c-light-i {fill: var(--c-light)}
+.c-primary-i {fill: var(--c-primary)}

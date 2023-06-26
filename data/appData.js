@@ -95,8 +95,8 @@ export const SVG_DATA = {
     'save': (styles) => {
 
         return (
-            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" x="0px" y="0px" width="50px" height="50px" >
-                <path d="M41.148,14H22.852C22.382,14,22,14.382,22,14.852v32.36c0,0.297,0.357,0.448,0.57,0.241l8.557-8.303	c0.487-0.472,1.26-0.472,1.747,0l8.557,8.303C41.643,47.66,42,47.509,42,47.213v-32.36C42,14.382,41.618,14,41.148,14z M41.148,10	C43.827,10,46,12.173,46,14.852v37.46c0,1.925-2.314,2.903-3.695,1.563L32,43.877l-10.305,9.999C20.314,55.216,18,54.237,18,52.313	v-37.46C18,12.173,20.173,10,22.852,10H41.148z"></path>
+            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50px" height="50px" >
+                <path d="M41.148,14H22.852C22.382,14,22,14.382,22,14.852v32.36c0,0.297,0.357,0.448,0.57,0.241l8.557-8.303 c0.487-0.472,1.26-0.472,1.747,0l8.557,8.303C41.643,47.66,42,47.509,42,47.213v-32.36C42,14.382,41.618,14,41.148,14z M41.148,10	C43.827,10,46,12.173,46,14.852v37.46c0,1.925-2.314,2.903-3.695,1.563L32,43.877l-10.305,9.999C20.314,55.216,18,54.237,18,52.313	v-37.46C18,12.173,20.173,10,22.852,10H41.148z"></path>
             </svg>
         )
 
@@ -113,14 +113,14 @@ export const SVG_DATA = {
     'chevron-up': (styles) => {
         return (
             <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="50px" height="50px" >
-                <path d="M16 13l-6-6-6 6"/>
+                <path d="M16 13l-6-6-6 6" />
             </svg>
         )
     },
     'chevron-down': (styles) => {
         return (
             <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="50px" height="50px" >
-                <path d="M4 7l6 6 6-6"/>
+                <path d="M4 7l6 6 6-6" />
             </svg>
         )
     },
@@ -192,7 +192,26 @@ export const WORKSPACE_DATA = {
     default: {
         currentWorkspace: null,
         currentTool: null,
-        workspaces: [],
+        workspaces: [
+            {
+                id: null,
+                name: 'Initial Workspace',
+                current: false,
+                currentTool: null,
+                posX: 0,
+                posY: 0,
+                zoom: 1,
+                tools: [
+                    { "id": "yvNiqJ", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-red", "minimize": false, "clip": true, "posX": -436, "posY": -88, "width": 350, "height": 0, "data": [{ "id": "hegRGL", "title": "", "complete": false }, { "id": "VUKnTu", "title": "", "complete": false }] },
+                    { "id": "BeDCxi", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "Todo", "color": "bg-blue", "minimize": false, "clip": false, "posX": -436, "posY": -128, "width": 350, "height": 0, "data": { "height": 80, "tools": ["yvNiqJ"] } },
+                    { "id": "eIEyOE", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "In Progress", "color": "bg-blue", "minimize": false, "clip": false, "posX": -67, "posY": -129, "width": 350, "height": 0, "data": { "height": 80, "tools": ["EpapvO"] } },
+                    { "id": "EpapvO", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-yellow", "minimize": false, "clip": true, "posX": -67, "posY": -89, "width": 350, "height": 0, "data": [{ "id": "FTlWUp", "title": "", "complete": false }, { "id": "qQtZqx", "title": "", "complete": false }] },
+                    { "id": "Btrfzp", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "Done", "color": "bg-blue", "minimize": false, "clip": false, "posX": 299, "posY": -128, "width": 350, "height": 0, "data": { "height": 80, "tools": ["gdJoSk"] } },
+                    { "id": "gdJoSk", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-green", "minimize": false, "clip": true, "posX": 299, "posY": -88, "width": 350, "height": 0, "data": [{ "id": "UThLcG", "title": "", "complete": false }, { "id": "xtoikM", "title": "", "complete": false }] },
+
+                ]
+            }
+        ],
     },
     workspace: {
         id: null,
@@ -210,7 +229,7 @@ export const WORKSPACE_DATA = {
         iconType: null,
         frame: null,
         title: null,
-        color: 'bkg-blue',
+        color: 'bg-blue',
         minimize: false,
         clip: false,
         posX: 0,

@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { SETTINGS_ACTIONS, WORKSPACE_ACTIONS } from "@/data/modules"
-import { Header, Menu, Workspace, Loader } from "@/comps/modules"
+import { Header, Menu, Workspace, Info, Loader } from "@/comps/modules"
 
 
 const Main = () => {
@@ -27,7 +27,7 @@ const Main = () => {
 
         dispatch(SETTINGS_ACTIONS.LOAD())
         dispatch(WORKSPACE_ACTIONS.LOAD())
-        setTimeout(() => setLoaderDisplay(false), 1000)
+        setLoaderDisplay(false)
 
     }, [])
 
@@ -44,14 +44,26 @@ const Main = () => {
 
     }, [workspace])
 
+    // Loader
+    if (loaderDisplay) return <Loader />
+
     return (
 
-        <>
+        <main className="full flex flex-direction-column animation-opacity-long">
+
             <Header />
-            {currentWorkspace ? <Workspace dt={currentWorkspace} key={currentWorkspace.id} /> : <div className='full bkg-dark'></div>}
-            {menu ? <Menu menu={menu} /> : null}
-            {loaderDisplay ? <Loader /> : null}
-        </>
+            {
+                currentWorkspace ?
+                    <Workspace dt={currentWorkspace} key={currentWorkspace.id} />
+                    : <Info/>
+            }
+            {
+                menu ?
+                    <Menu menu={menu} />
+                    : null
+            }
+
+        </main>
 
     )
 

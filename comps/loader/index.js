@@ -1,9 +1,10 @@
 import styles from '@/styles/Loader.module.css'
+
 const Loader = () => {
 
     return (
 
-        <div className='full flex v-center h-center absolute bkg-dark'>
+        <div className='full flex v-center h-center absolute t-0 l-0 bg-dark'>
             <div className={styles.loader}>
                 <span className={styles.bar}></span>
                 <span className={styles.bar}></span>

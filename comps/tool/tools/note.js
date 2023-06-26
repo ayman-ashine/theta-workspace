@@ -30,8 +30,8 @@ const Note = ({ dt }) => {
 
         <textarea
 
-            className=' sm-p clr-const-dark const-dark-placeholder'
-            placeholder="..."
+            className='full text-c-dark c-dark-placeholder sm-p'
+            placeholder="Write your note..."
             defaultValue={dt.data}
             onInput={update}
             ref={note}

@@ -125,42 +125,37 @@ const Clip = ({ dt }) => {
     const stopPropagation = (e) => e.stopPropagation()
 
     return (
-        <>
 
-            <div
-                className={`flex v-flex br absolute light-border z-index`}
-                style={
-                    {
-                        left: dt.posX,
-                        top: dt.posY,
-                        width: dt.width,
-                        height: currentTool ? ldt.height : FRAME_DATA.headHeight
-                    }
+        <div
+            className={`flex flex-direction-column br absolute light-border z-index`}
+            style={
+                {
+                    left: dt.posX,
+                    top: dt.posY,
+                    width: dt.width,
+                    height: currentTool ? ldt.height : FRAME_DATA.headHeight
                 }
-                onMouseEnter={clip}
-                onMouseLeave={declip}
-                onMouseDown={stopPropagation}
-                onDoubleClick={stopPropagation}
-                onWheel={stopPropagation}
-            >
+            }
+            onMouseEnter={clip}
+            onMouseLeave={declip}
+            onMouseDown={stopPropagation}
+            onDoubleClick={stopPropagation}
+            onWheel={stopPropagation}
+        >
 
-                <div className='row sm-p' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveClip}>
-                    <div className='col-1 flex h-start'>
-                        <Icon type={'clip'} styles={['sm-i', 'light-i']} />
-                    </div>
-                    <div className={`col-8 xl-fw clr-light overflow-hidden`}>
-                        {dt.title}
-                    </div>
-                    <div className='col-1 flex h-end' onMouseDown={openMenu}>
-                        <Icon type={'menu-2'} styles={['sm-i', 'light-i']} />
-                    </div>
+            <div className='row sm-p' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveClip}>
+                <div className='col-1 flex h-start'>
+                    <Icon type={'clip'} styles={['sm-i', 'light-i']} effect={false} />
                 </div>
-
-                <div className={`full flex`}></div>
-
+                <div className={`col-8 flex v-center title text-light overflow-hidden`}>
+                    {dt.title}
+                </div>
+                <div className='col-1 flex h-end' onMouseDown={openMenu}>
+                    <Icon type={'menu-2'} styles={['sm-i', 'light-i']} />
+                </div>
             </div>
 
-        </>
+        </div>
     )
 
 }

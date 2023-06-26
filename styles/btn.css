@@ -1,0 +1,101 @@
+/* Buttons */
+
+/* get-started-btn */
+.get-started-btn {
+    position: relative;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--l-light);
+    border-radius: 2rem;
+    transition: .5s;
+}
+
+.get-started-btn div {
+    letter-spacing: 1px;
+    font-weight: var(--xxl-fw);
+    color: white;
+    padding: 1rem;
+}
+
+
+.get-started-btn:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+    border: 1px solid var(--light);
+}
+
+.get-started-btn svg {
+    transform: translateX(-200%);
+    transition: .5s;
+    width: 0;
+    opacity: 0;
+}
+
+.get-started-btn:hover svg {
+    width: 25px;
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.get-started-btn:active {
+    filter: brightness(1.4);
+}
+
+/* shadow-btn */
+.shadow-btn {
+    position: relative;
+    padding: var(--sm-u);
+    border-radius: var(--br);
+    border: 1px solid var(--l-light);
+    background: transparent;
+    color: var(--light);
+    text-transform: uppercase;
+    font-weight: var(--xxl-fw);
+    letter-spacing: 1px;
+    transition: .2s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.shadow-btn:hover {
+    border: 1px solid var(--light);
+}
+
+.shadow-btn:hover::before {
+    animation: animation-shadow-btn .5s ease-in-out;
+}
+
+.shadow-btn::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    background: var(--light);
+    box-shadow: 0 0 20px 20px var(--light);
+    transform: skewX(-45deg);
+}
+
+@keyframes animation-shadow-btn {
+    0% {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+.shadow-btn:active {
+    transform: scale(.9);
+    transition: 0s;
+}
