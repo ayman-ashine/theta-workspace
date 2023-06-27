@@ -13,7 +13,6 @@ const MenuTool = ({ posX, posY }) => {
     dispatch(WORKSPACE_ACTIONS.ADD_TOOL({
       id: generateUniqueId(),
       type: tool.type,
-      iconType: tool.icon.type,
       frame: tool.frame,
       posX: posX || 0,
       posY: posY || 0,

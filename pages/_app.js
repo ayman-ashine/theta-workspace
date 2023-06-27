@@ -13,8 +13,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Theta Workspace</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        <link rel='shortcut icon' href='https://img.icons8.com/fluency/200/sticky-notes.png' />
+        <link rel='shortcut icon' href='https://img.icons8.com/fluency/50/sticky-notes.png' />
       </Head>
       <Component {...pageProps} />
     </>

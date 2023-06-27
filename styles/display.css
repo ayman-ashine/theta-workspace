@@ -52,7 +52,7 @@
 
 /* Containers */
 .con {
-    width: min(100%, 900px);
+    width: min(100%, 1000px);
     height: 100%;
 }
 

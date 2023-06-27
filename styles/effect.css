@@ -74,6 +74,15 @@
 .blur-8 {backdrop-filter: blur(40px)}
 .blur-9 {backdrop-filter: blur(45px)}
 
+/* Cursor */
+.cursor-auto {cursor: auto}
+.cursor-default {cursor: default}
+.cursor-grab {cursor: grab}
+.cursor-grabbing {cursor: grabbing}
+.cursor-pointer {cursor: pointer}
+.cursor-move {cursor: move}
+.cursor-alias {cursor: alias}
+
 /* Effects */
 .effect-none {
     display: flex;
@@ -129,17 +138,7 @@
     background-color: var(--l-light);
 }
 
-/* Cursor */
-.cursor-auto {cursor: auto}
-.cursor-default {cursor: default}
-.cursor-grab {cursor: grab}
-.cursor-grabbing {cursor: grabbing}
-.cursor-pointer {cursor: pointer}
-.cursor-move {cursor: move}
-.cursor-alias {cursor: alias}
-
 /* Animations */
-
 .animation-translateY {animation: animation-translateY .2s}
 .animation-translateY-long {animation: animation-translateY 2s}
 @keyframes animation-translateY {

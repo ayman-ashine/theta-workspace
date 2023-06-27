@@ -29,7 +29,7 @@ const Workspace = ({ dt }) => {
   }
   const moveWorkspace = (e) => {
 
-    e.target.classList.add('cursor-grabbing')
+    e.target.classList.replace('cursor-grab', 'cursor-grabbing')
     let shiftX = e.clientX - position.posX
     let shiftY = e.clientY - position.posY
     let posX = 0
@@ -42,10 +42,14 @@ const Workspace = ({ dt }) => {
     }
 
     const rest = () => {
+
       document.removeEventListener('mousemove', move)
       document.removeEventListener('mouseup', rest)
-      e.target.classList.remove('cursor-grabbing')
+
+      e.target.classList.replace('cursor-grabbing', 'cursor-grab')
+
       dispatch(WORKSPACE_ACTIONS.UPDATE({ id: dt.id, props: { posX, posY } }))
+
     }
 
     document.addEventListener('mousemove', move)
@@ -54,29 +58,41 @@ const Workspace = ({ dt }) => {
   }
   const zoomInOutWorkspace = (e) => {
 
+    const calcZoom = () => {
+
+      return Number(e.deltaY > 0 ?
+        (position.zoom <= 0 ? 0 : position.zoom - 0.05).toFixed(2)
+        : (position.zoom >= 2 ? 2 : position.zoom + 0.05).toFixed(2)
+      )
+    }
+
     const calcShiftPos = () => {
 
+      // const deltaSign = e.deltaY > 0 ? 1 : -1
+      // const shiftX = ((e.clientX - e.target.offsetWidth / 2) * deltaSign) / 2
+      // const shiftY = ((e.clientY - e.target.offsetHeight / 2) * deltaSign) / 2
+
       return [
-        e.clientX - (position.posX),
-        e.clientY - (position.posY) - 50
+        parseInt(position.posX),
+        parseInt(position.posY)
       ]
 
     }
-    const calcZoom = () => {
 
-      return e.deltaY > 0 ?
-        (position.zoom <= 0 ? 0 : position.zoom - 0.05)
-        : (position.zoom >= 2 ? 2 : position.zoom + 0.05)
+    const [posX, posY] = calcShiftPos()
 
-    }
     setPosition(state => ({
       ...state,
       zoom: calcZoom(),
+      posX,
+      posY
     }))
     dispatch(WORKSPACE_ACTIONS.UPDATE({
       id: dt.id,
       props: {
         zoom: calcZoom(),
+        posX,
+        posY
       }
     }))
 
@@ -99,12 +115,12 @@ const Workspace = ({ dt }) => {
     >
 
       <div
-        className='relative sm-p light-border'
+        className='relative light-border'
         style={{
           left: position.posX,
           top: position.posY,
           transform: `scale(${position.zoom})`,
-          transformOrigin: `center`,
+          transformOrigin: '${position.posX}px ${position.posY}px',
         }}
       >
 
@@ -117,7 +133,7 @@ const Workspace = ({ dt }) => {
         onClick={openMenu}
       >
 
-        <Icon type={'add'} styles={['lg-i', 'light-i']}/>
+        <Icon type={'add'} styles={['lg-i', 'light-i']} />
 
       </div>
 

@@ -67,14 +67,10 @@ const Frame = ({ dt, children }) => {
       }
       onMouseDown={stopPropagation}
       onMouseEnter={stopPropagation}
-      onDoubleClick={stopPropagation}
     >
 
       <div className='row bright sm-p cursor-grab' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveFrame}>
-        <div className='col-1 flex h-start v-center'>
-          <Icon type={dt.iconType} styles={['sm-i', 'c-dark-i']} effect={false} />
-        </div>
-        <div className={`col-8 flex v-center title text-c-dark overflow-hidden`}>
+        <div className={`col-9 flex v-center title text-c-dark overflow-hidden`}>
           {dt.title}
         </div>
         <div className='col-1 flex h-end' onMouseDown={openMenu}>

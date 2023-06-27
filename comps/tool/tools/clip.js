@@ -139,8 +139,6 @@ const Clip = ({ dt }) => {
             onMouseEnter={clip}
             onMouseLeave={declip}
             onMouseDown={stopPropagation}
-            onDoubleClick={stopPropagation}
-            onWheel={stopPropagation}
         >
 
             <div className='row sm-p' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveClip}>

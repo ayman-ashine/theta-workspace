@@ -29,8 +29,8 @@ const Home = () => {
 
                     <div className='col-3 row-6 h-center v-center lg-g animation-translateX-long'>
 
-                        <div className='col-6 xxl-fw md-fs'>Welcome to Theta Workspace!</div>
-                        <div className='col-6 xxl-fw low-5'>
+                        <div className='col-6 title lg-fs'>Welcome to Theta Workspace!</div>
+                        <div className='col-6 low-5'>
                             Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
                             Take control of your day and embark on a journey towards a more efficient and productive future.
                             Get started now!
@@ -38,9 +38,9 @@ const Home = () => {
                         <div className="col-6 get-started-btn" onClick={() => app_router.push('/app')}>
                             <div>GET STARTED</div>
                             <svg fill="none" viewBox="0 0 24 24" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="white" d="M11.6801 14.62L14.2401 12.06L11.6801 9.5"></path>
-                                <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="white" d="M4 12.0601H14.17"></path>
-                                <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="white" d="M12 4C16.42 4 20 7 20 12C20 17 16.42 20 12 20"></path>
+                                <path strokeWidth="2" stroke="white" d="M11.6801 14.62L14.2401 12.06L11.6801 9.5"></path>
+                                <path strokeWidth="2" stroke="white" d="M4 12.0601H14.17"></path>
+                                <path strokeWidth="2" stroke="white" d="M12 4C16.42 4 20 7 20 12C20 17 16.42 20 12 20"></path>
                             </svg>
                         </div>
 

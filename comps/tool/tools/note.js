@@ -30,7 +30,7 @@ const Note = ({ dt }) => {
 
         <textarea
 
-            className='full text-c-dark c-dark-placeholder sm-p'
+            className='full text-c-dark c-dark-placeholder overflow-hidden sm-p'
             placeholder="Write your note..."
             defaultValue={dt.data}
             onInput={update}
