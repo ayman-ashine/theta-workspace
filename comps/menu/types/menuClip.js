@@ -14,17 +14,9 @@ const MenuFrame = ({ dt }) => {
     return (
 
         <Menu posX={dt.posX} posY={dt.posY}>
-            <div className='col-10 relative v-center h-space-between sm-py md-px'>
-                <input
-                    className='full br light-border light-placeholder sm-p'
-                    type='text'
-                    placeholder='Write your title...'
-                    defaultValue={dt.dt.title}
-                    onInput={funcChangeTitleFrame}
-                />
-            </div>
-            <Option name={'Archive'} action={funcArchiveFrame} />
-            <Option name={'Delete'} action={funcRemoveFrame} />
+            <Option name={dt.dt.title} icon={'edit'} type={'input'} action={funcChangeTitleFrame} />
+            <Option name={'Archive'} icon={'archive'} action={funcArchiveFrame} />
+            <Option name={'Delete'} icon={'delete'} action={funcRemoveFrame} />
         </Menu>
 
     )

@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { Icon } from '@/comps/modules'
 
 
-const Option = ({ icon, name, action, subMenu }) => {
+const Option = ({ icon, name, type, action, subMenu }) => {
 
     const [ldt, setLdt] = useState({ menu: false })
 
-    return <>
+    return !type ? (
 
         <div
-            className='col-10 row relative v-center h-space-between effect-option sm-p'
+            className='col-10 row relative v-center h-space-between effect-option md-px sm-py'
             onClick={action}
             onMouseEnter={() => setLdt(state => ({ ...state, menu: true }))}
             onMouseLeave={() => setLdt(state => ({ ...state, menu: false }))}
@@ -47,7 +47,29 @@ const Option = ({ icon, name, action, subMenu }) => {
 
         </div>
 
-    </>
+    ) : (
+        <div className='col-10 row relative v-center h-space-between md-px sm-py'>
+
+            <div className='col-1'>
+                {
+                    icon ?
+                        <Icon type={icon} styles={['sm-i light-i']} effect={false} />
+                        : null
+                }
+            </div>
+            
+            <div className='col-9 full md-pl'>
+                <input
+                    className='full br light-border light-placeholder sm-p'
+                    type='text'
+                    placeholder={!name ? 'Write your title...' : null}
+                    defaultValue={name}
+                    onInput={action}
+                />
+           </div>
+
+        </div>
+    )
 
 }
 
