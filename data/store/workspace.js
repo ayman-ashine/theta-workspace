@@ -22,6 +22,14 @@ const s = createSlice({
                 }
             ]
         },
+        SWITCH(state, action) {
+            state.workspaces = state.workspaces.map(ws => {
+                if(ws.id === action.payload.ws1.id) return action.payload.ws2
+                else if(ws.id === action.payload.ws2.id) return action.payload.ws1
+                return ws
+            })
+
+        },
         REMOVE(state, action) {
             state.workspaces = state.workspaces.filter(ws => {
                 if (ws.id !== action.payload.id) {

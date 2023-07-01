@@ -55,7 +55,7 @@ const Frame = ({ dt, children }) => {
   return (
 
     <div
-      className={`flex flex-direction-column br absolute overflow-hidden cursor-auto ${dt.color} animation-scale`}
+      className={`flex flex-direction-column br absolute overflow-hidden cursor-auto shadow ${dt.color} animation-scale`}
       id={dt.id}
       style={
         {

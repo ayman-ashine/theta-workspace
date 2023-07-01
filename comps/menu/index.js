@@ -1,21 +1,26 @@
 import { memo } from "react"
+import { useSelector } from "react-redux"
 import MenuControl from './types/menuControl'
 import MenuTool from './types/menuTool'
 import MenuFrame from './types/menuFrame'
 import MenuClip from './types/menuClip'
 
-const Menu = ({ menu }) => {
+const Menu = () => {
+
+    const menu = useSelector(state => state.menu)
+
+    if(!menu) return
 
     switch (menu.type) {
 
         case 'MENU_CONTROL':
-            return <MenuControl posX={menu.posX} posY={menu.posY} dt={menu.dt} />
+            return <MenuControl dt={menu} />
         case 'MENU_TOOL':
-            return <MenuTool posX={menu.posX} posY={menu.posY} dt={menu.dt} />
+            return <MenuTool dt={menu} />
         case 'MENU_FRAME':
-            return <MenuFrame posX={menu.posX} posY={menu.posY} dt={menu.dt} />
+            return <MenuFrame dt={menu} />
         case 'MENU_CLIP':
-            return <MenuClip posX={menu.posX} posY={menu.posY} dt={menu.dt} />
+            return <MenuClip dt={menu} />
 
     }
 

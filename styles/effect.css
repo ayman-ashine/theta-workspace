@@ -29,6 +29,11 @@
 .c-dark-placeholder::placeholder{color: var(--c-dark); opacity: 0.5;}
 .c-light-placeholder::placeholder{color: var(--c-light); opacity: 0.5;}
 
+/* shadow */
+.shadow {
+    box-shadow: 2px 2px 5px var(--c-l-dark);
+}
+
 /* Border_Radius */
 .br {border-radius: var(--br)}
 .br-2 {border-radius: calc( var(--br) * 2 )}
@@ -74,6 +79,27 @@
 .blur-8 {backdrop-filter: blur(40px)}
 .blur-9 {backdrop-filter: blur(45px)}
 
+/* Translate */
+.translate {
+    transform: translateX(5%) translateY(-10%);
+    transition: .2s;
+}
+
+/* Scale */
+.scale {
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+/* hover */
+.hover:hover .child {
+    opacity: 1;
+}
+
+.hover .child {
+    opacity: 0;
+}
+
 /* Cursor */
 .cursor-auto {cursor: auto}
 .cursor-default {cursor: default}
@@ -106,14 +132,12 @@
     border-radius: var(--br);
     z-index: -1;
     opacity: 0;
-    transition: .2s;
 }
 .effect-square:hover::before {
     opacity: 1;
 }
 
 .effect-brightness {
-    transition: .2s;
     cursor: pointer;
 }
 
@@ -124,7 +148,6 @@
 .effect-opacity {
     opacity: 0.5;
     cursor: pointer;
-    transition: .2s;
 }
 .effect-opacity:hover {
     opacity: 1;
@@ -132,7 +155,6 @@
 
 .effect-option {
     cursor: pointer;
-    transition: .2s;
 }
 .effect-option:hover {
     background-color: var(--l-light);

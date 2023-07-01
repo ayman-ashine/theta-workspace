@@ -77,7 +77,7 @@ export default function TodoComp({ dt }) {
                         return (
 
                             <div
-                                className={`row v-center br relative sm-p sm-mb sm-g ${td.complete ? 'bright' : 'bg-c-l-light'} ${gTd && gTd.id === td.id ? 'low' : null}`}
+                                className={`row v-center br relative animation-translateY sm-p sm-mb sm-g ${td.complete ? 'bright' : 'bg-c-l-light'} ${gTd && gTd.id === td.id ? 'translate' : null}`}
                                 style={gTd && gTd.id === td.id ? { zIndex: 0 } : null}
                                 key={td.id}
                                 onMouseEnter={() => switchTodo(td)}

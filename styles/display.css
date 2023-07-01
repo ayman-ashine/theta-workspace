@@ -15,6 +15,13 @@
 .flex-direction-row {flex-direction: row}
 .flex-direction-row-reverse {flex-direction: row-reverse}
 
+/* Side */
+
+.side-tl {transform: translate(0%, 0%)}
+.side-tr {transform: translate(-100%, 0%)}
+.side-bl {transform: translate(0%, -100%)}
+.side-br {transform: translate(-100%, -100%)}
+
 /* Position */
 .relative {position: relative}
 .absolute {position: absolute}

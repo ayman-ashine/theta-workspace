@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import settings from './settings'
 import workspace from './workspace'
 import menu from './menu'
+import aside from './aside'
 
 const store = configureStore({
 
@@ -9,7 +10,8 @@ const store = configureStore({
 
         settings,
         workspace,
-        menu
+        aside,
+        menu,
 
     }
 

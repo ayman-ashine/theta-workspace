@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux'
 import { Menu, Option } from './format/modules'
-import { SETTINGS_ACTIONS, MENU_ACTIONS, WORKSPACE_ACTIONS } from '@/data/modules'
+import { SETTINGS_ACTIONS, MENU_ACTIONS, WORKSPACE_ACTIONS, ASIDE_ACTIONS } from '@/data/modules'
 
-const MenuControl = ({ posX, posY }) => {
+const MenuControl = ({ dt }) => {
 
     const dispatch = useDispatch()
     const closeMenu = () => dispatch(MENU_ACTIONS.CLOSE())
@@ -33,7 +33,7 @@ const MenuControl = ({ posX, posY }) => {
 
     // !
     const actionOpenProfile = () => { null, closeMenu() }
-    const actionOpenAchrive = () => { null, closeMenu() }
+    const actionOpenAchrive = () => { dispatch(ASIDE_ACTIONS.OPEN({ type: 'ASIDE_ARCHIVE' })), closeMenu() }
 
     const actionCleanCurrent = () => { dispatch(WORKSPACE_ACTIONS.CLEAN_CURRENT()), closeMenu() }
     const actionCleanAll = () => { dispatch(WORKSPACE_ACTIONS.CLEAN_ALL()), closeMenu() }
@@ -44,11 +44,12 @@ const MenuControl = ({ posX, posY }) => {
 
         <>
 
-            <Menu posX={posX} posY={posY}>
-                <Option name={'Profile'} action={actionOpenProfile} />
-                <Option name={'Archive'} action={actionOpenAchrive} />
-                <Option name={'Clean'} subMenu={subMenuClean()} /> 
-                <Option name={'Theme'} subMenu={subMenuTheme()} />
+            <Menu posX={dt.posX} posY={dt.posY} side={dt.side}>
+                <Option name={'Profile'} icon={'profile'} action={actionOpenProfile} />
+                <Option name={'Archive'} icon={'archive'} action={actionOpenAchrive} />
+                <Option name={'Clean'} icon={'clean'} subMenu={subMenuClean()} /> 
+                <hr className='col-10 light-border-t sm-my'/>
+                <Option name={'Theme'} icon={'theme'} subMenu={subMenuTheme()} />
             </Menu>
 
         </>

@@ -1,3 +1,3 @@
 export { default as Control } from './control'
-export { default as Workspaces } from './workspaces'
-export { default as AddWorkspace } from './addWorkspace'
+export { default as Tabs } from './tabs'
+export { default as AddTab } from './addTab'

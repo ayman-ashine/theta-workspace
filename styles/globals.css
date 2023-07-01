@@ -14,7 +14,7 @@
 
   --c-dark: rgb(15, 15, 20);
   --c-light: rgb(255, 255, 255);
-  --c-l-dark: rgb(15, 15, 20, .5);
+  --c-l-dark: rgb(15, 15, 20, .25);
   --c-l-light: rgb(255, 255, 255, .25);
   --c-primary: rgb(35, 60, 100);
   --c-l-primary: rgb(35, 60, 100, 0.5);
@@ -39,7 +39,7 @@
   --br: 0.5rem;
   --full-br: 100%;
 
-  --sm-fs: 15px;
+  --sm-fs: 14px;
   --md-fs: 20px;
   --lg-fs: 25px;
   --xl-fs: 30px;

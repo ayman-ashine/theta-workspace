@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { HEADER_DATA } from '@/data/modules'
-import { Control, Workspaces, AddWorkspace } from './modules.js'
+import { Control, Tabs, AddTab } from './modules.js'
 
 
 const Header = () => {
@@ -13,8 +13,8 @@ const Header = () => {
         >
 
             <Control/>
-            <Workspaces />
-            <AddWorkspace />
+            <Tabs />
+            <AddTab />
 
         </div>
 

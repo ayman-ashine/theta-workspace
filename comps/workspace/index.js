@@ -1,18 +1,23 @@
 import { memo, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { WORKSPACE_ACTIONS, MENU_ACTIONS } from '@/data/modules'
-import { Tool, Icon } from '@/comps/modules'
+import { Tool, Icon, Info } from '@/comps/modules'
 
 const MENU_TYPE = 'MENU_TOOL'
 
-const Workspace = ({ dt }) => {
+const Workspace = () => {
 
+  const cWs = useSelector(state => {
+    if (state.workspace) {
+      for (let i in state.workspace.workspaces) {
+        if (state.workspace.workspaces[i].current) return state.workspace.workspaces[i]
+      }
+    } else return null
+  })
   const [position, setPosition] = useState({
-    posX: dt.posX,
-    posY: dt.posY,
-    zoomPosX: 0,
-    zoomPosY: 0,
-    zoom: dt.zoom
+    posX: cWs.posX,
+    posY: cWs.posY,
+    zoom: cWs.zoom
   })
   const dispatch = useDispatch()
   const openMenu = (e) => {
@@ -23,7 +28,16 @@ const Workspace = ({ dt }) => {
       type: MENU_TYPE,
       posX: e.clientX,
       posY: e.clientY,
-      dt: { workspaceId: dt.id }
+    }))
+
+  }
+  const openMenuSideBR = (e) => {
+
+    dispatch(MENU_ACTIONS.OPEN({
+      type: MENU_TYPE,
+      posX: e.clientX,
+      posY: e.clientY,
+      side: 'side-br',
     }))
 
   }
@@ -48,7 +62,7 @@ const Workspace = ({ dt }) => {
 
       e.target.classList.replace('cursor-grabbing', 'cursor-grab')
 
-      dispatch(WORKSPACE_ACTIONS.UPDATE({ id: dt.id, props: { posX, posY } }))
+      dispatch(WORKSPACE_ACTIONS.UPDATE({ id: cWs.id, props: { posX, posY } }))
 
     }
 
@@ -66,33 +80,33 @@ const Workspace = ({ dt }) => {
       )
     }
 
-    const calcShiftPos = () => {
+    // const calcShiftPos = () => {
 
-      // const deltaSign = e.deltaY > 0 ? 1 : -1
-      // const shiftX = ((e.clientX - e.target.offsetWidth / 2) * deltaSign) / 2
-      // const shiftY = ((e.clientY - e.target.offsetHeight / 2) * deltaSign) / 2
+    //   // const deltaSign = e.deltaY > 0 ? 1 : -1
+    //   // const shiftX = ((e.clientX - e.target.offsetWidth / 2) * deltaSign) / 2
+    //   // const shiftY = ((e.clientY - e.target.offsetHeight / 2) * deltaSign) / 2
 
-      return [
-        parseInt(position.posX),
-        parseInt(position.posY)
-      ]
+    //   return [
+    //     parseInt(position.posX),
+    //     parseInt(position.posY)
+    //   ]
 
-    }
+    // }
 
-    const [posX, posY] = calcShiftPos()
+    // const [posX, posY] = calcShiftPos()
 
     setPosition(state => ({
       ...state,
       zoom: calcZoom(),
-      posX,
-      posY
+      // posX,
+      // posY
     }))
     dispatch(WORKSPACE_ACTIONS.UPDATE({
-      id: dt.id,
+      id: cWs.id,
       props: {
         zoom: calcZoom(),
-        posX,
-        posY
+        // posX,
+        // posY
       }
     }))
 
@@ -100,11 +114,11 @@ const Workspace = ({ dt }) => {
   const restWorkspacePosition = () => {
 
     setPosition({ posX: 0, posY: 0, zoom: 1 })
-    dispatch(WORKSPACE_ACTIONS.UPDATE({ id: dt.id, props: { posX: 0, posY: 0, zoom: 1 } }))
+    dispatch(WORKSPACE_ACTIONS.UPDATE({ id: cWs.id, props: { posX: 0, posY: 0, zoom: 1 } }))
 
   }
 
-  return (
+  return cWs ? (
 
     <div
       className='full display flex v-center h-center cursor-grab overflow-hidden'
@@ -120,17 +134,16 @@ const Workspace = ({ dt }) => {
           left: position.posX,
           top: position.posY,
           transform: `scale(${position.zoom})`,
-          transformOrigin: '${position.posX}px ${position.posY}px',
         }}
       >
 
-        {dt.tools.map(t => <Tool dt={t} key={t.id} />)}
+        {cWs.tools.map(t => <Tool dt={t} key={t.id} />)}
 
       </div>
 
       <div
         className='absolute b-0 r-0 md-m'
-        onClick={openMenu}
+        onClick={openMenuSideBR}
       >
 
         <Icon type={'add'} styles={['lg-i', 'light-i']} />
@@ -139,7 +152,7 @@ const Workspace = ({ dt }) => {
 
     </div>
 
-  )
+  ) : <Info/>
 
 }
 

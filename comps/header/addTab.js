@@ -5,7 +5,7 @@ import { generateUniqueId } from '@/utils/modules'
 import { Icon } from '@/comps/modules'
 
 
-const AddWorkspace = () => {
+const AddTab = () => {
 
     const dispatch = useDispatch()
 
@@ -33,4 +33,4 @@ const AddWorkspace = () => {
 
 }
 
-export default memo(AddWorkspace)
+export default memo(AddTab)

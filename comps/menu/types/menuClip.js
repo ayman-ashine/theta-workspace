@@ -4,22 +4,22 @@ import { MENU_ACTIONS, WORKSPACE_ACTIONS } from "@/data/modules"
 import { Menu, Option } from './format/modules'
 
 
-const MenuFrame = ({ posX, posY, dt }) => {
+const MenuFrame = ({ dt }) => {
 
     const dispatch = useDispatch()
-    const funcChangeTitleFrame = (e) => {dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({id: dt.id, props: { title: e.target.value }}))}
+    const funcChangeTitleFrame = (e) => {dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({id: dt.dt.id, props: { title: e.target.value }}))}
     const funcArchiveFrame = () => {null /* Archive Frame Data */, funcRemoveFrame(), dispatch(MENU_ACTIONS.CLOSE())}
-    const funcRemoveFrame = () => {dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.id})), dispatch(MENU_ACTIONS.CLOSE())}
+    const funcRemoveFrame = () => {dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.dt.id})), dispatch(MENU_ACTIONS.CLOSE())}
 
     return (
 
-        <Menu posX={posX} posY={posY}>
+        <Menu posX={dt.posX} posY={dt.posY}>
             <div className='col-10 relative v-center h-space-between sm-py md-px'>
                 <input
                     className='full br light-border light-placeholder sm-p'
                     type='text'
                     placeholder='Write your title...'
-                    defaultValue={dt.title}
+                    defaultValue={dt.dt.title}
                     onInput={funcChangeTitleFrame}
                 />
             </div>

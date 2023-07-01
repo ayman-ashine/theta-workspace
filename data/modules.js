@@ -8,7 +8,8 @@ export {
     CHRONO_DATA,
     TIMER_DATA,
     MENU_TOOLS_DATA,
-    MENU_DATA
+    MENU_DATA,
+    ASIDE_DATA
 } from './appData'
 
 // App Date
@@ -21,3 +22,4 @@ export { store } from './store'
 export { SETTINGS_ACTIONS } from './store/settings'
 export { WORKSPACE_ACTIONS } from './store/workspace'
 export { MENU_ACTIONS } from './store/menu'
+export { ASIDE_ACTIONS } from './store/aside'

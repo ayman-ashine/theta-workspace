@@ -5,7 +5,7 @@ import { MENU_ACTIONS, MENU_TOOLS_DATA, WORKSPACE_ACTIONS } from '@/data/modules
 import { Menu, Option } from './format/modules'
 
 
-const MenuTool = ({ posX, posY }) => {
+const MenuTool = ({ dt }) => {
 
   const dispatch = useDispatch()
   const addTool = (tool) => {
@@ -14,8 +14,8 @@ const MenuTool = ({ posX, posY }) => {
       id: generateUniqueId(),
       type: tool.type,
       frame: tool.frame,
-      posX: posX || 0,
-      posY: posY || 0,
+      posX: 0,
+      posY: 0,
     }))
     dispatch(MENU_ACTIONS.CLOSE())
 
@@ -23,14 +23,14 @@ const MenuTool = ({ posX, posY }) => {
 
   return (
 
-    <Menu posX={posX} posY={posY}>
+    <Menu posX={dt.posX} posY={dt.posY} side={dt.side}>
 
       {
-        MENU_TOOLS_DATA.map((tool, index) => {
+        MENU_TOOLS_DATA.map( tool => {
 
           return (
 
-            <Option icon={tool.icon} name={tool.name} action={() => addTool(tool)} key={index} />
+            <Option icon={tool.icon} name={tool.name} action={() => addTool(tool)} key={tool.name} />
 
           )
 

@@ -51,3 +51,8 @@
 .text-green {color: var(--green)}
 .text-yellow {color: var(--yellow)}
 .text-orange {color: var(--orange)}
+
+/* User Select */
+.user-select-none {
+    user-select: none;
+}

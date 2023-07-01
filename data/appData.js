@@ -1,4 +1,4 @@
-// DATA
+// DATA //
 
 export const SVG_DATA = {
 
@@ -124,6 +124,39 @@ export const SVG_DATA = {
             </svg>
         )
     },
+    // Splite //
+    'profile': (styles) => {
+
+        return (
+            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50px" height="50px" >
+                <path d="M12,11A5,5,0,1,0,7,6,5.006,5.006,0,0,0,12,11Zm0-8A3,3,0,1,1,9,6,3,3,0,0,1,12,3ZM3,22V18a5.006,5.006,0,0,1,5-5h8a5.006,5.006,0,0,1,5,5v4a1,1,0,0,1-2,0V18a3,3,0,0,0-3-3H8a3,3,0,0,0-3,3v4a1,1,0,0,1-2,0Z" />
+            </svg >
+        )
+
+    },
+    'archive': (styles) => {
+
+        return (
+            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24">
+                <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M7 3C5.34315 3 4 4.34315 4 6V18C4 19.6569 5.34315 21 7 21H17C18.6569 21 20 19.6569 20 18V6C20 4.34315 18.6569 3 17 3H7ZM18 6C18 5.44772 17.5523 5 17 5H7C6.44772 5 6 5.44772 6 6V14H8.93637C9.44956 14 9.94687 14.1772 10.3435 14.492C11.3082 15.2576 12.6845 15.2634 13.6352 14.5089C14.0504 14.1794 14.5649 14 15.0951 14H18V6ZM6 16V18C6 18.5523 6.44772 19 7 19H17C17.5523 19 18 18.5523 18 18V16H15.0951C15.0164 16 14.9401 16.0266 14.8785 16.0755C13.1857 17.419 10.7789 17.3909 9.10017 16.0585C9.05181 16.0202 8.99126 16 8.93637 16H6ZM8 11C8 10.4477 8.44772 10 9 10H15C15.5523 10 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H9C8.44772 12 8 11.5523 8 11ZM9 7C8.44772 7 8 7.44772 8 8C8 8.55228 8.44772 9 9 9H15C15.5523 9 16 8.55228 16 8C16 7.44772 15.5523 7 15 7H9Z" />
+            </svg>
+        )
+
+    },
+    'clean': (styles) => {
+        return (
+            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 1024 1024">
+                <path d="M899.1 869.6l-53-305.6H864c14.4 0 26-11.6 26-26V346c0-14.4-11.6-26-26-26H618V138c0-14.4-11.6-26-26-26H432c-14.4 0-26 11.6-26 26v182H160c-14.4 0-26 11.6-26 26v192c0 14.4 11.6 26 26 26h17.9l-53 305.6c-0.3 1.5-0.4 3-0.4 4.4 0 14.4 11.6 26 26 26h723c1.5 0 3-0.1 4.4-0.4 14.2-2.4 23.7-15.9 21.2-30zM204 390h272V182h72v208h272v104H204V390z m468 440V674c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v156H416V674c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v156H202.8l45.1-260H776l45.1 260H672z" />
+            </svg>
+        )
+    },
+    'theme': (styles) => {
+        return (
+            <svg className={styles.join(' ')} xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 16 16">
+                <path d="M8,0 C12.4183,0 16,3.58172 16,8 C16,8.15958 15.9953,8.31807 15.9861,8.47533 C15.9328,9.38596 15.1095,10.0039 14.1974,10.0039 L11.0106,10.0039 C9.22875,10.0039 8.33642,12.1582 9.59635,13.4181 C10.4823,14.304 10.198,15.7959 8.95388,15.9437 C8.6411,15.9809 8.32278,16 8,16 C3.58172,16 0,12.4183 0,8 C0,3.58172 3.58172,0 8,0 Z M8,2 C4.68629,2 2,4.68629 2,8 C2,11.1538 4.4333,13.7393 7.52492,13.9815 C6.059,11.4506 7.82321,8.00391 11.0106,8.00391 L14,8.00391 C14,4.68629 11.3137,2 8,2 Z M5,8 C5.55228,8 6,8.44771 6,9 C6,9.55228 5.55228,10 5,10 C4.44772,10 4,9.55228 4,9 C4,8.44771 4.44772,8 5,8 Z M6,5 C6.55228,5 7,5.44772 7,6 C7,6.55228 6.55228,7 6,7 C5.44772,7 5,6.55228 5,6 C5,5.44772 5.44772,5 6,5 Z M9,4 C9.55228,4 10,4.44772 10,5 C10,5.55228 9.55228,6 9,6 C8.44771,6 8,5.55228 8,5 C8,4.44772 8.44771,4 9,4 Z" />
+            </svg>
+        )
+    },
     'note': (styles) => {
 
         return (
@@ -194,7 +227,7 @@ export const WORKSPACE_DATA = {
         currentTool: null,
         workspaces: [
             {
-                id: null,
+                id: "yvSiqP",
                 name: 'Initial Workspace',
                 current: false,
                 currentTool: null,
@@ -218,6 +251,7 @@ export const WORKSPACE_DATA = {
         name: 'Workspace',
         current: false,
         currentTool: null,
+        edit: false,
         posX: 0,
         posY: 0,
         zoom: 1,
@@ -290,54 +324,41 @@ export const MENU_TOOLS_DATA = [
         type: 'T_CLIP',
         frame: false,
         name: 'Clip',
-        icon: {
-            type: 'clip',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'clip'
     },
     {
         type: 'T_NOTE',
         frame: true,
         name: 'Note',
-        icon: {
-            type: 'note',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'note'
     },
     {
         type: 'T_TODO',
         frame: true,
         name: 'Todo List',
-        icon: {
-            type: 'todo',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'todo'
     },
     {
         type: 'T_TIMER',
         frame: true,
         name: 'Timer',
-        icon: {
-            type: 'timer',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'timer'
     },
     {
         type: 'T_CHRONO',
         frame: true,
         name: 'Chrono',
-        icon: {
-            type: 'chrono',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'chrono'
     },
     {
         type: 'T_CALENDAR',
         frame: true,
         name: 'Calendar',
-        icon: {
-            type: 'calendar',
-            styles: ['md-i', 'light-i']
-        }
+        icon: 'calendar'
     },
 ]
+
+export const ASIDE_DATA = {
+    name: 'ASIDE_DATA',
+    default: {}
+}

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { MENU_ACTIONS, WORKSPACE_ACTIONS } from "@/data/modules"
 import { Menu, Option } from './format/modules'
 
-const MenuFrame = ({ posX, posY, dt }) => {
+const MenuFrame = ({ dt }) => {
 
     const dispatch = useDispatch()
     const subMenuColors = () => {
@@ -28,21 +28,21 @@ const MenuFrame = ({ posX, posY, dt }) => {
     }
     const funcChangeTitleFrame = (e) => {
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-            id: dt.id,
-            workspaceId: dt.workspaceId,
+            id: dt.dt.id,
+            workspaceId: dt.dt.workspaceId,
             props: { title: e.target.value }
         }))
     }
     const funcChangeColorFrame = (e) => {
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-            id: dt.id,
+            id: dt.dt.id,
             props: { color: e.target.getAttribute('color') }
         }))
     }
     const funcMinimizeFrame = () => {
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
-            id: dt.id,
-            props: { minimize: !dt.minimize }
+            id: dt.dt.id,
+            props: { minimize: !dt.dt.minimize }
         }))
         dispatch(MENU_ACTIONS.CLOSE())
     }
@@ -53,23 +53,23 @@ const MenuFrame = ({ posX, posY, dt }) => {
     }
     const funcRemoveFrame = () => {
         dispatch(MENU_ACTIONS.CLOSE())
-        dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.id, workspaceId: dt.workspaceId,}))
+        dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.dt.id, workspaceId: dt.dt.workspaceId,}))
     }
 
     return (
 
-        <Menu posX={posX} posY={posY}>
+        <Menu posX={dt.posX} posY={dt.posY}>
             <div className='col-10 relative v-center h-space-between sm-py md-px'>
                 <input
                     className='full br light-border light-placeholder sm-p'
                     type='text'
                     placeholder='Write your title...'
-                    defaultValue={dt.title}
+                    defaultValue={dt.dt.title}
                     onInput={funcChangeTitleFrame}
                 />
             </div>
             <Option name={'Color'} subMenu={subMenuColors()} />
-            <Option name={dt.minimize ? 'Expand' : 'Minimize'} action={funcMinimizeFrame} />
+            <Option name={dt.dt.minimize ? 'Expand' : 'Minimize'} action={funcMinimizeFrame} />
             <Option name={'Archive'} action={funcArchiveFrame} />
             <Option name={'Delete'} action={funcRemoveFrame} />
         </Menu>
