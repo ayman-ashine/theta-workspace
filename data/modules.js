@@ -9,7 +9,8 @@ export {
     TIMER_DATA,
     MENU_TOOLS_DATA,
     MENU_DATA,
-    ASIDE_DATA
+    ASIDE_DATA,
+    ARCHIVE_DATA
 } from './appData'
 
 // App Date

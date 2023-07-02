@@ -32,7 +32,7 @@ const MenuControl = ({ dt }) => {
     }
 
     // !
-    const actionOpenProfile = () => { null, closeMenu() }
+    const actionOpenProfile = () => { dispatch(ASIDE_ACTIONS.OPEN({ type: 'ASIDE_PROFILE' })), closeMenu() }
     const actionOpenAchrive = () => { dispatch(ASIDE_ACTIONS.OPEN({ type: 'ASIDE_ARCHIVE' })), closeMenu() }
 
     const actionCleanCurrent = () => { dispatch(WORKSPACE_ACTIONS.CLEAN_CURRENT()), closeMenu() }
