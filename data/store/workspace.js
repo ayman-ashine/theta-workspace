@@ -72,12 +72,7 @@ const s = createSlice({
         ADD_TOOL(state, action) {
             const tool = {
                 ...WORKSPACE_DATA.tool,
-                id: action.payload.id,
-                type: action.payload.type,
-                iconType: action.payload.iconType,
-                frame: action.payload.frame,
-                posX: action.payload.posX,
-                posY: action.payload.posY
+                ...action.payload,
             }
             state.workspaces = state.workspaces.map(ws => {
                 return ws.current ?

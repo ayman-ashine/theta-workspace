@@ -18,7 +18,7 @@ const Frame = ({ dt, children }) => {
       type: MENU_TYPE,
       posX: e.clientX,
       posY: e.clientY,
-      dt: dt,
+      dt
     }))
 
   }
@@ -55,7 +55,7 @@ const Frame = ({ dt, children }) => {
   return (
 
     <div
-      className={`flex flex-direction-column br absolute overflow-hidden cursor-auto shadow ${dt.color} animation-scale`}
+      className={`flex flex-direction-column br overflow-hidden cursor-auto shadow animation-scale ${dt.position} ${dt.color}`}
       id={dt.id}
       style={
         {
@@ -78,7 +78,7 @@ const Frame = ({ dt, children }) => {
         </div>
       </div>
 
-      <div className='full overflow-hidden' style={{ height: dt.minimize ? 0 : 'auto' }}>
+      <div className='full relative overflow-hidden' style={{ height: dt.minimize ? 0 : 'auto' }}>
 
         {children}
 

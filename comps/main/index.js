@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { SETTINGS_ACTIONS, WORKSPACE_ACTIONS } from "@/data/modules"
+import { SETTINGS_ACTIONS, WORKSPACE_ACTIONS, ARCHIVE_ACTIONS } from "@/data/modules"
 import { Header, Menu, Workspace, Aside, Info, Loader } from "@/comps/modules"
 
 
@@ -11,6 +11,9 @@ const Main = () => {
 
     // Get Settings Data //
     const settings = useSelector(state => state.settings)
+
+    // Get Archive Data //
+    const archive = useSelector(state => state.archive)
 
     // Get Workspace Data //
     const workspace = useSelector(state => state.workspace)
@@ -28,6 +31,7 @@ const Main = () => {
     useEffect(() => {
 
         dispatch(SETTINGS_ACTIONS.LOAD())
+        dispatch(ARCHIVE_ACTIONS.LOAD())
         dispatch(WORKSPACE_ACTIONS.LOAD())
         setLoading(false)
 
@@ -41,6 +45,15 @@ const Main = () => {
             : null
 
     }, [settings])
+
+    // Save Data //
+    useEffect(() => {
+
+        archive !== null ?
+            dispatch(ARCHIVE_ACTIONS.SAVE())
+            : null
+
+    }, [archive])
 
     useEffect(() => {
 

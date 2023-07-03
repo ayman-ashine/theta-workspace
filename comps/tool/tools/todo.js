@@ -114,7 +114,7 @@ export default function TodoComp({ dt }) {
                 }
             </div>
 
-            <div className='sm-mb sm-p br effect-brightness' onClick={addTodo}>
+            <div className='sm-p br effect-brightness' onClick={addTodo}>
                 <div className='flex v-center h-center'>
                     <Icon type={'add'} styles={['sm-i', 'c-dark-i']} effect={false} />
                 </div>

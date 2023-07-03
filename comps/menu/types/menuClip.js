@@ -8,14 +8,12 @@ const MenuFrame = ({ dt }) => {
 
     const dispatch = useDispatch()
     const funcChangeTitleFrame = (e) => {dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({id: dt.dt.id, props: { title: e.target.value }}))}
-    const funcArchiveFrame = () => {null /* Archive Frame Data */, funcRemoveFrame(), dispatch(MENU_ACTIONS.CLOSE())}
     const funcRemoveFrame = () => {dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.dt.id})), dispatch(MENU_ACTIONS.CLOSE())}
 
     return (
 
         <Menu posX={dt.posX} posY={dt.posY}>
             <Option name={dt.dt.title} icon={'edit'} type={'input'} action={funcChangeTitleFrame} />
-            <Option name={'Archive'} icon={'archive'} action={funcArchiveFrame} />
             <Option name={'Delete'} icon={'delete'} action={funcRemoveFrame} />
         </Menu>
 

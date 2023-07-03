@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { useDispatch } from "react-redux"
-import { MENU_ACTIONS, WORKSPACE_ACTIONS } from "@/data/modules"
+import { MENU_ACTIONS, WORKSPACE_ACTIONS, ARCHIVE_ACTIONS } from "@/data/modules"
 import { Menu, Option } from './format/modules'
 
 
@@ -41,20 +41,35 @@ const MenuFrame = ({ dt }) => {
         }))
     }
     const funcMinimizeFrame = () => {
+
+        dispatch(MENU_ACTIONS.CLOSE())
+
         dispatch(WORKSPACE_ACTIONS.UPDATE_TOOL({
             id: dt.dt.id,
             props: { minimize: !dt.dt.minimize }
         }))
-        dispatch(MENU_ACTIONS.CLOSE())
+
     }
     const funcArchiveFrame = () => {
-        /* Archive Frame Data */
-        funcRemoveFrame()
+        
         dispatch(MENU_ACTIONS.CLOSE())
+
+        if(dt.dt.archive) {
+            funcRestoreFrame()
+            return
+        }
+        dispatch(ARCHIVE_ACTIONS.ADD({ tl: {...dt.dt, posX: 0, posY: 0, archive: true, minimize: false, position: 'relative'} }))
+        funcRemoveFrame()
+        
+    }
+    const funcRestoreFrame = () => {
+        dispatch(MENU_ACTIONS.CLOSE())
+        dispatch(WORKSPACE_ACTIONS.ADD_TOOL({...dt.dt, posX: 0, posY: 0, archive: false, minimize: false, position: 'absolute'}))
+        dispatch(ARCHIVE_ACTIONS.POP({ tl: dt.dt }))
     }
     const funcRemoveFrame = () => {
         dispatch(MENU_ACTIONS.CLOSE())
-        dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({id: dt.dt.id, workspaceId: dt.dt.workspaceId,}))
+        dispatch(WORKSPACE_ACTIONS.REMOVE_TOOL({ id: dt.dt.id, workspaceId: dt.dt.workspaceId, }))
     }
 
     return (
@@ -63,7 +78,7 @@ const MenuFrame = ({ dt }) => {
             <Option name={dt.dt.title} icon={'edit'} type={'input'} action={funcChangeTitleFrame} />
             <Option name={'Color'} icon={'color'} subMenu={subMenuColors()} />
             <Option name={dt.dt.minimize ? 'Expand' : 'Minimize'} icon={dt.dt.minimize ? 'expand' : 'minimize'} action={funcMinimizeFrame} />
-            <Option name={'Archive'} icon={'archive'} action={funcArchiveFrame} />
+            <Option name={dt.dt.archive ? 'Restore' : 'Archive'} icon={'archive'} action={funcArchiveFrame} />
             <Option name={'Delete'} icon={'delete'} action={funcRemoveFrame} />
         </Menu>
 
