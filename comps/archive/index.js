@@ -24,7 +24,7 @@ const Archive = () => {
 
         <>
             <div className="full absolute t-0 l-0" onClick={closeArchive}></div>
-            <div className="h-100 absolute flex flex-direction-column z-index bg-primary light-border-r t-0 l-0 md-p md-g animation-translateX">
+            <div className="w-50 h-100 absolute flex flex-direction-column z-index bg-primary light-border-r t-0 l-0 md-p md-g animation-translateX">
 
                 <div className="col-10 row relative v-center h-center light-border br bright md-p">
 

@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { WORKSPACE_ACTIONS } from '@/data/modules'
 import { generateUniqueId } from '@/utils/modules'

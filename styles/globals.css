@@ -5,16 +5,16 @@
 /*______Root_Variables______*/
 :root {
 
-  --dark: rgb(15, 15, 20);
+  --dark: rgb(10, 20, 25);
   --light: rgb(255, 255, 255);
-  --l-dark: rgb(15, 15, 20, .25);
+  --l-dark: rgb(10, 20, 25, .25);
   --l-light: rgb(255, 255, 255, .25);
   --primary: rgb(35, 60, 100);
   --l-primary: rgb(35, 60, 100, 0.5);
 
-  --c-dark: rgb(15, 15, 20);
+  --c-dark: rgb(10, 20, 25);
   --c-light: rgb(255, 255, 255);
-  --c-l-dark: rgb(15, 15, 20, .25);
+  --c-l-dark: rgb(10, 20, 25, .25);
   --c-l-light: rgb(255, 255, 255, .25);
   --c-primary: rgb(35, 60, 100);
   --c-l-primary: rgb(35, 60, 100, 0.5);
@@ -76,21 +76,21 @@
 }
 
 html[data-theme='dark'] {
-  --dark: rgb(15, 15, 20);
-  --l-dark: rgb(15, 15, 20, .25);
+  --dark: rgb(10, 20, 25);
+  --l-dark: rgb(10, 20, 25, .25);
   --light: rgb(255, 255, 255);
   --l-light: rgb(255, 255, 255, .25);
-  --primary: rgb(35, 60, 100);
-  --l-primary: rgb(35, 60, 100, 0.25);
+  --primary: rgb(30, 70, 100);
+  --l-primary: rgb(30, 70, 100, 0.25);
 }
 
 html[data-theme='light'] {
   --dark: rgb(255, 255, 255);
   --l-dark: rgb(255, 255, 255, 1);
-  --light: rgb(15, 15, 20);
-  --l-light: rgb(15, 15, 20, .1);
-  --primary: rgb(180, 220, 255);
-  --l-primary: rgb(180, 220, 255, .25);
+  --light: rgb(10, 20, 25);
+  --l-light: rgb(10, 20, 25, .1);
+  --primary: rgb(190, 250, 255);
+  --l-primary: rgb(190, 250, 255, .25);
 }
 
 body {

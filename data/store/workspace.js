@@ -18,7 +18,7 @@ const s = createSlice({
                 ...state.workspaces,
                 {
                     ...WORKSPACE_DATA.workspace,
-                    id: action.payload.id
+                    id: action.payload.id,
                 }
             ]
         },

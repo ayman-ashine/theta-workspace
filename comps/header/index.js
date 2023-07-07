@@ -8,7 +8,7 @@ const Header = () => {
     return (
 
         <div
-            className='row-auto h-start light-border-b bg-primary overflow-hidden overflow-x-auto'
+            className='row-auto h-start bg-primary overflow-hidden overflow-x-auto'
             style={{ height: HEADER_DATA.height }}
         >
 

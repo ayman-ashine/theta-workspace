@@ -30,7 +30,7 @@ const Home = () => {
                     <div className='col-3 row-6 h-center v-center lg-g animation-translateX-long'>
 
                         <div className='col-6 title lg-fs'>Welcome to Theta Workspace!</div>
-                        <div className='col-6 low-5'>
+                        <div className='col-6 low-6'>
                             Boost your productivity by effortlessly creating, organizing, and prioritizing tasks.
                             Take control of your day and embark on a journey towards a more efficient and productive future.
                             Get started now!

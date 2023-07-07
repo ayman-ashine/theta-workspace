@@ -142,11 +142,11 @@ const Workspace = () => {
       </div>
 
       <div
-        className='absolute b-0 r-0 md-m'
+        className='absolute b-0 r-0 bg-primary br md-m'
         onClick={openMenuSideBR}
       >
 
-        <Icon type={'add'} styles={['lg-i', 'light-i']} />
+        <Icon type={'add'} styles={['xl-i', 'light-i']} />
 
       </div>
 

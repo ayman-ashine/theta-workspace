@@ -1,7 +1,7 @@
 import { memo, useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { SETTINGS_ACTIONS, WORKSPACE_ACTIONS, ARCHIVE_ACTIONS } from "@/data/modules"
-import { Header, Menu, Workspace, Aside, Info, Loader } from "@/comps/modules"
+import { Header, Menu, Workspace, Aside, Info, Loader, Dialog, ShortCuts } from "@/comps/modules"
 
 
 const Main = () => {
@@ -66,7 +66,7 @@ const Main = () => {
     return loading ? <Loader /> : (
 
         <main className="full relative flex flex-direction-column animation-opacity-long overflow-hidden">
-
+            
             <Header />
             {
                 currentWorkspace ?
@@ -75,6 +75,8 @@ const Main = () => {
             }
             <Aside/>
             <Menu />
+            {/* <Dialog/> */}
+            <ShortCuts/>
 
         </main>
 

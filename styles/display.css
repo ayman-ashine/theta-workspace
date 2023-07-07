@@ -29,6 +29,12 @@
 .sticky {position: sticky}
 .static {position: static}
 
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .t-0 {top: 0%}
 .t-25 {top: 25%}
 .t-50 {top: 50%}

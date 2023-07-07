@@ -270,26 +270,7 @@ export const WORKSPACE_DATA = {
     default: {
         currentWorkspace: null,
         currentTool: null,
-        workspaces: [
-            {
-                id: "yvSiqP",
-                name: 'Initial Workspace',
-                current: false,
-                currentTool: null,
-                posX: 0,
-                posY: 0,
-                zoom: 1,
-                tools: [
-                    { "id": "yvNiqJ", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-red", "minimize": false, "clip": true, "posX": -436, "posY": -88, "width": 350, "height": 0, "data": [{ "id": "hegRGL", "title": "", "complete": false }, { "id": "VUKnTu", "title": "", "complete": false }] },
-                    { "id": "BeDCxi", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "Todo", "color": "bg-blue", "minimize": false, "clip": false, "posX": -436, "posY": -128, "width": 350, "height": 0, "data": { "height": 80, "tools": ["yvNiqJ"] } },
-                    { "id": "eIEyOE", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "In Progress", "color": "bg-blue", "minimize": false, "clip": false, "posX": -67, "posY": -129, "width": 350, "height": 0, "data": { "height": 80, "tools": ["EpapvO"] } },
-                    { "id": "EpapvO", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-yellow", "minimize": false, "clip": true, "posX": -67, "posY": -89, "width": 350, "height": 0, "data": [{ "id": "FTlWUp", "title": "", "complete": false }, { "id": "qQtZqx", "title": "", "complete": false }] },
-                    { "id": "Btrfzp", "type": "T_CLIP", "iconType": "clip", "frame": false, "title": "Done", "color": "bg-blue", "minimize": false, "clip": false, "posX": 299, "posY": -128, "width": 350, "height": 0, "data": { "height": 80, "tools": ["gdJoSk"] } },
-                    { "id": "gdJoSk", "type": "T_TODO", "iconType": "todo", "frame": true, "title": null, "color": "bg-green", "minimize": false, "clip": true, "posX": 299, "posY": -88, "width": 350, "height": 0, "data": [{ "id": "UThLcG", "title": "", "complete": false }, { "id": "xtoikM", "title": "", "complete": false }] },
-
-                ]
-            }
-        ],
+        workspaces: [],
     },
     workspace: {
         id: null,
