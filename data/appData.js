@@ -424,3 +424,8 @@ export const ARCHIVE_DATA = {
         UNORDERED: [],
     }
 }
+
+export const POPUPS_DATA = {
+    name: 'POPUPS_DATA',
+    default: {}
+}

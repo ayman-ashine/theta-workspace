@@ -67,6 +67,7 @@ const Frame = ({ dt, children }) => {
       }
       onMouseDown={stopPropagation}
       onMouseEnter={stopPropagation}
+      onDoubleClick={stopPropagation}
     >
 
       <div className='row bright sm-p cursor-grab' style={{ height: FRAME_DATA.headHeight }} onMouseDown={moveFrame}>

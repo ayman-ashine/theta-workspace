@@ -4,6 +4,7 @@ import workspace from './workspace'
 import menu from './menu'
 import aside from './aside'
 import archive from './archive'
+import popups from './popups'
 
 const store = configureStore({
 
@@ -14,6 +15,7 @@ const store = configureStore({
         workspace,
         aside,
         menu,
+        popups,
 
     }
 

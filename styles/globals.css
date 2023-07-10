@@ -73,6 +73,7 @@
   background-color: transparent;
   text-decoration: none;
   user-select: none;
+  line-height: 20px;
 }
 
 html[data-theme='dark'] {

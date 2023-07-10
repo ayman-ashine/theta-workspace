@@ -33,7 +33,7 @@ const Main = () => {
         dispatch(SETTINGS_ACTIONS.LOAD())
         dispatch(ARCHIVE_ACTIONS.LOAD())
         dispatch(WORKSPACE_ACTIONS.LOAD())
-        setLoading(false)
+        setTimeout(() => setLoading(false), 1000)
 
     }, [])
 
@@ -66,17 +66,17 @@ const Main = () => {
     return loading ? <Loader /> : (
 
         <main className="full relative flex flex-direction-column animation-opacity-long overflow-hidden">
-            
+
             <Header />
             {
                 currentWorkspace ?
                     <Workspace dt={currentWorkspace} key={currentWorkspace.id} />
-                    : <Info/>
+                    : <Info />
             }
-            <Aside/>
+            <Aside />
             <Menu />
-            {/* <Dialog/> */}
-            <ShortCuts/>
+            <Dialog />
+            <ShortCuts />
 
         </main>
 

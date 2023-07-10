@@ -10,7 +10,8 @@ export {
     MENU_TOOLS_DATA,
     MENU_DATA,
     ASIDE_DATA,
-    ARCHIVE_DATA
+    ARCHIVE_DATA,
+    POPUPS_DATA
 } from './appData'
 
 // App Date
@@ -25,3 +26,4 @@ export { WORKSPACE_ACTIONS } from './store/workspace'
 export { MENU_ACTIONS } from './store/menu'
 export { ASIDE_ACTIONS } from './store/aside'
 export { ARCHIVE_ACTIONS } from './store/archive'
+export { POPUPS_ACTIONS } from './store/popups'

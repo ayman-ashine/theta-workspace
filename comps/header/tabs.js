@@ -1,12 +1,13 @@
-import { memo, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { WORKSPACE_ACTIONS } from '@/data/modules'
+import { POPUPS_ACTIONS, WORKSPACE_ACTIONS } from '@/data/modules'
 import { Icon } from '@/comps/modules'
 
 
 const Tabs = () => {
 
     const workspace = useSelector(state => state.workspace ? state.workspace.workspaces : null)
+    const action = useCallback((dt) => dispatch(WORKSPACE_ACTIONS.REMOVE({ id: dt.id })), [])
     const [gWs, setGWs] = useState(null)
     const dispatch = useDispatch()
 
@@ -27,7 +28,9 @@ const Tabs = () => {
     const workspaceRemove = (e, dt) => {
 
         if (e && e.stopPropagation) e.stopPropagation()
-        dispatch(WORKSPACE_ACTIONS.REMOVE({ id: dt.id }))
+        const message = 'Are you sure you want to remove this workspace? All data associated with the workspace will be permanently deleted.'
+        const action = () => dispatch(WORKSPACE_ACTIONS.REMOVE({ id: dt.id }))
+        dispatch(POPUPS_ACTIONS.OPEN({message, action}))
 
     }
 
