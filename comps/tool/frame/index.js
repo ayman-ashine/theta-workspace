@@ -12,7 +12,7 @@ const Frame = ({ dt, children }) => {
 
   const openMenu = (e) => {
 
-    e.stopPropagation()
+    stopPropagation(e)
 
     dispatch(MENU_ACTIONS.OPEN({
       type: MENU_TYPE,
@@ -22,7 +22,10 @@ const Frame = ({ dt, children }) => {
     }))
 
   }
+  
   const moveFrame = (e) => {
+
+    stopPropagation(e)
 
     let shiftX = e.clientX - dt.posX
     let shiftY = e.clientY - dt.posY
