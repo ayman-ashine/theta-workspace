@@ -10,16 +10,14 @@
 - [ ] `Calendar`
 - [x] `Clip`
 - [ ] `Linker`
+- [ ] `Counter`
 
 ### Host :
 > Hosting by [Vercel](https://vercel.com/) :+1:
+> Take your quick try by this [link]([https://vercel.com/](https://theta-workspace.vercel.app/app))
 
 ### Technologies :
-| Logo | Name |
-| --- | --- |
-| <span><img src="https://img.icons8.com/color/50/null/nodejs.png"/></span> | Node.js |
-| <span><img src="https://img.icons8.com/color/50/null/react-native.png"/></span> | React.js |
-| <span><img src="https://img.icons8.com/color/50/null/mongodb.png"/></span> | Mongodb |
+> `Nodejs` `Nextjs` `Mongodb` `Tailwind`
 
 <br/>
 <span><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/></span>
