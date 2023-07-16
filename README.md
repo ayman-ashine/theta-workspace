@@ -1,5 +1,4 @@
-# Theta Workspace
-### Description :
+### Theta Workspace
 > Boost your productivity by effortlessly creating, organizing, and prioritizing tasks. Take control of your day and embark on a journey towards a more efficient and productive future. Get started now!
 
 ### Available Tools :
@@ -14,7 +13,7 @@
 
 ### Host :
 > Hosting by [Vercel](https://vercel.com/) :+1:
-> Take your quick try by this [link]([https://vercel.com/](https://theta-workspace.vercel.app/app))
+> Take your quick try by this [link](https://theta-workspace.vercel.app)
 
 ### Technologies :
 > `Nodejs` `Nextjs` `Mongodb` `Tailwind`
