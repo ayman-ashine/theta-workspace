@@ -44,21 +44,24 @@ const ShortCuts = () => {
         document.addEventListener('keydown', (e) => {
 
             if (!(e.ctrlKey && e.key)) return
-            e.preventDefault()
             
             switch (e.key) {
 
                 case 'x':
                     addWorkspace()
+                    e.preventDefault()
                     break
                 case 'u':
                     cleanWorkspace()
+                    e.preventDefault()
                     break
                 case 'p':
                     openProfile()
+                    e.preventDefault()
                     break
                 case 'a':
                     openArchive()
+                    e.preventDefault()
                     break
 
             }

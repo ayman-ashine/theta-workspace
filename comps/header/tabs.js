@@ -28,7 +28,7 @@ const Tabs = () => {
     const workspaceRemove = (e, dt) => {
 
         if (e && e.stopPropagation) e.stopPropagation()
-        const message = 'Are you sure you want to remove this workspace? All data associated with the workspace will be permanently deleted.'
+        const message = 'Are you sure you want to remove this workspace? All data associated will be permanently deleted.'
         const action = () => dispatch(WORKSPACE_ACTIONS.REMOVE({ id: dt.id }))
         dispatch(POPUPS_ACTIONS.OPEN({message, action}))
 
