@@ -7,6 +7,7 @@ const MENU_TYPE = 'MENU_TOOL'
 
 const Workspace = () => {
 
+  // Get current workspace
   const cWs = useSelector(state => {
     if (state.workspace) {
       for (let i in state.workspace.workspaces) {

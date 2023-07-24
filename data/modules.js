@@ -20,7 +20,7 @@ export { appDate } from './appDate'
 // Store
 export { store } from './store'
 
-// Workspace Actions
+// Actions
 export { SETTINGS_ACTIONS } from './store/settings'
 export { WORKSPACE_ACTIONS } from './store/workspace'
 export { MENU_ACTIONS } from './store/menu'
