@@ -9,26 +9,26 @@
   --light: rgb(255, 255, 255);
   --l-dark: rgb(10, 20, 25, .25);
   --l-light: rgb(255, 255, 255, .25);
-  --primary: rgb(35, 60, 100);
-  --l-primary: rgb(35, 60, 100, 0.5);
+  --primary: rgb(50, 100, 200, .7);
+  --l-primary: rgb(50, 100, 200, .7);
 
   --c-dark: rgb(10, 20, 25);
   --c-light: rgb(255, 255, 255);
   --c-l-dark: rgb(10, 20, 25, .25);
   --c-l-light: rgb(255, 255, 255, .25);
-  --c-primary: rgb(35, 60, 100);
-  --c-l-primary: rgb(35, 60, 100, 0.5);
+  --c-primary: rgb(50, 100, 200, .7);
+  --c-l-primary: rgb(50, 100, 200, .7);
 
-  --red: #ea868f;
-  --pink: #e685b5;
-  --purple: #a98eda;
-  --indigo: #a370f7;
-  --blue: #6ea8fe;
-  --cyan: #6edff6;
-  --teal: #79dfc1;
-  --green: #75b798;
-  --yellow: #ffda6a;
-  --orange: #feb272;
+  --red: #e05050;
+  --pink: #e050e0;
+  --purple: #b050e0;
+  --indigo: #9050e0;
+  --blue: #50a0e0;
+  --cyan: #50d0e0;
+  --teal: #50e0a0;
+  --green: #a0e050;
+  --yellow: #e0e050;
+  --orange: #e08050;
 
   --sm-u: 0.5rem;
   --md-u: 1rem;
@@ -81,8 +81,8 @@ html[data-theme='dark'] {
   --l-dark: rgb(10, 20, 25, .25);
   --light: rgb(255, 255, 255);
   --l-light: rgb(255, 255, 255, .25);
-  --primary: rgb(30, 70, 100);
-  --l-primary: rgb(30, 70, 100, 0.25);
+  --primary: rgb(50, 100, 200, .7);
+  --l-primary: rgb(50, 100, 200, .7);
 }
 
 html[data-theme='light'] {
@@ -90,8 +90,8 @@ html[data-theme='light'] {
   --l-dark: rgb(255, 255, 255, 1);
   --light: rgb(10, 20, 25);
   --l-light: rgb(10, 20, 25, .1);
-  --primary: rgb(190, 250, 255);
-  --l-primary: rgb(190, 250, 255, .25);
+  --primary: rgb(50, 100, 200, .7);
+  --l-primary: rgb(50, 100, 200, .7);
 }
 
 body {
