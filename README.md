@@ -16,7 +16,7 @@
 > Take your quick try by this [link](https://theta-workspace.vercel.app)
 
 ### Technologies :
-> `Nodejs` `Nextjs` `Mongodb` `Tailwind`
+> `Nodejs` `Nextjs` `Mongodb` `Tailwindcss`
 
 <br/>
 <span><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/></span>
